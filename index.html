@@ -106,6 +106,12 @@
     .event-title { font-size: 0.88rem; font-weight: 700; color: var(--text); margin-bottom: 3px; display: flex; align-items: center; justify-content: space-between; flex-wrap: wrap; gap: 4px; }
     .event-desc { font-size: 0.78rem; color: #334155; line-height: 1.45; }
 
+    /* Storytelling Accordion */
+    .event-story-drawer { margin-top: 6px; }
+    .story-summary { font-size: 0.72rem; font-weight: 700; color: #0369a1; cursor: pointer; list-style: none; display: flex; align-items: center; justify-content: space-between; padding: 4px 8px; background: #e0f2fe; border-radius: 6px; border: 1px solid #bae6fd; user-select: none; }
+    .story-summary::-webkit-details-marker { display: none; }
+    .story-content { font-size: 0.75rem; color: #1e293b; line-height: 1.55; padding: 8px 10px; background: #f8fafc; border: 1px solid #e2e8f0; border-radius: 6px; margin-top: 4px; }
+
     /* Inline Item Tip */
     .inline-tip { background: var(--tip-bg); border-left: 3px solid var(--accent); border-radius: 4px; padding: 5px 8px; margin-top: 6px; font-size: 0.72rem; color: var(--tip-text); line-height: 1.4; }
 
@@ -125,15 +131,28 @@
     .memo-input { width: 100%; border: none; background: transparent; font-size: 0.78rem; color: #0f172a; outline: none; }
     .memo-input::placeholder { color: #94a3b8; font-style: italic; }
 
-    /* Item-Level Foldable Expense Drawer */
+    /* Item-Level Dynamic Multi-Expense Drawer */
     .event-expense-drawer { margin-top: 8px; border-top: 1px dashed #e2e8f0; padding-top: 6px; }
-    .drawer-summary { font-size: 0.72rem; font-weight: 700; color: var(--primary); cursor: pointer; list-style: none; display: flex; align-items: center; justify-content: space-between; padding: 4px 7px; background: #f0f9ff; border-radius: 6px; border: 1px solid #bae6fd; user-select: none; }
+    .drawer-summary { font-size: 0.72rem; font-weight: 700; color: var(--primary); cursor: pointer; list-style: none; display: flex; align-items: center; justify-content: space-between; padding: 5px 8px; background: #f0f9ff; border-radius: 6px; border: 1px solid #bae6fd; user-select: none; }
     .drawer-summary::-webkit-details-marker { display: none; }
-    .drawer-amount-badge { font-size: 0.68rem; font-weight: 800; padding: 1px 6px; border-radius: 4px; background: #e0f2fe; color: #0369a1; }
+    .drawer-amount-badge { font-size: 0.68rem; font-weight: 800; padding: 1px 6px; border-radius: 4px; background: #e2e8f0; color: #475569; }
     .drawer-amount-badge.has-val { background: #dcfce7; color: #15803d; }
-    .drawer-body { padding: 6px 2px 2px; display: flex; gap: 6px; align-items: center; }
-    .drawer-input { flex: 1; padding: 5px 8px; font-size: 0.78rem; border: 1px solid #cbd5e1; border-radius: 6px; font-weight: 600; color: #0f172a; background: #fff; }
-    .curr-unit { font-size: 0.72rem; font-weight: 700; color: var(--sub-text); }
+    
+    .drawer-body { padding: 6px 0 2px; }
+    .expense-row { display: flex; gap: 4px; align-items: center; margin-bottom: 5px; flex-wrap: wrap; }
+    .exp-name-input { flex: 1.3; min-width: 90px; padding: 5px 6px; font-size: 0.75rem; border: 1px solid #cbd5e1; border-radius: 4px; background: #fff; }
+    .exp-cost-input { flex: 1; min-width: 75px; padding: 5px 6px; font-size: 0.75rem; border: 1px solid #cbd5e1; border-radius: 4px; text-align: right; background: #fff; font-weight: 600; }
+    .exp-krw-tag { font-size: 0.68rem; font-weight: 700; color: #b91c1c; background: #fef2f2; padding: 3px 5px; border-radius: 4px; white-space: nowrap; }
+    .exp-del-btn { background: #fee2e2; border: 1px solid #fca5a5; color: #b91c1c; border-radius: 4px; padding: 4px 7px; font-size: 0.7rem; cursor: pointer; font-weight: 700; }
+    .exp-add-btn { width: 100%; background: #f8fafc; border: 1px dashed #94a3b8; color: var(--primary); font-size: 0.72rem; font-weight: 700; padding: 5px; border-radius: 4px; cursor: pointer; margin-top: 3px; }
+
+    /* Card Usage Dedicated Section */
+    .card-expense-card { background: #fdf4ff; border: 1px solid #f0abfc; border-radius: 10px; padding: 10px 12px; margin-bottom: 12px; box-shadow: 0 1px 3px rgba(0,0,0,0.02); }
+    .card-drawer-summary { font-size: 0.75rem; font-weight: 700; color: #86198f; cursor: pointer; list-style: none; display: flex; align-items: center; justify-content: space-between; user-select: none; }
+    .card-drawer-summary::-webkit-details-marker { display: none; }
+    .card-amount-badge { font-size: 0.68rem; font-weight: 800; padding: 2px 7px; border-radius: 4px; background: #fae8ff; color: #86198f; border: 1px solid #f5d0fe; }
+    .card-amount-badge.has-val { background: #dcfce7; color: #15803d; border-color: #bbf7d0; }
+    .card-add-btn { width: 100%; background: #fff; border: 1px dashed #d946ef; color: #a21caf; font-size: 0.72rem; font-weight: 700; padding: 5px; border-radius: 4px; cursor: pointer; margin-top: 4px; }
 
     /* Plan A/B Blocks */
     .plan-container { display: flex; flex-direction: column; gap: 6px; margin-top: 6px; }
@@ -142,9 +161,17 @@
 
     /* Day Expense Summary Card */
     .day-total-card { background: #fff; border-radius: 10px; padding: 12px; border: 1px solid var(--border); margin-bottom: 12px; }
-    .day-total-row { display: flex; justify-content: space-between; align-items: center; font-size: 0.82rem; }
+    .day-total-row { display: flex; justify-content: space-between; align-items: center; font-size: 0.8rem; margin-bottom: 3px; }
     .day-total-row.main { font-weight: 700; color: var(--primary-dark); font-size: 0.88rem; border-bottom: 1px solid #f1f5f9; padding-bottom: 6px; margin-bottom: 6px; }
     .day-actual-sum { font-weight: 800; color: #b91c1c; font-size: 0.88rem; }
+
+    /* Settlement Page Styles */
+    .breakdown-day-card { background: #fff; border-radius: 10px; padding: 12px; border: 1px solid var(--border); margin-bottom: 10px; }
+    .breakdown-day-title { font-size: 0.85rem; font-weight: 800; color: var(--primary-dark); display: flex; justify-content: space-between; border-bottom: 1px solid #e2e8f0; padding-bottom: 5px; margin-bottom: 6px; }
+    .breakdown-item-row { display: flex; justify-content: space-between; font-size: 0.76rem; padding: 4px 0; color: #334155; border-bottom: 1px dashed #f1f5f9; }
+    .breakdown-item-tag { color: #64748b; font-weight: 600; margin-right: 4px; }
+    .breakdown-item-tag.card-tag { color: #86198f; font-weight: 700; }
+    .no-item-msg { font-size: 0.74rem; color: #94a3b8; font-style: italic; padding: 4px 0; }
 
     /* Vietnamese Phrase Card */
     .phrase-category { font-size: 0.8rem; font-weight: 700; color: var(--primary-dark); margin: 10px 0 6px; border-bottom: 1px solid #e2e8f0; padding-bottom: 2px; }
@@ -158,10 +185,6 @@
     .card h3 { font-size: 0.85rem; margin-bottom: 8px; color: var(--primary-dark); }
     .calc-row { display: flex; gap: 6px; align-items: center; }
     .calc-input { flex: 1; padding: 6px 8px; font-size: 0.8rem; border: 1px solid #cbd5e1; border-radius: 6px; }
-    
-    .checklist-item { display: flex; align-items: center; font-size: 0.78rem; padding: 5px 0; border-bottom: 1px solid #f1f5f9; cursor: pointer; }
-    .checklist-item input { margin-right: 8px; }
-    .checklist-item.checked span { text-decoration: line-through; color: #94a3b8; }
 
     .address-box { background: #f8fafc; padding: 8px 10px; border-radius: 6px; margin-bottom: 6px; position: relative; border: 1px solid #e2e8f0; }
     .address-title { font-size: 0.78rem; font-weight: 700; }
@@ -213,10 +236,10 @@
         <a class="map-btn" href="https://www.google.com/maps/search/?api=1&query=Cam+Ranh+International+Airport" target="_blank">📍 Google Maps</a>
         
         <details class="event-expense-drawer">
-          <summary class="drawer-summary"><span>💸 실제 지출 기록</span><span id="badge_d1_airport" class="drawer-amount-badge">0đ</span></summary>
+          <summary class="drawer-summary"><span>💸 실제 현금 지출 기록</span><span id="badge_d1_airport" class="drawer-amount-badge">0đ</span></summary>
           <div class="drawer-body">
-            <input type="number" id="exp_d1_airport" class="drawer-input" placeholder="공항/유심/간식 등 지출액 (동)" oninput="updateItemExpense('d1', 'airport', this.value)">
-            <span class="curr-unit">동</span>
+            <div id="list_d1_airport"></div>
+            <button class="exp-add-btn" onclick="addExpenseRow('d1_airport')">+ 지출 항목 추가</button>
           </div>
         </details>
       </div>
@@ -227,10 +250,10 @@
         <div class="event-desc">공항 → Four Points by Sheraton Nha Trang</div>
         
         <details class="event-expense-drawer">
-          <summary class="drawer-summary"><span>💸 실제 지출 기록</span><span id="badge_d1_pickup" class="drawer-amount-badge">0đ</span></summary>
+          <summary class="drawer-summary"><span>💸 실제 현금 지출 기록</span><span id="badge_d1_pickup" class="drawer-amount-badge">0đ</span></summary>
           <div class="drawer-body">
-            <input type="number" id="exp_d1_pickup" class="drawer-input" placeholder="픽업비/팁 등 지출액 (동)" oninput="updateItemExpense('d1', 'pickup', this.value)">
-            <span class="curr-unit">동</span>
+            <div id="list_d1_pickup"></div>
+            <button class="exp-add-btn" onclick="addExpenseRow('d1_pickup')">+ 지출 항목 추가</button>
           </div>
         </details>
       </div>
@@ -243,18 +266,34 @@
         <div class="inline-tip">💡 <b>TIP:</b> 오늘은 아무 일정 없이 푹 자는 게 최고 목표! 내일부터 체력 충전해서 신나게 놀기 🌙</div>
         
         <details class="event-expense-drawer">
-          <summary class="drawer-summary"><span>💸 기타/호텔 추가 지출</span><span id="badge_d1_extra" class="drawer-amount-badge">0đ</span></summary>
+          <summary class="drawer-summary"><span>💸 실제 현금 지출 기록</span><span id="badge_d1_hotel" class="drawer-amount-badge">0đ</span></summary>
           <div class="drawer-body">
-            <input type="number" id="exp_d1_extra" class="drawer-input" placeholder="호텔/기타 지출액 (동)" oninput="updateItemExpense('d1', 'extra', this.value)">
-            <span class="curr-unit">동</span>
+            <div id="list_d1_hotel"></div>
+            <button class="exp-add-btn" onclick="addExpenseRow('d1_hotel')">+ 지출 항목 추가</button>
           </div>
         </details>
       </div>
     </div>
 
+    <!-- Day 1 Card Expense Section -->
+    <div class="card-expense-card">
+      <details open>
+        <summary class="card-drawer-summary">
+          <span>💳 오늘 카드 사용액 (트래블로그/신용카드)</span>
+          <span id="badge_d1_card" class="card-amount-badge">0đ</span>
+        </summary>
+        <div class="drawer-body" style="margin-top:6px;">
+          <div id="list_d1_card"></div>
+          <button class="card-add-btn" onclick="addExpenseRow('d1_card')">+ 카드 지출 추가</button>
+        </div>
+      </details>
+    </div>
+
     <div class="day-total-card">
       <div class="day-total-row main"><span>💰 오늘 예상 : 0동</span><span style="font-size:0.75rem; color:var(--sub-text);">픽업비 별도</span></div>
-      <div class="day-total-row"><span>💳 오늘 실제 총 지출 :</span><span id="subtotal_d1" class="day-actual-sum">0 동</span></div>
+      <div class="day-total-row"><span>💵 오늘 현금 소계 :</span><span id="cash_subtotal_d1" style="font-weight:700; color:#0369a1;">0 동</span></div>
+      <div class="day-total-row"><span>💳 오늘 카드 소계 :</span><span id="card_subtotal_d1" style="font-weight:700; color:#86198f;">0 동</span></div>
+      <div class="day-total-row" style="border-top:1px dashed #cbd5e1; padding-top:5px; margin-top:5px;"><span>🔥 오늘 총 지출 :</span><span id="subtotal_d1" class="day-actual-sum">0 동</span></div>
     </div>
   </div>
 
@@ -281,26 +320,35 @@
         <div class="inline-tip">💡 <b>TIP:</b> 본격적인 대량 마트 쇼핑은 9/1에 할 예정! 오늘은 필요한 생필품만 가볍게 사기 😂</div>
         
         <details class="event-expense-drawer">
-          <summary class="drawer-summary"><span>💸 실제 지출 기록</span><span id="badge_d2_lotte_am" class="drawer-amount-badge">0đ</span></summary>
+          <summary class="drawer-summary"><span>💸 실제 현금 지출 기록</span><span id="badge_d2_lotte" class="drawer-amount-badge">0đ</span></summary>
           <div class="drawer-body">
-            <input type="number" id="exp_d2_lotte_am" class="drawer-input" placeholder="생필품/음료 지출액 (동)" oninput="updateItemExpense('d2', 'lotte_am', this.value)">
-            <span class="curr-unit">동</span>
+            <div id="list_d2_lotte"></div>
+            <button class="exp-add-btn" onclick="addExpenseRow('d2_lotte')">+ 지출 항목 추가</button>
           </div>
         </details>
       </div>
 
       <div class="event-card">
         <span class="event-time">10:05 ~ 11:30</span>
-        <div class="event-title"><span class="badge badge-taxi">🚕 Grab 약 40k</span> 🛍️ 담시장</div>
+        <div class="event-title"><span class="badge badge-taxi">🚕 Grab 약 40k</span> 🛍️ 담시장 (Chợ Đầm)</div>
         <div class="event-desc">시장 구경 및 원피스/라탄백/크록스 소량 쇼핑</div>
         <a class="map-btn" href="https://www.google.com/maps/search/?api=1&query=Cho+Dam+Nha+Trang" target="_blank">📍 Google Maps</a>
+        
+        <!-- Dam Market Storytelling -->
+        <details class="event-story-drawer">
+          <summary class="story-summary"><span>🏛️ 담시장 이야기 & 쇼핑 꿀팁</span><span>📖 펼쳐보기</span></summary>
+          <div class="story-content">
+            1970년대 베트남 중부의 상업 중심지로 문을 연 나트랑 최대 전통시장입니다. 원형으로 설계된 본관 건물 외관은 베트남 국화인 <b>'활짝 핀 연꽃(Lotus)'</b> 꽃봉오리를 형상화했습니다. 1층은 건어물·열대과일·견과류 등 로컬 식료품이, 2층은 원피스·라탄백·크록스 등 의류 잡화가 가득해 현지인의 활기찬 삶을 가장 생생하게 느낄 수 있는 대표 랜드마크입니다.
+          </div>
+        </details>
+
         <div class="inline-tip">💡 <b>TIP:</b> 담시장에서 과자나 커피를 왕창 사지 말기! 9/1 롯데마트에서 캐리어 채우는 게 훨씬 안전하고 저렴함.</div>
         
         <details class="event-expense-drawer">
-          <summary class="drawer-summary"><span>💸 실제 지출 기록</span><span id="badge_d2_dam" class="drawer-amount-badge">0đ</span></summary>
+          <summary class="drawer-summary"><span>💸 실제 현금 지출 기록</span><span id="badge_d2_dam" class="drawer-amount-badge">0đ</span></summary>
           <div class="drawer-body">
-            <input type="number" id="exp_d2_dam" class="drawer-input" placeholder="담시장 쇼핑+Grab 지출액 (동)" oninput="updateItemExpense('d2', 'dam', this.value)">
-            <span class="curr-unit">동</span>
+            <div id="list_d2_dam"></div>
+            <button class="exp-add-btn" onclick="addExpenseRow('d2_dam')">+ 지출 항목 추가</button>
           </div>
         </details>
       </div>
@@ -320,10 +368,10 @@
         </div>
         
         <details class="event-expense-drawer">
-          <summary class="drawer-summary"><span>💸 실제 지출 기록</span><span id="badge_d2_lunch" class="drawer-amount-badge">0đ</span></summary>
+          <summary class="drawer-summary"><span>💸 실제 현금 지출 기록</span><span id="badge_d2_lunch" class="drawer-amount-badge">0đ</span></summary>
           <div class="drawer-body">
-            <input type="number" id="exp_d2_lunch" class="drawer-input" placeholder="점심 식사+커피 지출액 (동)" oninput="updateItemExpense('d2', 'lunch', this.value)">
-            <span class="curr-unit">동</span>
+            <div id="list_d2_lunch"></div>
+            <button class="exp-add-btn" onclick="addExpenseRow('d2_lunch')">+ 지출 항목 추가</button>
           </div>
         </details>
       </div>
@@ -334,11 +382,19 @@
         <div class="event-desc">사진 찍고 유적 구경 (입장료 2인 약 10만동)</div>
         <a class="map-btn" href="https://www.google.com/maps/search/?api=1&query=Ponagar+Tower+Nha+Trang" target="_blank">📍 Google Maps</a>
         
+        <!-- Ponagar Storytelling -->
+        <details class="event-story-drawer">
+          <summary class="story-summary"><span>🏛️ 포나가르 사원 역사 & 관람 팁</span><span>📖 펼쳐보기</span></summary>
+          <div class="story-content">
+            8~13세기 베트남 중남부를 지배했던 고대 <b>참파(Champa) 왕국</b>이 세운 힌두교 성지입니다. 접착제 없이 붉은 벽돌을 정교하게 맞물려 구워낸 불가사의한 고대 건축 기술을 자랑합니다. 사원의 주신인 <b>'포나가르(Yan Po Nagar)'</b>는 참족에게 농경과 직조 기술을 가르쳐 준 '대지의 어머니'로 숭배받았습니다. 제단 내부 입장 시 반바지/민소매 착용자는 입구의 가운(무료)을 입어야 합니다.
+          </div>
+        </details>
+
         <details class="event-expense-drawer">
-          <summary class="drawer-summary"><span>💸 실제 지출 기록</span><span id="badge_d2_ponagar" class="drawer-amount-badge">0đ</span></summary>
+          <summary class="drawer-summary"><span>💸 실제 현금 지출 기록</span><span id="badge_d2_ponagar" class="drawer-amount-badge">0đ</span></summary>
           <div class="drawer-body">
-            <input type="number" id="exp_d2_ponagar" class="drawer-input" placeholder="입장료+Grab 지출액 (동)" oninput="updateItemExpense('d2', 'ponagar', this.value)">
-            <span class="curr-unit">동</span>
+            <div id="list_d2_ponagar"></div>
+            <button class="exp-add-btn" onclick="addExpenseRow('d2_ponagar')">+ 지출 항목 추가</button>
           </div>
         </details>
       </div>
@@ -349,17 +405,17 @@
         <div class="event-desc">
           센시그니처 90분 / 2인 (정가 1,360,000동)<br>
           <b>💵 현금 결제 할인 시 지불 예정액:</b><br>
-          • 10% 할인 시 → <b>1,224,000동</b> (약 6.5만원)<br>
-          • 20% 할인 시 → <b>1,088,000동</b> (약 5.8만원)
+          • 10% 할인 시 → <b>1,224,000동</b> (약 64,600원)<br>
+          • 20% 할인 시 → <b>1,088,000동</b> (약 57,400원)
         </div>
         <a class="map-btn" href="https://www.google.com/maps/search/?api=1&query=Sen+Spa+Nha+Trang" target="_blank">📍 Google Maps</a>
         <div class="inline-tip">💡 <b>TIP:</b> 결제 전에 프런트에 꼭 "Cash discount?" 물어보고 현금 지불하기!</div>
         
         <details class="event-expense-drawer">
-          <summary class="drawer-summary"><span>💸 실제 지출 기록</span><span id="badge_d2_senspa" class="drawer-amount-badge">0đ</span></summary>
+          <summary class="drawer-summary"><span>💸 실제 현금 지출 기록</span><span id="badge_d2_senspa" class="drawer-amount-badge">0đ</span></summary>
           <div class="drawer-body">
-            <input type="number" id="exp_d2_senspa" class="drawer-input" placeholder="마사지비+팁 지출액 (동)" oninput="updateItemExpense('d2', 'senspa', this.value)">
-            <span class="curr-unit">동</span>
+            <div id="list_d2_senspa"></div>
+            <button class="exp-add-btn" onclick="addExpenseRow('d2_senspa')">+ 지출 항목 추가</button>
           </div>
         </details>
       </div>
@@ -373,10 +429,10 @@
         </div>
         
         <details class="event-expense-drawer">
-          <summary class="drawer-summary"><span>💸 실제 지출 기록</span><span id="badge_d2_dinner" class="drawer-amount-badge">0đ</span></summary>
+          <summary class="drawer-summary"><span>💸 실제 현금 지출 기록</span><span id="badge_d2_dinner" class="drawer-amount-badge">0đ</span></summary>
           <div class="drawer-body">
-            <input type="number" id="exp_d2_dinner" class="drawer-input" placeholder="저녁 식사+야식 지출액 (동)" oninput="updateItemExpense('d2', 'dinner', this.value)">
-            <span class="curr-unit">동</span>
+            <div id="list_d2_dinner"></div>
+            <button class="exp-add-btn" onclick="addExpenseRow('d2_dinner')">+ 지출 항목 추가</button>
           </div>
         </details>
       </div>
@@ -388,18 +444,34 @@
         <div class="inline-tip">💡 <b>TIP:</b> 8/30은 다음 날 새벽 2:30 투어가 있으니 저녁 먹고 무조건 일찍 귀가해서 푹 자기!</div>
         
         <details class="event-expense-drawer">
-          <summary class="drawer-summary"><span>💸 기타/추가 지출</span><span id="badge_d2_extra" class="drawer-amount-badge">0đ</span></summary>
+          <summary class="drawer-summary"><span>💸 기타/야식 지출 기록</span><span id="badge_d2_extra" class="drawer-amount-badge">0đ</span></summary>
           <div class="drawer-body">
-            <input type="number" id="exp_d2_extra" class="drawer-input" placeholder="오늘 기타 지출액 (동)" oninput="updateItemExpense('d2', 'extra', this.value)">
-            <span class="curr-unit">동</span>
+            <div id="list_d2_extra"></div>
+            <button class="exp-add-btn" onclick="addExpenseRow('d2_extra')">+ 지출 항목 추가</button>
           </div>
         </details>
       </div>
     </div>
 
+    <!-- Day 2 Card Expense Section -->
+    <div class="card-expense-card">
+      <details open>
+        <summary class="card-drawer-summary">
+          <span>💳 오늘 카드 사용액 (트래블로그/신용카드)</span>
+          <span id="badge_d2_card" class="card-amount-badge">0đ</span>
+        </summary>
+        <div class="drawer-body" style="margin-top:6px;">
+          <div id="list_d2_card"></div>
+          <button class="card-add-btn" onclick="addExpenseRow('d2_card')">+ 카드 지출 추가</button>
+        </div>
+      </details>
+    </div>
+
     <div class="day-total-card">
-      <div class="day-total-row main"><span>💰 오늘 예상 : 약 326만동</span><span style="font-size:0.75rem; color:var(--sub-text);">약 17.3만원</span></div>
-      <div class="day-total-row"><span>💳 오늘 실제 총 지출 :</span><span id="subtotal_d2" class="day-actual-sum">0 동</span></div>
+      <div class="day-total-row main"><span>💰 오늘 예상 : 약 326만동</span><span style="font-size:0.75rem; color:var(--sub-text);">약 17.2만원</span></div>
+      <div class="day-total-row"><span>💵 오늘 현금 소계 :</span><span id="cash_subtotal_d2" style="font-weight:700; color:#0369a1;">0 동</span></div>
+      <div class="day-total-row"><span>💳 오늘 카드 소계 :</span><span id="card_subtotal_d2" style="font-weight:700; color:#86198f;">0 동</span></div>
+      <div class="day-total-row" style="border-top:1px dashed #cbd5e1; padding-top:5px; margin-top:5px;"><span>🔥 오늘 총 지출 :</span><span id="subtotal_d2" class="day-actual-sum">0 동</span></div>
     </div>
   </div>
 
@@ -418,19 +490,28 @@
         <div class="event-desc">02:00 기상 후 로비 대기 (후불 2,000,000동 현금 준비)</div>
         
         <details class="event-expense-drawer">
-          <summary class="drawer-summary"><span>💸 사막투어 잔금 지출 기록</span><span id="badge_d3_desert" class="drawer-amount-badge">0đ</span></summary>
+          <summary class="drawer-summary"><span>💸 사막투어 잔금 지출 기록</span><span id="badge_d3_pickup" class="drawer-amount-badge">0đ</span></summary>
           <div class="drawer-body">
-            <input type="number" id="exp_d3_desert" class="drawer-input" placeholder="사막투어 잔금/팁 지출액 (동)" oninput="updateItemExpense('d3', 'desert', this.value)">
-            <span class="curr-unit">동</span>
+            <div id="list_d3_pickup"></div>
+            <button class="exp-add-btn" onclick="addExpenseRow('d3_pickup')">+ 지출 항목 추가</button>
           </div>
         </details>
       </div>
 
       <div class="event-card">
         <span class="event-time">05:00 ~ 07:00</span>
-        <div class="event-title">🏜️ 판랑사막 일출투어</div>
+        <div class="event-title">🏜️ 판랑 남끄엉 사막 일출투어</div>
         <div class="event-desc">일출 감상 & 지프 사진 찍고 곧바로 나트랑 호텔 복귀</div>
         <a class="map-btn" href="https://www.google.com/maps/search/?api=1&query=Doi+cat+Nam+Cuong+Ninh+Thuan" target="_blank">📍 Google Maps</a>
+        
+        <!-- Nam Cuong Sand Dunes Storytelling -->
+        <details class="event-story-drawer">
+          <summary class="story-summary"><span>🏛️ 판랑 사막 지형 & 참족 이야기</span><span>📖 펼쳐보기</span></summary>
+          <div class="story-content">
+            동남아시아에서 보기 드문 독특한 해안 사구 지형으로, 몬순 기후와 바닷바람이 오랜 세월 퇴적시켜 빚어낸 붉은 모래언덕입니다. 과거 참파 왕국의 중심지였던 닌투언(Ninh Thuận) 지역에 자리하며, 참족 원주민들이 여전히 모래산 주변에서 양과 염소를 방목하며 살아갑니다. 바람에 따라 매일 모래 결의 곡선이 바뀌며, 특히 새벽 일출 시 붉게 물드는 지평선 풍경이 압도적입니다.
+          </div>
+        </details>
+
         <div class="inline-tip">💡 <b>TIP:</b> 다른 곳 들르지 않고 사막 촬영 후 바로 출발해야 10시 전 호텔 도착 가능!</div>
       </div>
 
@@ -440,10 +521,10 @@
         <div class="event-desc">10시 전이면 조식 / 넘으면 포기하고 근처 간단 식사</div>
         
         <details class="event-expense-drawer">
-          <summary class="drawer-summary"><span>💸 아침 식사 지출 (조식 외)</span><span id="badge_d3_breakfast" class="drawer-amount-badge">0đ</span></summary>
+          <summary class="drawer-summary"><span>💸 아침/조식 외 현금 지출</span><span id="badge_d3_bf" class="drawer-amount-badge">0đ</span></summary>
           <div class="drawer-body">
-            <input type="number" id="exp_d3_breakfast" class="drawer-input" placeholder="간단 아침/반미 포장 지출액 (동)" oninput="updateItemExpense('d3', 'breakfast', this.value)">
-            <span class="curr-unit">동</span>
+            <div id="list_d3_bf"></div>
+            <button class="exp-add-btn" onclick="addExpenseRow('d3_bf')">+ 지출 항목 추가</button>
           </div>
         </details>
       </div>
@@ -464,10 +545,10 @@
         </div>
         
         <details class="event-expense-drawer">
-          <summary class="drawer-summary"><span>💸 실제 지출 기록</span><span id="badge_d3_lunch" class="drawer-amount-badge">0đ</span></summary>
+          <summary class="drawer-summary"><span>💸 실제 현금 지출 기록</span><span id="badge_d3_lunch" class="drawer-amount-badge">0đ</span></summary>
           <div class="drawer-body">
-            <input type="number" id="exp_d3_lunch" class="drawer-input" placeholder="점심 식사+음료 지출액 (동)" oninput="updateItemExpense('d3', 'lunch', this.value)">
-            <span class="curr-unit">동</span>
+            <div id="list_d3_lunch"></div>
+            <button class="exp-add-btn" onclick="addExpenseRow('d3_lunch')">+ 지출 항목 추가</button>
           </div>
         </details>
       </div>
@@ -488,10 +569,10 @@
         <div class="inline-tip">💡 <b>TIP:</b> 패들보드는 당일 체력 보고 결정하기! 피곤하면 무리하지 말고 2안 시내 힐링 추천 🌴</div>
         
         <details class="event-expense-drawer">
-          <summary class="drawer-summary"><span>💸 오후 활동/카페/패들보드 지출</span><span id="badge_d3_afternoon" class="drawer-amount-badge">0đ</span></summary>
+          <summary class="drawer-summary"><span>💸 패들보드/오후 활동 지출</span><span id="badge_d3_afternoon" class="drawer-amount-badge">0đ</span></summary>
           <div class="drawer-body">
-            <input type="number" id="exp_d3_afternoon" class="drawer-input" placeholder="패들보드 or 카페/쇼핑 지출액 (동)" oninput="updateItemExpense('d3', 'afternoon', this.value)">
-            <span class="curr-unit">동</span>
+            <div id="list_d3_afternoon"></div>
+            <button class="exp-add-btn" onclick="addExpenseRow('d3_afternoon')">+ 지출 항목 추가</button>
           </div>
         </details>
       </div>
@@ -511,10 +592,10 @@
         </div>
         
         <details class="event-expense-drawer">
-          <summary class="drawer-summary"><span>💸 실제 지출 기록</span><span id="badge_d3_dinner" class="drawer-amount-badge">0đ</span></summary>
+          <summary class="drawer-summary"><span>💸 실제 현금 지출 기록</span><span id="badge_d3_dinner" class="drawer-amount-badge">0đ</span></summary>
           <div class="drawer-body">
-            <input type="number" id="exp_d3_dinner" class="drawer-input" placeholder="저녁 식사 지출액 (동)" oninput="updateItemExpense('d3', 'dinner', this.value)">
-            <span class="curr-unit">동</span>
+            <div id="list_d3_dinner"></div>
+            <button class="exp-add-btn" onclick="addExpenseRow('d3_dinner')">+ 지출 항목 추가</button>
           </div>
         </details>
       </div>
@@ -528,16 +609,32 @@
         <details class="event-expense-drawer">
           <summary class="drawer-summary"><span>💸 야시장 지출 기록</span><span id="badge_d3_nightmarket" class="drawer-amount-badge">0đ</span></summary>
           <div class="drawer-body">
-            <input type="number" id="exp_d3_nightmarket" class="drawer-input" placeholder="야시장 간식/소품 지출액 (동)" oninput="updateItemExpense('d3', 'nightmarket', this.value)">
-            <span class="curr-unit">동</span>
+            <div id="list_d3_nightmarket"></div>
+            <button class="exp-add-btn" onclick="addExpenseRow('d3_nightmarket')">+ 지출 항목 추가</button>
           </div>
         </details>
       </div>
     </div>
 
+    <!-- Day 3 Card Expense Section -->
+    <div class="card-expense-card">
+      <details open>
+        <summary class="card-drawer-summary">
+          <span>💳 오늘 카드 사용액 (트래블로그/신용카드)</span>
+          <span id="badge_d3_card" class="card-amount-badge">0đ</span>
+        </summary>
+        <div class="drawer-body" style="margin-top:6px;">
+          <div id="list_d3_card"></div>
+          <button class="card-add-btn" onclick="addExpenseRow('d3_card')">+ 카드 지출 추가</button>
+        </div>
+      </details>
+    </div>
+
     <div class="day-total-card">
-      <div class="day-total-row main"><span>💰 오늘 예상 : 약 350만동</span><span style="font-size:0.75rem; color:var(--sub-text);">약 18.6만원 (사막잔금 포함)</span></div>
-      <div class="day-total-row"><span>💳 오늘 실제 총 지출 :</span><span id="subtotal_d3" class="day-actual-sum">0 동</span></div>
+      <div class="day-total-row main"><span>💰 오늘 예상 : 약 350만동</span><span style="font-size:0.75rem; color:var(--sub-text);">약 18.5만원 (사막잔금 포함)</span></div>
+      <div class="day-total-row"><span>💵 오늘 현금 소계 :</span><span id="cash_subtotal_d3" style="font-weight:700; color:#0369a1;">0 동</span></div>
+      <div class="day-total-row"><span>💳 오늘 카드 소계 :</span><span id="card_subtotal_d3" style="font-weight:700; color:#86198f;">0 동</span></div>
+      <div class="day-total-row" style="border-top:1px dashed #cbd5e1; padding-top:5px; margin-top:5px;"><span>🔥 오늘 총 지출 :</span><span id="subtotal_d3" class="day-actual-sum">0 동</span></div>
     </div>
   </div>
 
@@ -558,15 +655,23 @@
 
       <div class="event-card">
         <span class="event-time">11:00 ~ 12:30</span>
-        <div class="event-title"><span class="badge badge-taxi">🚕 Grab 약 60k</span> 🌊 혼총곶 + 카페 ☕</div>
+        <div class="event-title"><span class="badge badge-taxi">🚕 Grab 약 60k</span> 🌊 혼총곶 (Hòn Chồng) + 카페 ☕</div>
         <div class="event-desc">혼총곶 구경 & 바다 뷰 카페에서 커피 한잔</div>
         <a class="map-btn" href="https://www.google.com/maps/search/?api=1&query=Hon+Chong+Nha+Trang" target="_blank">📍 Google Maps</a>
         
+        <!-- Hon Chong Storytelling -->
+        <details class="event-story-drawer">
+          <summary class="story-summary"><span>🏛️ 혼총곶 거인 손자국 전설</span><span>📖 펼쳐보기</span></summary>
+          <div class="story-content">
+            나트랑 북부 해안에 거대한 화강암 바위들이 겹겹이 층을 이룬 해안 절경지입니다. 전설에 따르면 바다에서 목욕하던 선녀들의 아름다움에 넋을 잃고 훔쳐보던 <b>거인</b>이 발을 헛디뎌 미끄러지며 바위를 짚었는데, 그 순간 손자국이 바위에 깊게 새겨졌다고 전해집니다. 실제로 메인 바위 표면에 다섯 손가락 형태의 커다란 음각 흔적이 남아 있어 흥미진진한 포토존으로 꼽힙니다.
+          </div>
+        </details>
+
         <details class="event-expense-drawer">
-          <summary class="drawer-summary"><span>💸 실제 지출 기록</span><span id="badge_d4_honchong" class="drawer-amount-badge">0đ</span></summary>
+          <summary class="drawer-summary"><span>💸 실제 현금 지출 기록</span><span id="badge_d4_honchong" class="drawer-amount-badge">0đ</span></summary>
           <div class="drawer-body">
-            <input type="number" id="exp_d4_honchong" class="drawer-input" placeholder="혼총 입장료+카페+Grab (동)" oninput="updateItemExpense('d4', 'honchong', this.value)">
-            <span class="curr-unit">동</span>
+            <div id="list_d4_honchong"></div>
+            <button class="exp-add-btn" onclick="addExpenseRow('d4_honchong')">+ 지출 항목 추가</button>
           </div>
         </details>
       </div>
@@ -581,8 +686,8 @@
         <details class="event-expense-drawer">
           <summary class="drawer-summary"><span>💸 롯데마트 쇼핑 지출 기록</span><span id="badge_d4_lotte" class="drawer-amount-badge">0đ</span></summary>
           <div class="drawer-body">
-            <input type="number" id="exp_d4_lotte" class="drawer-input" placeholder="롯데마트 총 쇼핑액 (동)" oninput="updateItemExpense('d4', 'lotte', this.value)">
-            <span class="curr-unit">동</span>
+            <div id="list_d4_lotte"></div>
+            <button class="exp-add-btn" onclick="addExpenseRow('d4_lotte')">+ 지출 항목 추가</button>
           </div>
         </details>
       </div>
@@ -596,10 +701,10 @@
         </div>
         
         <details class="event-expense-drawer">
-          <summary class="drawer-summary"><span>💸 실제 지출 기록</span><span id="badge_d4_lunch" class="drawer-amount-badge">0đ</span></summary>
+          <summary class="drawer-summary"><span>💸 실제 현금 지출 기록</span><span id="badge_d4_lunch" class="drawer-amount-badge">0đ</span></summary>
           <div class="drawer-body">
-            <input type="number" id="exp_d4_lunch" class="drawer-input" placeholder="점심 식사 지출액 (동)" oninput="updateItemExpense('d4', 'lunch', this.value)">
-            <span class="curr-unit">동</span>
+            <div id="list_d4_lunch"></div>
+            <button class="exp-add-btn" onclick="addExpenseRow('d4_lunch')">+ 지출 항목 추가</button>
           </div>
         </details>
       </div>
@@ -610,10 +715,10 @@
         <div class="event-desc">포포인츠에서 짐 싣고 깜란 더아남으로 출발</div>
         
         <details class="event-expense-drawer">
-          <summary class="drawer-summary"><span>💸 그랩 택시비 지출</span><span id="badge_d4_grab_anam" class="drawer-amount-badge">0đ</span></summary>
+          <summary class="drawer-summary"><span>💸 그랩 택시비 지출</span><span id="badge_d4_grab" class="drawer-amount-badge">0đ</span></summary>
           <div class="drawer-body">
-            <input type="number" id="exp_d4_grab_anam" class="drawer-input" placeholder="깜란 이동 택시비 (동)" oninput="updateItemExpense('d4', 'grab_anam', this.value)">
-            <span class="curr-unit">동</span>
+            <div id="list_d4_grab"></div>
+            <button class="exp-add-btn" onclick="addExpenseRow('d4_grab')">+ 지출 항목 추가</button>
           </div>
         </details>
       </div>
@@ -638,16 +743,32 @@
         <details class="event-expense-drawer">
           <summary class="drawer-summary"><span>💸 저녁/배달 지출 기록</span><span id="badge_d4_dinner" class="drawer-amount-badge">0đ</span></summary>
           <div class="drawer-body">
-            <input type="number" id="exp_d4_dinner" class="drawer-input" placeholder="저녁 식사/배달 지출액 (동)" oninput="updateItemExpense('d4', 'dinner', this.value)">
-            <span class="curr-unit">동</span>
+            <div id="list_d4_dinner"></div>
+            <button class="exp-add-btn" onclick="addExpenseRow('d4_dinner')">+ 지출 항목 추가</button>
           </div>
         </details>
       </div>
     </div>
 
+    <!-- Day 4 Card Expense Section -->
+    <div class="card-expense-card">
+      <details open>
+        <summary class="card-drawer-summary">
+          <span>💳 오늘 카드 사용액 (트래블로그/신용카드)</span>
+          <span id="badge_d4_card" class="card-amount-badge">0đ</span>
+        </summary>
+        <div class="drawer-body" style="margin-top:6px;">
+          <div id="list_d4_card"></div>
+          <button class="card-add-btn" onclick="addExpenseRow('d4_card')">+ 카드 지출 추가</button>
+        </div>
+      </details>
+    </div>
+
     <div class="day-total-card">
-      <div class="day-total-row main"><span>💰 오늘 예상 : 약 405만동</span><span style="font-size:0.75rem; color:var(--sub-text);">약 21.5만원 (마트쇼핑 포함)</span></div>
-      <div class="day-total-row"><span>💳 오늘 실제 총 지출 :</span><span id="subtotal_d4" class="day-actual-sum">0 동</span></div>
+      <div class="day-total-row main"><span>💰 오늘 예상 : 약 405만동</span><span style="font-size:0.75rem; color:var(--sub-text);">약 21.4만원 (마트쇼핑 포함)</span></div>
+      <div class="day-total-row"><span>💵 오늘 현금 소계 :</span><span id="cash_subtotal_d4" style="font-weight:700; color:#0369a1;">0 동</span></div>
+      <div class="day-total-row"><span>💳 오늘 카드 소계 :</span><span id="card_subtotal_d4" style="font-weight:700; color:#86198f;">0 동</span></div>
+      <div class="day-total-row" style="border-top:1px dashed #cbd5e1; padding-top:5px; margin-top:5px;"><span>🔥 오늘 총 지출 :</span><span id="subtotal_d4" class="day-actual-sum">0 동</span></div>
     </div>
   </div>
 
@@ -684,8 +805,8 @@
         <details class="event-expense-drawer">
           <summary class="drawer-summary"><span>💸 비치클럽 점심 지출</span><span id="badge_d5_lunch" class="drawer-amount-badge">0đ</span></summary>
           <div class="drawer-body">
-            <input type="number" id="exp_d5_lunch" class="drawer-input" placeholder="비치클럽 식사+음료 지출액 (동)" oninput="updateItemExpense('d5', 'lunch', this.value)">
-            <span class="curr-unit">동</span>
+            <div id="list_d5_lunch"></div>
+            <button class="exp-add-btn" onclick="addExpenseRow('d5_lunch')">+ 지출 항목 추가</button>
           </div>
         </details>
       </div>
@@ -715,16 +836,32 @@
         <details class="event-expense-drawer">
           <summary class="drawer-summary"><span>💸 저녁 식사/배달 지출</span><span id="badge_d5_dinner" class="drawer-amount-badge">0đ</span></summary>
           <div class="drawer-body">
-            <input type="number" id="exp_d5_dinner" class="drawer-input" placeholder="저녁 식사/룸서비스 지출액 (동)" oninput="updateItemExpense('d5', 'dinner', this.value)">
-            <span class="curr-unit">동</span>
+            <div id="list_d5_dinner"></div>
+            <button class="exp-add-btn" onclick="addExpenseRow('d5_dinner')">+ 지출 항목 추가</button>
           </div>
         </details>
       </div>
     </div>
 
+    <!-- Day 5 Card Expense Section -->
+    <div class="card-expense-card">
+      <details open>
+        <summary class="card-drawer-summary">
+          <span>💳 오늘 카드 사용액 (트래블로그/신용카드)</span>
+          <span id="badge_d5_card" class="card-amount-badge">0đ</span>
+        </summary>
+        <div class="drawer-body" style="margin-top:6px;">
+          <div id="list_d5_card"></div>
+          <button class="card-add-btn" onclick="addExpenseRow('d5_card')">+ 카드 지출 추가</button>
+        </div>
+      </details>
+    </div>
+
     <div class="day-total-card">
-      <div class="day-total-row main"><span>💰 오늘 예상 : 약 205만동</span><span style="font-size:0.75rem; color:var(--sub-text);">약 10.9만원</span></div>
-      <div class="day-total-row"><span>💳 오늘 실제 총 지출 :</span><span id="subtotal_d5" class="day-actual-sum">0 동</span></div>
+      <div class="day-total-row main"><span>💰 오늘 예상 : 약 205만동</span><span style="font-size:0.75rem; color:var(--sub-text);">약 10.8만원</span></div>
+      <div class="day-total-row"><span>💵 오늘 현금 소계 :</span><span id="cash_subtotal_d5" style="font-weight:700; color:#0369a1;">0 동</span></div>
+      <div class="day-total-row"><span>💳 오늘 카드 소계 :</span><span id="card_subtotal_d5" style="font-weight:700; color:#86198f;">0 동</span></div>
+      <div class="day-total-row" style="border-top:1px dashed #cbd5e1; padding-top:5px; margin-top:5px;"><span>🔥 오늘 총 지출 :</span><span id="subtotal_d5" class="day-actual-sum">0 동</span></div>
     </div>
   </div>
 
@@ -758,10 +895,10 @@
         </div>
         
         <details class="event-expense-drawer">
-          <summary class="drawer-summary"><span>💸 점심 식사 지출</span><span id="badge_d6_lunch" class="drawer-amount-badge">0đ</span></summary>
+          <summary class="drawer-summary"><span>💸 실제 현금 지출 기록</span><span id="badge_d6_lunch" class="drawer-amount-badge">0đ</span></summary>
           <div class="drawer-body">
-            <input type="number" id="exp_d6_lunch" class="drawer-input" placeholder="점심 식사 지출액 (동)" oninput="updateItemExpense('d6', 'lunch', this.value)">
-            <span class="curr-unit">동</span>
+            <div id="list_d6_lunch"></div>
+            <button class="exp-add-btn" onclick="addExpenseRow('d6_lunch')">+ 지출 항목 추가</button>
           </div>
         </details>
       </div>
@@ -774,6 +911,14 @@
             <div class="plan-title">🥇 1안 : 🌊 깜란 & Bãi Dài 여유 (강추⭐)</div>
             <div class="event-desc">점심 후 카페 휴식 → 바이다이 해변 산책</div>
             <a class="map-btn" href="https://www.google.com/maps/search/?api=1&query=Bai+Dai+Beach+Cam+Ranh" target="_blank">📍 Google Maps</a>
+            
+            <!-- Bai Dai Beach Storytelling -->
+            <details class="event-story-drawer" style="margin-top:4px;">
+              <summary class="story-summary"><span>🏛️ 바이다이 해변 이야기</span><span>📖 펼쳐보기</span></summary>
+              <div class="story-content">
+                '긴 해변(Long Beach)'이라는 이름처럼 10km 이상 하얀 백사장이 길게 뻗은 깜란의 대표 해변입니다. 과거 오랫동안 군사 보호 구역으로 묶여 있었던 덕분에 나트랑 시내 비치와 달리 훼손되지 않은 에메랄드빛 청정 바다를 그대로 간직하고 있습니다. 수심이 얕고 모래가 고와 여유로운 휴식과 해변 산책에 이상적인 힐링 스팟입니다.
+              </div>
+            </details>
           </div>
           <div class="plan-box">
             <div class="plan-title">🥈 2안 : 🇻🇳 나트랑 시내 재방문 (이동 多)</div>
@@ -788,8 +933,8 @@
         <details class="event-expense-drawer">
           <summary class="drawer-summary"><span>💸 오후 카페/교통 지출</span><span id="badge_d6_afternoon" class="drawer-amount-badge">0đ</span></summary>
           <div class="drawer-body">
-            <input type="number" id="exp_d6_afternoon" class="drawer-input" placeholder="카페/이동 Grab 지출액 (동)" oninput="updateItemExpense('d6', 'afternoon', this.value)">
-            <span class="curr-unit">동</span>
+            <div id="list_d6_afternoon"></div>
+            <button class="exp-add-btn" onclick="addExpenseRow('d6_afternoon')">+ 지출 항목 추가</button>
           </div>
         </details>
       </div>
@@ -805,8 +950,8 @@
         <details class="event-expense-drawer">
           <summary class="drawer-summary"><span>💸 마지막 저녁 지출</span><span id="badge_d6_dinner" class="drawer-amount-badge">0đ</span></summary>
           <div class="drawer-body">
-            <input type="number" id="exp_d6_dinner" class="drawer-input" placeholder="저녁 식사 지출액 (동)" oninput="updateItemExpense('d6', 'dinner', this.value)">
-            <span class="curr-unit">동</span>
+            <div id="list_d6_dinner"></div>
+            <button class="exp-add-btn" onclick="addExpenseRow('d6_dinner')">+ 지출 항목 추가</button>
           </div>
         </details>
       </div>
@@ -823,8 +968,8 @@
         <details class="event-expense-drawer">
           <summary class="drawer-summary"><span>💸 공항이동/면세점 지출</span><span id="badge_d6_airport" class="drawer-amount-badge">0đ</span></summary>
           <div class="drawer-body">
-            <input type="number" id="exp_d6_airport" class="drawer-input" placeholder="공항 택시비/면세점 지출 (동)" oninput="updateItemExpense('d6', 'airport', this.value)">
-            <span class="curr-unit">동</span>
+            <div id="list_d6_airport"></div>
+            <button class="exp-add-btn" onclick="addExpenseRow('d6_airport')">+ 지출 항목 추가</button>
           </div>
         </details>
       </div>
@@ -836,9 +981,25 @@
       </div>
     </div>
 
+    <!-- Day 6 Card Expense Section -->
+    <div class="card-expense-card">
+      <details open>
+        <summary class="card-drawer-summary">
+          <span>💳 오늘 카드 사용액 (트래블로그/신용카드)</span>
+          <span id="badge_d6_card" class="card-amount-badge">0đ</span>
+        </summary>
+        <div class="drawer-body" style="margin-top:6px;">
+          <div id="list_d6_card"></div>
+          <button class="card-add-btn" onclick="addExpenseRow('d6_card')">+ 카드 지출 추가</button>
+        </div>
+      </details>
+    </div>
+
     <div class="day-total-card">
-      <div class="day-total-row main"><span>💰 오늘 예상 : 약 160만동</span><span style="font-size:0.75rem; color:var(--sub-text);">약 8.5만원</span></div>
-      <div class="day-total-row"><span>💳 오늘 실제 총 지출 :</span><span id="subtotal_d6" class="day-actual-sum">0 동</span></div>
+      <div class="day-total-row main"><span>💰 오늘 예상 : 약 160만동</span><span style="font-size:0.75rem; color:var(--sub-text);">약 8.4만원</span></div>
+      <div class="day-total-row"><span>💵 오늘 현금 소계 :</span><span id="cash_subtotal_d6" style="font-weight:700; color:#0369a1;">0 동</span></div>
+      <div class="day-total-row"><span>💳 오늘 카드 소계 :</span><span id="card_subtotal_d6" style="font-weight:700; color:#86198f;">0 동</span></div>
+      <div class="day-total-row" style="border-top:1px dashed #cbd5e1; padding-top:5px; margin-top:5px;"><span>🔥 오늘 총 지출 :</span><span id="subtotal_d6" class="day-actual-sum">0 동</span></div>
     </div>
   </div>
 
@@ -847,43 +1008,42 @@
     <div class="day-header">💰 TRIP TOTAL <span>예산 vs 실제 정산</span></div>
 
     <div class="card" style="border: 2px solid var(--primary); background: #f0f9ff;">
-      <div class="cost-row" style="font-size:0.92rem; font-weight:700; color:var(--primary-dark); margin-bottom:4px;">
+      <div class="cost-row" style="font-size:0.92rem; font-weight:700; color:var(--primary-dark); margin-bottom:4px; display:flex; justify-content:space-between;">
         <span>🎯 총 예상 예산</span>
         <span>14,460,000 동</span>
       </div>
-      <div class="cost-row" style="font-size:0.75rem; color:var(--sub-text); margin-bottom:10px;">
-        <span>(쇼핑 200만동 포함)</span>
-        <span>약 76.7만 원</span>
+      <div class="cost-row" style="font-size:0.75rem; color:var(--sub-text); margin-bottom:10px; display:flex; justify-content:space-between;">
+        <span>(쇼핑 200만동 포함 / 100đ=5.28원)</span>
+        <span>약 76.3만 원</span>
       </div>
 
-      <div class="cost-row" style="font-size:0.95rem; font-weight:800; color:#b91c1c; border-top:1px dashed #cbd5e1; padding-top:8px;">
-        <span>💳 실제 총 지출액</span>
+      <div class="cost-row" style="font-size:0.82rem; font-weight:700; color:#0369a1; border-top:1px dashed #cbd5e1; padding-top:6px; display:flex; justify-content:space-between;">
+        <span>💵 현금 총 지출</span>
+        <span id="grand_cash_dong">0 동 (약 0원)</span>
+      </div>
+      <div class="cost-row" style="font-size:0.82rem; font-weight:700; color:#86198f; margin-top:2px; display:flex; justify-content:space-between;">
+        <span>💳 카드 총 지출</span>
+        <span id="grand_card_dong">0 동 (약 0원)</span>
+      </div>
+
+      <div class="cost-row" style="font-size:0.95rem; font-weight:800; color:#b91c1c; border-top:1px solid #bae6fd; padding-top:8px; margin-top:6px; display:flex; justify-content:space-between;">
+        <span>🔥 전체 총 지출액 (현금+카드)</span>
         <span id="grand_total_dong">0 동</span>
       </div>
-      <div class="cost-row" style="font-size:0.8rem; font-weight:700; color:#b91c1c; margin-top:3px;">
+      <div class="cost-row" style="font-size:0.8rem; font-weight:700; color:#b91c1c; margin-top:3px; display:flex; justify-content:space-between;">
         <span>원화 환산 합계</span>
         <span id="grand_total_won">약 0 원</span>
       </div>
     </div>
 
-    <div class="card">
-      <h3>📊 일자별 지출 정산표</h3>
-      <table style="width:100%; font-size:0.78rem; border-collapse:collapse;">
-        <tr style="border-bottom:1px solid #e2e8f0; color:var(--sub-text); font-weight:700;"><th style="padding:5px 0; text-align:left;">일자</th><th style="text-align:right;">예상</th><th style="text-align:right;">실제 입력액</th></tr>
-        <tr style="border-bottom:1px solid #f1f5f9;"><td style="padding:6px 0;">8/29 (금)</td><td style="text-align:right;">0동</td><td style="text-align:right; font-weight:700;" id="table_sub_d1">0동</td></tr>
-        <tr style="border-bottom:1px solid #f1f5f9;"><td style="padding:6px 0;">8/30 (토)</td><td style="text-align:right;">326만동</td><td style="text-align:right; font-weight:700;" id="table_sub_d2">0동</td></tr>
-        <tr style="border-bottom:1px solid #f1f5f9;"><td style="padding:6px 0;">8/31 (일)</td><td style="text-align:right;">350만동</td><td style="text-align:right; font-weight:700;" id="table_sub_d3">0동</td></tr>
-        <tr style="border-bottom:1px solid #f1f5f9;"><td style="padding:6px 0;">9/1 (월)</td><td style="text-align:right;">405만동</td><td style="text-align:right; font-weight:700;" id="table_sub_d4">0동</td></tr>
-        <tr style="border-bottom:1px solid #f1f5f9;"><td style="padding:6px 0;">9/2 (화)</td><td style="text-align:right;">205만동</td><td style="text-align:right; font-weight:700;" id="table_sub_d5">0동</td></tr>
-        <tr style="border-bottom:1px solid #f1f5f9;"><td style="padding:6px 0;">9/3 (수)</td><td style="text-align:right;">160만동</td><td style="text-align:right; font-weight:700;" id="table_sub_d6">0동</td></tr>
-      </table>
-    </div>
+    <div style="font-size:0.85rem; font-weight:800; color:var(--primary-dark); margin: 12px 2px 6px;">📊 일자별 지출 상세 리스트</div>
+    <div id="breakdown_container"></div>
 
-    <div class="card" style="background: var(--tip-bg); border: 1px solid var(--tip-border);">
+    <div class="card" style="background: var(--tip-bg); border: 1px solid var(--tip-border); margin-top:10px;">
       <h3 style="color: var(--tip-text); margin-bottom: 4px;">💵 권장 현금 준비금</h3>
       <p style="font-size:0.75rem; color:var(--tip-text); line-height:1.5;">
-        • 2인 순수 여행경비: 약 63만원 (1,196만동)<br>
-        • 쇼핑 예산: 약 13만원 (250만동)<br>
+        • 2인 순수 여행경비: 약 63.1만원 (1,196만동)<br>
+        • 쇼핑 예산: 약 13.2만원 (250만동)<br>
         👉 비상금/추가 Grab 고려 시 <b>약 80만원</b> 환전 추천!
       </p>
     </div>
@@ -891,7 +1051,7 @@
 
   <!-- TOOLS & PHRASES TAB -->
   <div id="tools" class="day-content">
-    <div class="day-header">🗣️ 회화 & 편의도구 <span>환율·베트남어·체크리스트</span></div>
+    <div class="day-header">🗣️ 회화 & 편의도구 <span>환율·베트남어·숙소주소</span></div>
 
     <!-- Currency Calc -->
     <div class="card">
@@ -905,14 +1065,14 @@
       
       <!-- Currency Cheat Sheet -->
       <div style="margin-top:10px; border-top:1px dashed var(--border); padding-top:8px;">
-        <div style="font-size:0.72rem; font-weight:700; color:var(--sub-text); margin-bottom:4px;">⚡ 빠른 화폐 환산표 (뒤에 0 하나 빼고 나누기 2)</div>
+        <div style="font-size:0.72rem; font-weight:700; color:var(--sub-text); margin-bottom:4px;">⚡ 빠른 화폐 환산표 (100동 당 5.28원 기준)</div>
         <div style="display:grid; grid-template-columns:1fr 1fr; gap:4px; font-size:0.72rem; color:#334155;">
-          <div>• 10,000đ ≈ 약 530원</div>
-          <div>• 50,000đ ≈ 약 2,650원</div>
-          <div>• 100,000đ ≈ 약 5,300원</div>
-          <div>• 200,000đ ≈ 약 10,600원</div>
-          <div>• 500,000đ ≈ 약 26,500원</div>
-          <div>• 1,000,000đ ≈ 약 53,000원</div>
+          <div>• 10,000đ ≈ 약 528원</div>
+          <div>• 50,000đ ≈ 약 2,640원</div>
+          <div>• 100,000đ ≈ 약 5,280원</div>
+          <div>• 200,000đ ≈ 약 10,560원</div>
+          <div>• 500,000đ ≈ 약 26,400원</div>
+          <div>• 1,000,000đ ≈ 약 52,800원</div>
         </div>
       </div>
     </div>
@@ -997,10 +1157,13 @@
 <div id="toast">복사 완료!</div>
 
 <script>
+  // 100 VND = 5.28 KRW 기준
+  const EXCHANGE_RATE = 0.0528;
+
   // ==========================================
-  // 👇 Firebase 설정 (키가 없어도 로컬 모드로 자동 동작)
+  // 👇 1단계에서 복사한 Firebase 설정을 아래에 붙여넣으세요!
   // ==========================================
- const firebaseConfig = {
+  const firebaseConfig = {
   apiKey: "AIzaSyDjJsM_MGmJLB9nAj67H8PgC1cz1knmcS4",
   authDomain: "nhatrang-trip-16cc2.firebaseapp.com",
   databaseURL: "https://nhatrang-trip-16cc2-default-rtdb.asia-southeast1.firebasedatabase.app",
@@ -1020,12 +1183,54 @@
       isFirebaseReady = true;
       document.getElementById('syncStatus').innerHTML = "🟢 실시간 동기화 켜짐";
     } else {
-      document.getElementById('syncStatus').innerHTML = "🟡 로컬 저장 모드 (키 입력 시 실시간 연동)";
+      document.getElementById('syncStatus').innerHTML = "🟡 로컬 저장 모드 (Firebase 키 입력 필요)";
     }
   } catch (e) {
     console.error(e);
     document.getElementById('syncStatus').innerHTML = "⚠️ 동기화 오류 (오프라인 모드)";
   }
+
+  // Event Meta Configuration (Cash & Card)
+  const eventMeta = {
+    "d1_airport": { day: "d1", dayTitle: "8/29 (금)", eventName: "깜란공항 도착", isCard: false },
+    "d1_pickup": { day: "d1", dayTitle: "8/29 (금)", eventName: "픽업 이동", isCard: false },
+    "d1_hotel": { day: "d1", dayTitle: "8/29 (금)", eventName: "호텔 체크인/기타", isCard: false },
+    "d1_card": { day: "d1", dayTitle: "8/29 (금)", eventName: "💳 카드 결제", isCard: true },
+
+    "d2_lotte": { day: "d2", dayTitle: "8/30 (토)", eventName: "롯데마트 골드코스트", isCard: false },
+    "d2_dam": { day: "d2", dayTitle: "8/30 (토)", eventName: "담시장 쇼핑", isCard: false },
+    "d2_lunch": { day: "d2", dayTitle: "8/30 (토)", eventName: "점심 식사", isCard: false },
+    "d2_ponagar": { day: "d2", dayTitle: "8/30 (토)", eventName: "포나가르 참탑", isCard: false },
+    "d2_senspa": { day: "d2", dayTitle: "8/30 (토)", eventName: "센스파 마사지", isCard: false },
+    "d2_dinner": { day: "d2", dayTitle: "8/30 (토)", eventName: "저녁 식사", isCard: false },
+    "d2_extra": { day: "d2", dayTitle: "8/30 (토)", eventName: "기타/야식", isCard: false },
+    "d2_card": { day: "d2", dayTitle: "8/30 (토)", eventName: "💳 카드 결제", isCard: true },
+
+    "d3_pickup": { day: "d3", dayTitle: "8/31 (일)", eventName: "사막투어 잔금", isCard: false },
+    "d3_bf": { day: "d3", dayTitle: "8/31 (일)", eventName: "아침/조식 외", isCard: false },
+    "d3_lunch": { day: "d3", dayTitle: "8/31 (일)", eventName: "점심 식사", isCard: false },
+    "d3_afternoon": { day: "d3", dayTitle: "8/31 (일)", eventName: "오후 활동 (패들보드/카페)", isCard: false },
+    "d3_dinner": { day: "d3", dayTitle: "8/31 (일)", eventName: "저녁 식사", isCard: false },
+    "d3_nightmarket": { day: "d3", dayTitle: "8/31 (일)", eventName: "나트랑 야시장", isCard: false },
+    "d3_card": { day: "d3", dayTitle: "8/31 (일)", eventName: "💳 카드 결제", isCard: true },
+
+    "d4_honchong": { day: "d4", dayTitle: "9/1 (월)", eventName: "혼총곶 & 카페", isCard: false },
+    "d4_lotte": { day: "d4", dayTitle: "9/1 (월)", eventName: "롯데마트 본격 쇼핑", isCard: false },
+    "d4_lunch": { day: "d4", dayTitle: "9/1 (월)", eventName: "점심 식사", isCard: false },
+    "d4_grab": { day: "d4", dayTitle: "9/1 (월)", eventName: "더아남 이동 Grab", isCard: false },
+    "d4_dinner": { day: "d4", dayTitle: "9/1 (월)", eventName: "더아남 저녁/배달", isCard: false },
+    "d4_card": { day: "d4", dayTitle: "9/1 (월)", eventName: "💳 카드 결제", isCard: true },
+
+    "d5_lunch": { day: "d5", dayTitle: "9/2 (화)", eventName: "Beach Club 점심", isCard: false },
+    "d5_dinner": { day: "d5", dayTitle: "9/2 (화)", eventName: "더아남 저녁/룸서비스", isCard: false },
+    "d5_card": { day: "d5", dayTitle: "9/2 (화)", eventName: "💳 카드 결제", isCard: true },
+
+    "d6_lunch": { day: "d6", dayTitle: "9/3 (수)", eventName: "점심 식사", isCard: false },
+    "d6_afternoon": { day: "d6", dayTitle: "9/3 (수)", eventName: "오후 카페/바이다이", isCard: false },
+    "d6_dinner": { day: "d6", dayTitle: "9/3 (수)", eventName: "마지막 저녁 식사", isCard: false },
+    "d6_airport": { day: "d6", dayTitle: "9/3 (수)", eventName: "공항 이동/면세점", isCard: false },
+    "d6_card": { day: "d6", dayTitle: "9/3 (수)", eventName: "💳 카드 결제", isCard: true }
+  };
 
   // Tab Switching
   function openTab(evt, tabId) {
@@ -1051,88 +1256,247 @@
     }
   }
 
-  // --- 실시간 체크리스트 동기화 ---
-  function toggleCheck(el, key) {
-    const cb = el.querySelector('input');
-    cb.checked = !cb.checked;
-    const isChecked = cb.checked;
-    if (isChecked) {
-      el.classList.add('checked');
-      localStorage.setItem('nhatrang_' + key, '1');
-    } else {
-      el.classList.remove('checked');
-      localStorage.removeItem('nhatrang_' + key);
-    }
-    if (isFirebaseReady) {
-      db.ref('nhatrang/checks/' + key).set(isChecked ? 1 : 0);
+  // --- 다중 지출 CRUD 데이터 구조 ---
+  let multiExpenses = {};
+
+  function addExpenseRow(eventKey) {
+    if (!multiExpenses[eventKey]) multiExpenses[eventKey] = [];
+    multiExpenses[eventKey].push({ id: Date.now(), name: '', cost: '' });
+    saveAndBroadcastExpenses();
+    renderEventRows(eventKey);
+  }
+
+  function deleteExpenseRow(eventKey, id) {
+    if (!multiExpenses[eventKey]) return;
+    multiExpenses[eventKey] = multiExpenses[eventKey].filter(item => item.id !== id);
+    saveAndBroadcastExpenses();
+    renderEventRows(eventKey);
+  }
+
+  function updateExpenseItem(eventKey, id, field, val) {
+    if (!multiExpenses[eventKey]) return;
+    const target = multiExpenses[eventKey].find(item => item.id === id);
+    if (target) {
+      target[field] = val;
+      if (field === 'cost') {
+        const krwSpan = document.getElementById(`krw_tag_${id}`);
+        if (krwSpan) {
+          const num = parseInt(val, 10);
+          if (!isNaN(num) && num > 0) {
+            krwSpan.textContent = `(약 ${Math.round(num * EXCHANGE_RATE).toLocaleString()}원)`;
+          } else {
+            krwSpan.textContent = `(약 0원)`;
+          }
+        }
+      }
+      saveAndBroadcastExpenses();
+      updateBadgesAndTotals(eventKey);
     }
   }
 
-  // --- 일정별 실제 지출 관리 (Item-level Expenses) ---
-  let itemExpenses = { d1: {}, d2: {}, d3: {}, d4: {}, d5: {}, d6: {} };
-
-  function updateItemExpense(dayKey, itemKey, val) {
-    if (!itemExpenses[dayKey]) itemExpenses[dayKey] = {};
-    itemExpenses[dayKey][itemKey] = val;
-
-    localStorage.setItem('nhatrang_item_expenses', JSON.stringify(itemExpenses));
+  function saveAndBroadcastExpenses() {
+    localStorage.setItem('nhatrang_multi_expenses', JSON.stringify(multiExpenses));
     if (isFirebaseReady) {
-      db.ref(`nhatrang/itemExpenses/${dayKey}/${itemKey}`).set(val);
+      db.ref('nhatrang/multiExpenses').set(multiExpenses);
+    }
+    updateAllBadgesAndTotals();
+  }
+
+  function renderEventRows(eventKey) {
+    const listEl = document.getElementById('list_' + eventKey);
+    if (!listEl) return;
+    listEl.innerHTML = '';
+
+    const isCard = eventMeta[eventKey] ? eventMeta[eventKey].isCard : false;
+    const placeholderName = isCard ? "카드 사용처 (예: 롯데마트 카드결제)" : "항목 (예: 쌀국수 2그릇)";
+
+    const items = multiExpenses[eventKey] || [];
+    items.forEach(item => {
+      const num = parseInt(item.cost, 10);
+      const krwText = (!isNaN(num) && num > 0) ? `(약 ${Math.round(num * EXCHANGE_RATE).toLocaleString()}원)` : `(약 0원)`;
+      const row = document.createElement('div');
+      row.className = 'expense-row';
+      row.innerHTML = `
+        <input type="text" class="exp-name-input" placeholder="${placeholderName}" value="${item.name || ''}" oninput="updateExpenseItem('${eventKey}', ${item.id}, 'name', this.value)">
+        <input type="number" class="exp-cost-input" placeholder="금액 (동)" value="${item.cost || ''}" oninput="updateExpenseItem('${eventKey}', ${item.id}, 'cost', this.value)">
+        <span class="exp-krw-tag" id="krw_tag_${item.id}">${krwText}</span>
+        <button class="exp-del-btn" onclick="deleteExpenseRow('${eventKey}', ${item.id})">✕</button>
+      `;
+      listEl.appendChild(row);
+    });
+    updateBadgesAndTotals(eventKey);
+  }
+
+  function updateBadgesAndTotals(eventKey) {
+    let eventSum = 0;
+    const items = multiExpenses[eventKey] || [];
+    items.forEach(it => {
+      const c = parseInt(it.cost, 10);
+      if (!isNaN(c)) eventSum += c;
+    });
+
+    const badge = document.getElementById('badge_' + eventKey);
+    if (badge) {
+      if (eventSum > 0) {
+        const krw = Math.round(eventSum * EXCHANGE_RATE);
+        badge.textContent = `${eventSum.toLocaleString()}đ (약 ${krw.toLocaleString()}원)`;
+        badge.classList.add('has-val');
+      } else {
+        badge.textContent = '0đ';
+        badge.classList.remove('has-val');
+      }
     }
 
-    updateItemBadge(dayKey, itemKey, val);
-    updateDaySubtotal(dayKey);
+    if (eventMeta[eventKey]) {
+      const dayKey = eventMeta[eventKey].day;
+      let cashSum = 0;
+      let cardSum = 0;
+
+      Object.keys(eventMeta).forEach(k => {
+        if (eventMeta[k].day === dayKey && multiExpenses[k]) {
+          multiExpenses[k].forEach(it => {
+            const c = parseInt(it.cost, 10);
+            if (!isNaN(c)) {
+              if (eventMeta[k].isCard) cardSum += c;
+              else cashSum += c;
+            }
+          });
+        }
+      });
+
+      const cashEl = document.getElementById(`cash_subtotal_${dayKey}`);
+      const cardEl = document.getElementById(`card_subtotal_${dayKey}`);
+      const subEl = document.getElementById(`subtotal_${dayKey}`);
+
+      if (cashEl) cashEl.textContent = `${cashSum.toLocaleString()} 동 (약 ${Math.round(cashSum * EXCHANGE_RATE).toLocaleString()}원)`;
+      if (cardEl) cardEl.textContent = `${cardSum.toLocaleString()} 동 (약 ${Math.round(cardSum * EXCHANGE_RATE).toLocaleString()}원)`;
+      if (subEl) {
+        const totalSum = cashSum + cardSum;
+        subEl.textContent = `${totalSum.toLocaleString()} 동 (약 ${Math.round(totalSum * EXCHANGE_RATE).toLocaleString()}원)`;
+      }
+    }
+  }
+
+  function updateAllBadgesAndTotals() {
+    Object.keys(eventMeta).forEach(eventKey => {
+      let eventSum = 0;
+      const items = multiExpenses[eventKey] || [];
+      items.forEach(it => {
+        const c = parseInt(it.cost, 10);
+        if (!isNaN(c)) eventSum += c;
+      });
+      const badge = document.getElementById('badge_' + eventKey);
+      if (badge) {
+        if (eventSum > 0) {
+          const krw = Math.round(eventSum * EXCHANGE_RATE);
+          badge.textContent = `${eventSum.toLocaleString()}đ (약 ${krw.toLocaleString()}원)`;
+          badge.classList.add('has-val');
+        } else {
+          badge.textContent = '0đ';
+          badge.classList.remove('has-val');
+        }
+      }
+    });
+
+    ['d1', 'd2', 'd3', 'd4', 'd5', 'd6'].forEach(dayKey => {
+      let cashSum = 0;
+      let cardSum = 0;
+      Object.keys(eventMeta).forEach(k => {
+        if (eventMeta[k].day === dayKey && multiExpenses[k]) {
+          multiExpenses[k].forEach(it => {
+            const c = parseInt(it.cost, 10);
+            if (!isNaN(c)) {
+              if (eventMeta[k].isCard) cardSum += c;
+              else cashSum += c;
+            }
+          });
+        }
+      });
+      const cashEl = document.getElementById(`cash_subtotal_${dayKey}`);
+      const cardEl = document.getElementById(`card_subtotal_${dayKey}`);
+      const subEl = document.getElementById(`subtotal_${dayKey}`);
+
+      if (cashEl) cashEl.textContent = `${cashSum.toLocaleString()} 동 (약 ${Math.round(cashSum * EXCHANGE_RATE).toLocaleString()}원)`;
+      if (cardEl) cardEl.textContent = `${cardSum.toLocaleString()} 동 (약 ${Math.round(cardSum * EXCHANGE_RATE).toLocaleString()}원)`;
+      if (subEl) {
+        const totalSum = cashSum + cardSum;
+        subEl.textContent = `${totalSum.toLocaleString()} 동 (약 ${Math.round(totalSum * EXCHANGE_RATE).toLocaleString()}원)`;
+      }
+    });
+
     updateGrandTotal();
   }
 
-  function updateItemBadge(dayKey, itemKey, val) {
-    const badge = document.getElementById(`badge_${dayKey}_${itemKey}`);
-    if (!badge) return;
-    const num = parseInt(val, 10);
-    if (!isNaN(num) && num > 0) {
-      badge.textContent = num.toLocaleString() + 'đ';
-      badge.classList.add('has-val');
-    } else {
-      badge.textContent = '0đ';
-      badge.classList.remove('has-val');
-    }
-  }
-
-  function updateDaySubtotal(dayKey) {
-    let sub = 0;
-    if (itemExpenses[dayKey]) {
-      Object.values(itemExpenses[dayKey]).forEach(v => {
-        const n = parseInt(v, 10);
-        if (!isNaN(n)) sub += n;
-      });
-    }
-    const subEl = document.getElementById(`subtotal_${dayKey}`);
-    const tableEl = document.getElementById(`table_sub_${dayKey}`);
-    const formatted = sub.toLocaleString() + ' 동';
-    if (subEl) subEl.textContent = formatted;
-    if (tableEl) tableEl.textContent = formatted;
-  }
-
   function updateGrandTotal() {
-    let grand = 0;
-    ['d1', 'd2', 'd3', 'd4', 'd5', 'd6'].forEach(dayKey => {
-      let sub = 0;
-      if (itemExpenses[dayKey]) {
-        Object.values(itemExpenses[dayKey]).forEach(v => {
-          const n = parseInt(v, 10);
-          if (!isNaN(n)) sub += n;
-        });
+    let grandCash = 0;
+    let grandCard = 0;
+    const days = ['d1', 'd2', 'd3', 'd4', 'd5', 'd6'];
+    const container = document.getElementById('breakdown_container');
+    if (container) container.innerHTML = '';
+
+    days.forEach(dayKey => {
+      let dayCash = 0;
+      let dayCard = 0;
+      let dayItemsHtml = '';
+
+      Object.keys(eventMeta).forEach(k => {
+        if (eventMeta[k].day === dayKey && multiExpenses[k]) {
+          multiExpenses[k].forEach(it => {
+            const c = parseInt(it.cost, 10);
+            if (!isNaN(c) && c > 0) {
+              if (eventMeta[k].isCard) dayCard += c;
+              else dayCash += c;
+
+              const nameText = it.name ? it.name : '기타 지출';
+              const krwVal = Math.round(c * EXCHANGE_RATE);
+              const tagClass = eventMeta[k].isCard ? 'breakdown-item-tag card-tag' : 'breakdown-item-tag';
+              dayItemsHtml += `
+                <div class="breakdown-item-row">
+                  <span><span class="${tagClass}">[${eventMeta[k].eventName}]</span> ${nameText}</span>
+                  <span style="font-weight:700;">${c.toLocaleString()} 동 <small style="color:#b91c1c; font-size:0.7rem;">(약 ${krwVal.toLocaleString()}원)</small></span>
+                </div>
+              `;
+            }
+          });
+        }
+      });
+
+      grandCash += dayCash;
+      grandCard += dayCard;
+      const dayTotal = dayCash + dayCard;
+
+      if (container) {
+        const dayTitle = eventMeta[Object.keys(eventMeta).find(k => eventMeta[k].day === dayKey)].dayTitle;
+        const dayKrw = Math.round(dayTotal * EXCHANGE_RATE);
+        const dayCardEl = document.createElement('div');
+        dayCardEl.className = 'breakdown-day-card';
+        dayCardEl.innerHTML = `
+          <div class="breakdown-day-title">
+            <span>🗓️ ${dayTitle}</span>
+            <span style="color:#b91c1c;">${dayTotal.toLocaleString()} 동 <small style="font-size:0.75rem;">(약 ${dayKrw.toLocaleString()}원)</small></span>
+          </div>
+          ${dayItemsHtml || '<div class="no-item-msg">입력된 지출 내역이 없습니다.</div>'}
+        `;
+        container.appendChild(dayCardEl);
       }
-      grand += sub;
-      const tableEl = document.getElementById(`table_sub_${dayKey}`);
-      if (tableEl) tableEl.textContent = sub.toLocaleString() + ' 동';
     });
 
+    const grandCashEl = document.getElementById('grand_cash_dong');
+    const grandCardEl = document.getElementById('grand_card_dong');
     const grandDongEl = document.getElementById('grand_total_dong');
     const grandWonEl = document.getElementById('grand_total_won');
-    if (grandDongEl) grandDongEl.textContent = grand.toLocaleString() + ' 동';
+
+    if (grandCashEl) {
+      grandCashEl.textContent = `${grandCash.toLocaleString()} 동 (약 ${Math.round(grandCash * EXCHANGE_RATE).toLocaleString()}원)`;
+    }
+    if (grandCardEl) {
+      grandCardEl.textContent = `${grandCard.toLocaleString()} 동 (약 ${Math.round(grandCard * EXCHANGE_RATE).toLocaleString()}원)`;
+    }
+    
+    const grandTotal = grandCash + grandCard;
+    if (grandDongEl) grandDongEl.textContent = grandTotal.toLocaleString() + ' 동';
     if (grandWonEl) {
-      const won = Math.round(grand * 0.053);
+      const won = Math.round(grandTotal * EXCHANGE_RATE);
       grandWonEl.textContent = `약 ${won.toLocaleString()} 원`;
     }
   }
@@ -1154,50 +1518,27 @@
       return;
     }
     const vndNum = parseInt(vnd, 10);
-    const krw = Math.round(vndNum * 0.053);
+    const krw = Math.round(vndNum * EXCHANGE_RATE);
     resultEl.innerHTML = `${vndNum.toLocaleString()} VND → <span style="color:#b91c1c;">약 ${krw.toLocaleString()} 원</span>`;
   }
 
   // --- 초기 데이터 로딩 & 리스너 바인딩 ---
   window.addEventListener('DOMContentLoaded', () => {
-    // 1. 로컬 스토리지 메모 복원
     document.querySelectorAll('.memo-input').forEach(input => {
       const saved = localStorage.getItem('nhatrang_' + input.id);
       if (saved) input.value = saved;
     });
 
-    // 2. 체크리스트 복원
-    for (let c = 1; c <= 8; c++) {
-      const key = 'chk' + c;
-      const checked = localStorage.getItem('nhatrang_' + key);
-      const cb = document.getElementById(key);
-      if (checked === '1' && cb) {
-        cb.checked = true;
-        cb.parentElement.classList.add('checked');
-      }
-    }
-
-    // 3. 항목별 지출 복원
-    const savedExp = localStorage.getItem('nhatrang_item_expenses');
+    const savedExp = localStorage.getItem('nhatrang_multi_expenses');
     if (savedExp) {
-      try { itemExpenses = JSON.parse(savedExp); } catch(e) {}
+      try { multiExpenses = JSON.parse(savedExp); } catch(e) {}
     }
-    ['d1', 'd2', 'd3', 'd4', 'd5', 'd6'].forEach(dayKey => {
-      if (itemExpenses[dayKey]) {
-        Object.keys(itemExpenses[dayKey]).forEach(itemKey => {
-          const val = itemExpenses[dayKey][itemKey];
-          const input = document.getElementById(`exp_${dayKey}_${itemKey}`);
-          if (input) input.value = val;
-          updateItemBadge(dayKey, itemKey, val);
-        });
-      }
-      updateDaySubtotal(dayKey);
+    Object.keys(eventMeta).forEach(k => {
+      renderEventRows(k);
     });
-    updateGrandTotal();
+    updateAllBadgesAndTotals();
 
-    // 4. Firebase 실시간 수신 리스너
     if (isFirebaseReady) {
-      // 실시간 메모 수신
       db.ref('nhatrang/memos').on('value', snap => {
         const data = snap.val();
         if (data) {
@@ -1211,42 +1552,15 @@
         }
       });
 
-      // 실시간 체크리스트 수신
-      db.ref('nhatrang/checks').on('value', snap => {
+      db.ref('nhatrang/multiExpenses').on('value', snap => {
         const data = snap.val();
         if (data) {
-          Object.keys(data).forEach(k => {
-            const cb = document.getElementById(k);
-            if (cb) {
-              cb.checked = data[k] === 1;
-              if (cb.checked) cb.parentElement.classList.add('checked');
-              else cb.parentElement.classList.remove('checked');
-              localStorage.setItem('nhatrang_' + k, data[k] === 1 ? '1' : '');
-            }
+          multiExpenses = data;
+          localStorage.setItem('nhatrang_multi_expenses', JSON.stringify(multiExpenses));
+          Object.keys(eventMeta).forEach(k => {
+            renderEventRows(k);
           });
-        }
-      });
-
-      // 실시간 항목별 지출 수신
-      db.ref('nhatrang/itemExpenses').on('value', snap => {
-        const data = snap.val();
-        if (data) {
-          itemExpenses = data;
-          localStorage.setItem('nhatrang_item_expenses', JSON.stringify(itemExpenses));
-          ['d1', 'd2', 'd3', 'd4', 'd5', 'd6'].forEach(dayKey => {
-            if (itemExpenses[dayKey]) {
-              Object.keys(itemExpenses[dayKey]).forEach(itemKey => {
-                const val = itemExpenses[dayKey][itemKey];
-                const input = document.getElementById(`exp_${dayKey}_${itemKey}`);
-                if (input && input !== document.activeElement) {
-                  input.value = val;
-                }
-                updateItemBadge(dayKey, itemKey, val);
-              });
-            }
-            updateDaySubtotal(dayKey);
-          });
-          updateGrandTotal();
+          updateAllBadgesAndTotals();
         }
       });
     }
