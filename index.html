@@ -3,7 +3,7 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
-  <title>🇻🇳 CHOI & KWAK in nha trang</title>
+  <title>🇻🇳 CHOI & KWAK in Nha Trang</title>
   
   <!-- Firebase SDK (Compat) -->
   <script src="https://www.gstatic.com/firebasejs/9.23.0/firebase-app-compat.js"></script>
@@ -30,7 +30,7 @@
     * { box-sizing: border-box; margin: 0; padding: 0; font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif; -webkit-tap-highlight-color: transparent; }
     body { background-color: var(--bg); color: var(--text); padding-bottom: 60px; }
 
-    /* Compact Slim Header (80% Scale) */
+    /* Clickable Header (Home Trigger) */
     header { 
       background: linear-gradient(135deg, #0284c7 0%, #0d9488 100%); 
       color: #fff; 
@@ -40,7 +40,11 @@
       top: 0; 
       z-index: 100; 
       box-shadow: 0 2px 8px rgba(2, 132, 199, 0.2); 
+      cursor: pointer;
+      user-select: none;
+      transition: filter 0.15s ease;
     }
+    header:active { filter: brightness(0.95); }
     .app-badge {
       display: inline-block;
       font-size: 0.58rem;
@@ -57,7 +61,7 @@
       font-size: 0.95rem; 
       font-weight: 800; 
       letter-spacing: -0.2px; 
-      margin-bottom: 1px;
+      margin-bottom: 1px; 
       text-shadow: 0 1px 2px rgba(0,0,0,0.15);
     }
     .header-date { 
@@ -76,10 +80,39 @@
       margin-top: 2px;
     }
 
-    /* 3x3 Comfortable Navigation Tab Grid */
-    .tabs-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 4px; padding: 6px 8px; background: #ffffff; position: sticky; top: 62px; z-index: 99; border-bottom: 1px solid var(--border); }
-    .tab-btn { background: #f1f5f9; border: 1px solid transparent; padding: 6px 2px; border-radius: 6px; font-size: 0.72rem; font-weight: 600; color: var(--sub-text); text-align: center; cursor: pointer; transition: all 0.15s ease; }
-    .tab-btn.active { background: var(--primary); color: #fff; font-weight: 700; box-shadow: 0 2px 4px rgba(2,132,199,0.3); }
+    /* 4x2 Clean Navigation Tab Grid (Home Button Removed) */
+    .tabs-grid { 
+      display: grid; 
+      grid-template-columns: repeat(4, 1fr); 
+      gap: 4px; 
+      padding: 6px 8px; 
+      background: #ffffff; 
+      position: sticky; 
+      top: 61px; 
+      z-index: 99; 
+      border-bottom: 1px solid var(--border); 
+    }
+    .tab-btn { 
+      background: #f1f5f9; 
+      border: 1px solid transparent; 
+      padding: 6px 2px; 
+      border-radius: 6px; 
+      font-size: 0.7rem; 
+      font-weight: 600; 
+      color: var(--sub-text); 
+      text-align: center; 
+      cursor: pointer; 
+      transition: all 0.15s ease; 
+      white-space: nowrap;
+      overflow: hidden;
+      text-overflow: ellipsis;
+    }
+    .tab-btn.active { 
+      background: var(--primary); 
+      color: #fff; 
+      font-weight: 700; 
+      box-shadow: 0 2px 4px rgba(2,132,199,0.3); 
+    }
 
     /* Content Area */
     .container { max-width: 500px; margin: 0 auto; padding: 10px 12px; }
@@ -87,27 +120,50 @@
     .day-content.active { display: block; animation: fadeIn 0.2s ease-in-out; }
     @keyframes fadeIn { from { opacity: 0; transform: translateY(3px); } to { opacity: 1; transform: translateY(0); } }
 
-    /* --- INTRO / HOME STYLES --- */
-    .intro-hero {
+    /* --- [OPTION A] INTRO / HOME GLASSMORPHISM STYLES --- */
+    #home {
+      min-height: calc(100vh - 125px);
+      border-radius: 16px;
+      padding: 12px 10px 18px;
+      background: linear-gradient(180deg, rgba(2, 132, 199, 0.45) 0%, rgba(13, 148, 136, 0.65) 100%),
+                  url('https://images.unsplash.com/photo-1507525428034-b723cf961d3e?auto=format&fit=crop&w=1200&q=80') center/cover no-repeat;
+      box-shadow: inset 0 0 40px rgba(0,0,0,0.15);
+    }
+    #home .intro-hero {
       position: relative;
-      background: linear-gradient(rgba(2, 132, 199, 0.78), rgba(13, 148, 136, 0.85)), url('https://images.unsplash.com/photo-1507525428034-b723cf961d3e?auto=format&fit=crop&w=800&q=80') center/cover;
+      background: rgba(255, 255, 255, 0.22);
+      backdrop-filter: blur(12px);
+      -webkit-backdrop-filter: blur(12px);
       color: #fff;
-      border-radius: 12px;
+      border-radius: 14px;
       padding: 16px 14px;
       margin-bottom: 12px;
-      box-shadow: 0 3px 10px rgba(2, 132, 199, 0.2);
+      border: 1px solid rgba(255, 255, 255, 0.4);
       text-align: center;
+      text-shadow: 0 1px 3px rgba(0,0,0,0.35);
     }
-    .intro-hero h2 { font-size: 1.15rem; font-weight: 800; margin-bottom: 4px; }
-    .intro-hero p { font-size: 0.75rem; opacity: 0.95; line-height: 1.4; }
-    .dday-badge { display: inline-block; background: #f59e0b; color: #fff; font-size: 0.75rem; font-weight: 800; padding: 3px 10px; border-radius: 12px; margin: 8px 0 10px; box-shadow: 0 2px 4px rgba(0,0,0,0.15); }
-    .today-jump-btn { display: block; width: 100%; background: #ffffff; color: var(--primary-dark); font-size: 0.8rem; font-weight: 800; padding: 8px 0; border-radius: 8px; text-decoration: none; border: none; cursor: pointer; box-shadow: 0 2px 5px rgba(0,0,0,0.1); }
+    #home .intro-hero h2 { font-size: 1.2rem; font-weight: 800; margin-bottom: 3px; letter-spacing: -0.3px; }
+    #home .intro-hero p { font-size: 0.76rem; opacity: 0.95; line-height: 1.4; }
+    .dday-badge { display: inline-block; background: #f59e0b; color: #fff; font-size: 0.74rem; font-weight: 800; padding: 3px 10px; border-radius: 12px; margin: 8px 0 10px; box-shadow: 0 2px 4px rgba(0,0,0,0.2); }
+    .today-jump-btn { display: block; width: 100%; background: #ffffff; color: var(--primary-dark); font-size: 0.8rem; font-weight: 800; padding: 8px 0; border-radius: 8px; text-decoration: none; border: none; cursor: pointer; box-shadow: 0 2px 5px rgba(0,0,0,0.15); }
     .today-jump-btn:active { background: #f0fdf4; }
+
+    /* Frosted Glass Cards on Home */
+    #home .card, #home .home-card {
+      background: rgba(255, 255, 255, 0.9);
+      backdrop-filter: blur(14px);
+      -webkit-backdrop-filter: blur(14px);
+      border: 1px solid rgba(255, 255, 255, 0.8);
+      box-shadow: 0 4px 16px rgba(0, 0, 0, 0.08);
+    }
+    #home .home-card:active {
+      background: rgba(255, 255, 255, 0.98);
+      transform: scale(0.98);
+    }
 
     /* 2-Column Home Quick Grid */
     .home-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 8px; margin-bottom: 12px; }
-    .home-card { background: #fff; border: 1px solid var(--border); border-radius: 10px; padding: 10px 8px; text-align: left; cursor: pointer; transition: all 0.15s ease; box-shadow: 0 1px 3px rgba(0,0,0,0.02); }
-    .home-card:active { transform: scale(0.98); background: #f8fafc; border-color: var(--primary); }
+    .home-card { border-radius: 10px; padding: 10px 8px; text-align: left; cursor: pointer; transition: all 0.15s ease; }
     .home-card-date { font-size: 0.78rem; font-weight: 800; color: var(--primary); margin-bottom: 3px; }
     .home-card-theme { font-size: 0.72rem; font-weight: 700; color: var(--text); line-height: 1.35; }
     .home-card-desc { font-size: 0.67rem; color: var(--sub-text); margin-top: 3px; }
@@ -208,7 +264,7 @@
     .card { background: #fff; border-radius: 10px; padding: 11px; border: 1px solid var(--border); margin-bottom: 10px; }
     .card h3 { font-size: 0.82rem; margin-bottom: 7px; color: var(--primary-dark); }
     .calc-row { display: flex; gap: 6px; align-items: center; }
-    .calc-input { flex: 1; padding: 6px 8px; font-size: 0.78rem; border: 1px solid #cbd5e1; border-radius: 6px; }
+    .calc-input { flex: 1; padding: 6px 8px; font-size: 0.78rem; border: 1px solid #cbd5e1; border-radius: 6px; background:#fff; }
 
     .address-box { background: #f8fafc; padding: 8px 9px; border-radius: 6px; margin-bottom: 6px; position: relative; border: 1px solid #e2e8f0; }
     .address-title { font-size: 0.76rem; font-weight: 700; }
@@ -223,53 +279,73 @@
 </head>
 <body>
 
-<header>
-  <div class="app-badge">🌴 TRAVEL MINI APP</div>
-  <h1>🇻🇳 CHOI & KWAK IN NHA TRANG</h1>
+<!-- Clickable Header: Navigates to Home -->
+<header onclick="switchToDayTab('home')" title="터치하면 홈 화면으로 이동합니다">
+  <div class="app-badge">🌴 TRAVEL MINI APP (TAP FOR HOME)</div>
+  <h1>🇻🇳 CHOI & KWAK in Nha Trang</h1>
   <p class="header-date">2026.08.29 (토) — 09.03 (목)</p>
   <div class="sync-status" id="syncStatus">🟡 클라우드 연결 준비 중</div>
 </header>
 
-<!-- 3x3 Comfortable Navigation Tab Grid -->
+<!-- 4x2 Navigation Tab Grid -->
 <div class="tabs-grid">
-  <button class="tab-btn active" onclick="openTab(event, 'home')">🏠 홈</button>
   <button class="tab-btn" onclick="openTab(event, 'day1')">8/29 (토)</button>
   <button class="tab-btn" onclick="openTab(event, 'day2')">8/30 (일)</button>
   <button class="tab-btn" onclick="openTab(event, 'day3')">8/31 (월)</button>
   <button class="tab-btn" onclick="openTab(event, 'day4')">9/1 (화)</button>
   <button class="tab-btn" onclick="openTab(event, 'day5')">9/2 (수)</button>
   <button class="tab-btn" onclick="openTab(event, 'day6')">9/3 (목)</button>
-  <button class="tab-btn" onclick="openTab(event, 'total')">💰 정산/가계부</button>
-  <button class="tab-btn" onclick="openTab(event, 'tools')">🗣️ 회화·도구</button>
+  <button class="tab-btn" onclick="openTab(event, 'total')">💰 정산</button>
+  <button class="tab-btn" onclick="openTab(event, 'tools')">🗣️ 회화</button>
 </div>
 
 <div class="container">
 
-  <!-- ==================== HOME / INTRO DASHBOARD ==================== -->
+  <!-- ==================== HOME / INTRO DASHBOARD (OPTION A FULL-BLEED) ==================== -->
   <div id="home" class="day-content active">
     
     <!-- Hero Beach Card with D-Day -->
     <div class="intro-hero">
-      <h2>🌴 CHAO NHA TRANG!</h2>
-      <p>최 & 곽의 5박 6일 나트랑 자유여행 가이드</p>
       <div id="dday_display" class="dday-badge">✈️ D-Day 계산 중...</div>
       <button class="today-jump-btn" onclick="jumpToTodayOrDay1()">📍 오늘 일정 바로보기</button>
     </div>
 
+    <!-- Live Cash Wallet & Balance Card -->
+    <div class="card" style="border: 2px solid var(--primary); margin-bottom:10px;">
+      <div style="font-size:0.8rem; font-weight:800; color:var(--primary-dark); margin-bottom:6px; display:flex; justify-content:space-between; align-items:center;">
+        <span>💵 환전 보유액 & 실시간 현금 잔액</span>
+        <span style="font-size:0.68rem; color:var(--sub-text);">100đ=5.3원</span>
+      </div>
+      <div class="calc-row" style="margin-bottom:6px;">
+        <input type="number" id="home_initial_cash_input" class="calc-input" placeholder="총 환전한 현금 입력 (동)" oninput="updateInitialCash(this.value)">
+      </div>
+      <div style="display:flex; justify-content:space-between; font-size:0.75rem; color:#475569; margin-top:4px;">
+        <span>현금 총 사용액:</span>
+        <span id="home_cash_spent" style="font-weight:700; color:#0369a1;">0 동</span>
+      </div>
+      <div style="display:flex; justify-content:space-between; align-items:center; font-size:0.84rem; font-weight:800; margin-top:5px; border-top:1px dashed #cbd5e1; padding-top:6px;">
+        <span>남은 현금 잔액:</span>
+        <span id="home_cash_remaining" style="color:#15803d;">0 동</span>
+      </div>
+      <div style="text-align:right; font-size:0.7rem; color:var(--sub-text); margin-top:2px;">
+        <span id="home_cash_remaining_won">(약 0 원)</span>
+      </div>
+    </div>
+
     <!-- Live Total Spending Preview -->
-    <div class="card" style="border: 2px solid var(--primary); background: #f0f9ff; margin-bottom:10px;">
+    <div class="card" style="margin-bottom:10px;">
       <div style="display:flex; justify-content:space-between; align-items:center; font-size:0.8rem; font-weight:700; color:var(--primary-dark);">
-        <span>💳 현재까지 총 지출액</span>
+        <span>💳 현재까지 총 지출액 (현금+카드)</span>
         <span id="home_total_dong" style="color:#b91c1c; font-weight:800;">0 동</span>
       </div>
       <div style="display:flex; justify-content:space-between; font-size:0.7rem; color:var(--sub-text); margin-top:2px;">
-        <span>(원화 환산 합계 / 100đ=5.3원)</span>
+        <span>(원화 환산 합계)</span>
         <span id="home_total_won" style="color:#b91c1c; font-weight:700;">약 0 원</span>
       </div>
     </div>
 
     <!-- 6-Day Quick Navigation Grid -->
-    <div style="font-size:0.82rem; font-weight:800; color:var(--primary-dark); margin: 6px 2px 6px;">🗓️ 6일 일정 한눈에 보기</div>
+    <div style="font-size:0.82rem; font-weight:800; color:#ffffff; text-shadow:0 1px 3px rgba(0,0,0,0.4); margin: 8px 2px 6px;">🗓️ 6일 일정 한눈에 보기</div>
     <div class="home-grid">
       <div class="home-card" onclick="switchToDayTab('day1')">
         <div class="home-card-date">8/29 (토) DAY 1</div>
@@ -1118,7 +1194,30 @@
   <div id="total" class="day-content">
     <div class="day-header">💰 TRIP TOTAL <span>예산 vs 실제 정산</span></div>
 
-    <div class="card" style="border: 2px solid var(--primary); background: #f0f9ff;">
+    <!-- Cash Wallet Status in Total Tab -->
+    <div class="card" style="border: 2px solid var(--primary); background: #f0f9ff; margin-bottom: 10px;">
+      <div style="font-size:0.85rem; font-weight:800; color:var(--primary-dark); margin-bottom:6px;">💵 현금 지갑 관리 (환전액 & 잔액)</div>
+      <div class="calc-row" style="margin-bottom:6px;">
+        <input type="number" id="total_initial_cash_input" class="calc-input" placeholder="총 환전한 현금 입력 (동)" oninput="updateInitialCash(this.value)">
+      </div>
+      <div style="display:flex; justify-content:space-between; font-size:0.76rem; color:#475569; margin-top:4px;">
+        <span>총 환전 금액:</span>
+        <span id="total_initial_cash_text" style="font-weight:700;">0 동</span>
+      </div>
+      <div style="display:flex; justify-content:space-between; font-size:0.76rem; color:#0369a1; margin-top:2px;">
+        <span>💵 현금 총 지출:</span>
+        <span id="total_cash_spent_text" style="font-weight:700;">0 동</span>
+      </div>
+      <div style="display:flex; justify-content:space-between; align-items:center; font-size:0.88rem; font-weight:800; margin-top:6px; border-top:1px dashed #bae6fd; padding-top:6px;">
+        <span>남은 현금 잔액:</span>
+        <span id="total_cash_remaining_text" style="color:#15803d;">0 동</span>
+      </div>
+      <div style="text-align:right; font-size:0.72rem; color:#b91c1c; font-weight:700; margin-top:2px;">
+        <span id="total_cash_remaining_won">(약 0 원)</span>
+      </div>
+    </div>
+
+    <div class="card" style="border: 1px solid var(--border);">
       <div class="cost-row" style="font-size:0.9rem; font-weight:700; color:var(--primary-dark); margin-bottom:4px; display:flex; justify-content:space-between;">
         <span>🎯 총 예상 예산</span>
         <span>14,460,000 동</span>
@@ -1345,20 +1444,23 @@
       buttons[i].classList.remove("active");
     }
     document.getElementById(tabId).classList.add("active");
-    if (evt && evt.currentTarget) evt.currentTarget.classList.add("active");
+    if (evt && evt.currentTarget && evt.currentTarget.classList.contains('tab-btn')) {
+      evt.currentTarget.classList.add("active");
+    } else {
+      for (let i = 0; i < buttons.length; i++) {
+        if (buttons[i].getAttribute('onclick') && buttons[i].getAttribute('onclick').includes(`'${tabId}'`)) {
+          buttons[i].classList.add("active");
+          break;
+        }
+      }
+    }
     window.scrollTo({ top: 0, behavior: 'smooth' });
     if(tabId === 'total') updateGrandTotal();
   }
 
-  // Switch to specific day tab from Home Grid
+  // Switch to specific tab
   function switchToDayTab(dayId) {
-    const buttons = document.getElementsByClassName("tab-btn");
-    for (let i = 0; i < buttons.length; i++) {
-      if (buttons[i].getAttribute('onclick').includes(`'${dayId}'`)) {
-        buttons[i].click();
-        return;
-      }
-    }
+    openTab(null, dayId);
   }
 
   // Jump to Today or Day 1
@@ -1395,6 +1497,25 @@
     } else {
       badge.textContent = `✨ 행복했던 나트랑 여행 완료!`;
     }
+  }
+
+  // --- Initial Cash Management (보유 현금 & 잔액) ---
+  let initialCash = 0;
+
+  function updateInitialCash(val) {
+    const num = parseInt(val, 10) || 0;
+    initialCash = num;
+    localStorage.setItem('nhatrang_initial_cash', initialCash);
+
+    const homeInput = document.getElementById('home_initial_cash_input');
+    const totalInput = document.getElementById('total_initial_cash_input');
+    if (homeInput && homeInput.value !== val) homeInput.value = val;
+    if (totalInput && totalInput.value !== val) totalInput.value = val;
+
+    if (isFirebaseReady) {
+      db.ref('nhatrang/initialCash').set(initialCash);
+    }
+    updateAllBadgesAndTotals();
   }
 
   // --- 실시간 메모 동기화 ---
@@ -1653,6 +1774,44 @@
 
     if (homeDongEl) homeDongEl.textContent = grandTotal.toLocaleString() + ' 동';
     if (homeWonEl) homeWonEl.textContent = `약 ${totalWon.toLocaleString()} 원`;
+
+    // Cash Wallet Calculation
+    const remainingCash = initialCash - grandCash;
+    const remainingCashWon = Math.round(remainingCash * EXCHANGE_RATE);
+
+    const homeCashSpentEl = document.getElementById('home_cash_spent');
+    const homeCashRemainingEl = document.getElementById('home_cash_remaining');
+    const homeCashRemainingWonEl = document.getElementById('home_cash_remaining_won');
+
+    const totalInitText = document.getElementById('total_initial_cash_text');
+    const totalCashSpentText = document.getElementById('total_cash_spent_text');
+    const totalCashRemainingText = document.getElementById('total_cash_remaining_text');
+    const totalCashRemainingWon = document.getElementById('total_cash_remaining_won');
+
+    if (homeCashSpentEl) homeCashSpentEl.textContent = `${grandCash.toLocaleString()} 동`;
+    if (totalInitText) totalInitText.textContent = `${initialCash.toLocaleString()} 동`;
+    if (totalCashSpentText) totalCashSpentText.textContent = `${grandCash.toLocaleString()} 동`;
+
+    const remainingColor = remainingCash < 0 ? '#dc2626' : '#15803d';
+    const remainingPrefix = remainingCash < 0 ? '⚠️ ' : '';
+
+    if (homeCashRemainingEl) {
+      homeCashRemainingEl.style.color = remainingColor;
+      homeCashRemainingEl.textContent = `${remainingPrefix}${remainingCash.toLocaleString()} 동`;
+    }
+    if (homeCashRemainingWonEl) {
+      homeCashRemainingWonEl.style.color = remainingColor;
+      homeCashRemainingWonEl.textContent = `(약 ${remainingCashWon.toLocaleString()} 원)`;
+    }
+
+    if (totalCashRemainingText) {
+      totalCashRemainingText.style.color = remainingColor;
+      totalCashRemainingText.textContent = `${remainingPrefix}${remainingCash.toLocaleString()} 동`;
+    }
+    if (totalCashRemainingWon) {
+      totalCashRemainingWon.style.color = remainingColor;
+      totalCashRemainingWon.textContent = `(약 ${remainingCashWon.toLocaleString()} 원)`;
+    }
   }
 
   // --- 유틸리티 (복사 및 계산기) ---
@@ -1692,6 +1851,16 @@
   window.addEventListener('DOMContentLoaded', () => {
     updateDDayWidget();
 
+    // Load Initial Cash
+    const savedInitCash = localStorage.getItem('nhatrang_initial_cash');
+    if (savedInitCash) {
+      initialCash = parseInt(savedInitCash, 10) || 0;
+      const homeInput = document.getElementById('home_initial_cash_input');
+      const totalInput = document.getElementById('total_initial_cash_input');
+      if (homeInput) homeInput.value = initialCash > 0 ? initialCash : '';
+      if (totalInput) totalInput.value = initialCash > 0 ? initialCash : '';
+    }
+
     document.querySelectorAll('.memo-input').forEach(input => {
       const saved = localStorage.getItem('nhatrang_' + input.id);
       if (saved) input.value = saved;
@@ -1707,6 +1876,20 @@
     updateAllBadgesAndTotals();
 
     if (isFirebaseReady) {
+      // Sync Initial Cash
+      db.ref('nhatrang/initialCash').on('value', snap => {
+        const val = snap.val();
+        if (val !== null && val !== undefined) {
+          initialCash = parseInt(val, 10) || 0;
+          localStorage.setItem('nhatrang_initial_cash', initialCash);
+          const homeInput = document.getElementById('home_initial_cash_input');
+          const totalInput = document.getElementById('total_initial_cash_input');
+          if (homeInput && homeInput !== document.activeElement) homeInput.value = initialCash > 0 ? initialCash : '';
+          if (totalInput && totalInput !== document.activeElement) totalInput.value = initialCash > 0 ? initialCash : '';
+          updateAllBadgesAndTotals();
+        }
+      });
+
       db.ref('nhatrang/memos').on('value', snap => {
         const data = snap.val();
         if (data) {
