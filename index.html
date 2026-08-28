@@ -1,2533 +1,9 @@
-<!doctype html>
-<html lang="ko">
-<head>
-<meta charset="utf-8">
-<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
-<meta name="theme-color" content="#1677a8">
-
-<title>CHOI & KWAK in Nha Trang · 08.29–09.03</title>
-  <subtitle>Travel mini App</subtitle>
-
-<style>
-:root{
-  --blue:#1677a8;
-  --blue2:#eaf7fc;
-  --blue3:#d7eff8;
-  --ink:#18323d;
-  --muted:#70838b;
-  --line:#e4edf0;
-  --card:#ffffff;
-  --bg:#f6fbfd;
-  --shadow:0 5px 18px rgba(24,92,116,.08);
-}
-
-*{
-  box-sizing:border-box;
-}
-
-html{
-  scroll-behavior:smooth;
-}
-
-body{
-  margin:0;
-  background:var(--bg);
-  color:var(--ink);
-  font-family:
-    -apple-system,
-    BlinkMacSystemFont,
-    "Noto Sans KR",
-    "Apple SD Gothic Neo",
-    sans-serif;
-  line-height:1.45;
-}
-
-button,
-a{
-  font:inherit;
-}
-
-.app{
-  max-width:720px;
-  margin:auto;
-  min-height:100vh;
-}
-
-/* =========================
-   HEADER
-========================= */
-
-header{
-  padding:26px 18px 14px;
-  background:
-    linear-gradient(
-      180deg,
-      #e9f8fd 0%,
-      #f6fbfd 100%
-    );
-}
-
-.kicker{
-  font-size:12px;
-  font-weight:800;
-  letter-spacing:.12em;
-  color:var(--blue);
-  text-transform:uppercase;
-}
-
-h1{
-  font-size:26px;
-  margin:4px 0 2px;
-  letter-spacing:-.04em;
-}
-
-.sub{
-  font-size:13px;
-  color:var(--muted);
-}
-
-/* =========================
-   DATE TABS
-========================= */
-
-.tabs{
-  position:sticky;
-  top:0;
-  z-index:20;
-
-  display:flex;
-  gap:7px;
-
-  padding:10px 12px;
-
-  background:rgba(246,251,253,.94);
-  backdrop-filter:blur(12px);
-
-  border-bottom:1px solid var(--line);
-
-  overflow-x:auto;
-}
-
-.tabs::-webkit-scrollbar{
-  display:none;
-}
-
-.tab{
-  flex:0 0 auto;
-
-  border:1px solid var(--line);
-  background:#fff;
-
-  color:#5f737b;
-
-  border-radius:999px;
-
-  padding:8px 13px;
-
-  font-weight:800;
-  font-size:13px;
-
-  cursor:pointer;
-}
-
-.tab.active{
-  background:var(--blue);
-  border-color:var(--blue);
-  color:#fff;
-}
-
-/* =========================
-   MAIN
-========================= */
-
-main{
-  padding:16px 14px 42px;
-}
-
-.day{
-  display:none;
-}
-
-.day.active{
-  display:block;
-}
-
-.day-head{
-  display:flex;
-  justify-content:space-between;
-  align-items:end;
-
-  margin:4px 4px 14px;
-}
-
-.day-title{
-  font-size:22px;
-  font-weight:900;
-  letter-spacing:-.04em;
-}
-
-.day-title span{
-  font-size:13px;
-  color:var(--blue);
-  margin-left:5px;
-}
-
-.day-total{
-  text-align:right;
-  font-size:12px;
-  color:var(--muted);
-}
-
-.day-total b{
-  display:block;
-  font-size:15px;
-  color:var(--blue);
-}
-
-/* =========================
-   CARD
-========================= */
-
-.card{
-  background:var(--card);
-
-  border:1px solid var(--line);
-  border-radius:18px;
-
-  box-shadow:var(--shadow);
-
-  margin:10px 0;
-
-  overflow:hidden;
-}
-
-/* =========================
-   SCHEDULE ITEM
-========================= */
-
-.item{
-  display:grid;
-  grid-template-columns:62px 1fr;
-  gap:10px;
-
-  padding:14px 15px;
-
-  border-bottom:1px solid var(--line);
-}
-
-.item:last-child{
-  border-bottom:0;
-}
-
-.time{
-  font-size:13px;
-  font-weight:900;
-  color:var(--blue);
-  padding-top:1px;
-}
-
-.content{
-  font-size:14px;
-}
-
-.content strong{
-  font-size:15px;
-}
-
-.detail{
-  font-size:12px;
-  color:var(--muted);
-  margin-top:3px;
-}
-
-.price{
-  font-size:12px;
-  font-weight:800;
-  color:#55717a;
-  margin-top:5px;
-}
-
-/* =========================
-   GOOGLE MAP BUTTON
-========================= */
-
-.map{
-  display:inline-block;
-
-  margin-top:7px;
-
-  padding:5px 9px;
-
-  border-radius:999px;
-
-  background:var(--blue2);
-  color:var(--blue);
-
-  font-size:11px;
-  font-weight:800;
-
-  text-decoration:none;
-}
-
-/* =========================
-   TIP
-========================= */
-
-.tip{
-  margin:11px 0;
-
-  padding:13px 14px;
-
-  border-radius:14px;
-
-  background:#f0f8fb;
-
-  border:1px solid #e0eef2;
-
-  color:#66808a;
-
-  font-size:12px;
-}
-
-.tip b{
-  color:#4e707b;
-}
-
-/* =========================
-   CHOICE
-========================= */
-
-.choice-wrap{
-  padding:14px;
-}
-
-.choice-title{
-  font-size:14px;
-  font-weight:900;
-  margin-bottom:10px;
-}
-
-.choices{
-  display:grid;
-  gap:9px;
-}
-
-.choice{
-  border:1px solid var(--line);
-
-  border-radius:14px;
-
-  padding:12px;
-
-  background:#fff;
-}
-
-.choice.recommended{
-  border-color:#bfe3ef;
-  background:#f7fcfe;
-}
-
-.choice-head{
-  display:flex;
-  justify-content:space-between;
-
-  font-weight:900;
-  font-size:14px;
-}
-
-.choice p{
-  margin:5px 0 0;
-
-  color:var(--muted);
-
-  font-size:12px;
-}
-
-.badge{
-  font-size:10px;
-
-  background:var(--blue2);
-  color:var(--blue);
-
-  padding:3px 7px;
-
-  border-radius:999px;
-}
-
-/* =========================
-   COST
-========================= */
-
-.cost{
-  padding:15px;
-}
-
-.cost-head{
-  display:flex;
-  justify-content:space-between;
-  align-items:center;
-
-  margin-bottom:8px;
-}
-
-.cost-head strong{
-  font-size:16px;
-}
-
-details summary{
-  cursor:pointer;
-
-  color:var(--blue);
-
-  font-size:12px;
-  font-weight:800;
-}
-
-.cost table{
-  width:100%;
-
-  border-collapse:collapse;
-
-  margin-top:10px;
-
-  font-size:12px;
-}
-
-.cost td{
-  padding:6px 0;
-
-  border-bottom:1px solid #edf2f4;
-}
-
-.cost td:last-child{
-  text-align:right;
-
-  font-weight:800;
-}
-
-.note{
-  font-size:11px;
-
-  color:#87989e;
-
-  margin-top:8px;
-}
-
-/* =========================
-   CHECKLIST
-========================= */
-
-.checks{
-  padding:14px;
-}
-
-.check{
-  display:flex;
-  align-items:center;
-
-  gap:9px;
-
-  font-size:13px;
-
-  margin:8px 0;
-
-  color:#526970;
-}
-
-.check input{
-  accent-color:var(--blue);
-
-  width:17px;
-  height:17px;
-}
-
-/* =========================
-   TOTAL
-========================= */
-
-.global{
-  margin-top:15px;
-}
-
-.totalbox{
-  background:
-    linear-gradient(
-      135deg,
-      #e9f8fd,
-      #f9fdff
-    );
-
-  border:1px solid #cfeaf2;
-
-  border-radius:18px;
-
-  padding:17px;
-}
-
-.totalbox h2{
-  font-size:18px;
-  margin:0 0 6px;
-}
-
-.big{
-  font-size:25px;
-
-  font-weight:950;
-
-  color:var(--blue);
-}
-
-.small{
-  font-size:12px;
-
-  color:var(--muted);
-}
-
-/* =========================
-   FOOTER
-========================= */
-
-.footer{
-  padding:20px 4px;
-
-  color:#8aa0a8;
-
-  font-size:11px;
-
-  text-align:center;
-}
-
-/* =========================
-   DESKTOP
-========================= */
-
-@media(min-width:600px){
-
-  main{
-    padding-left:0;
-    padding-right:0;
-  }
-
-  .tabs{
-    padding-left:
-      calc((100% - 720px)/2 + 12px);
-
-    padding-right:
-      calc((100% - 720px)/2 + 12px);
-  }
-
-}
-</style>
-</head>
-
-
-<body>
-
-<div class="app">
-
-<!-- =========================
-     HEADER
-========================= -->
-
-<header>
-
-  <div class="kicker">
-    Travel Mini App
-  </div>
-
-  <h1>
-    🇻🇳 NHA TRANG TRIP
-  </h1>
-
-  <div class="sub">
-    2026.08.29 — 09.03 · 2인 · 항공/숙박 제외
-  </div>
-
-</header>
-
-
-<!-- =========================
-     DATE TABS
-========================= -->
-
-<nav class="tabs" aria-label="날짜 선택">
-
-  <button
-    class="tab active"
-    data-day="d829">
-    8/29
-  </button>
-
-  <button
-    class="tab"
-    data-day="d830">
-    8/30
-  </button>
-
-  <button
-    class="tab"
-    data-day="d831">
-    8/31
-  </button>
-
-  <button
-    class="tab"
-    data-day="d901">
-    9/1
-  </button>
-
-  <button
-    class="tab"
-    data-day="d902">
-    9/2
-  </button>
-
-  <button
-    class="tab"
-    data-day="d903">
-    9/3
-  </button>
-
-</nav>
-
-
-<main>
-
-
-<!-- =====================================================
-     8/29
-===================================================== -->
-
-<section
-  class="day active"
-  id="d829">
-
-  <div class="day-head">
-
-    <div class="day-title">
-      8/29
-      <span>SAT</span>
-    </div>
-
-    <div class="day-total">
-      <b>0đ</b>
-      픽업택시 제외
-    </div>
-
-  </div>
-
-
-  <div class="card">
-
-
-    <div class="item">
-
-      <div class="time">
-        19:20
-      </div>
-
-      <div class="content">
-
-        <strong>
-          ✈️ 김해공항 출발
-        </strong>
-
-      </div>
-
-    </div>
-
-
-    <div class="item">
-
-      <div class="time">
-        22:20
-      </div>
-
-      <div class="content">
-
-        <strong>
-          🇻🇳 깜라인공항 도착
-        </strong>
-
-        <div class="detail">
-          입국심사 → 수하물 → 예약 픽업
-        </div>
-
-        <a
-          class="map"
-          href="https://www.google.com/maps/search/?api=1&query=Cam+Ranh+International+Airport"
-          target="_blank">
-
-          📍 지도
-
-        </a>
-
-      </div>
-
-    </div>
-
-
-    <div class="item">
-
-      <div class="time">
-        23:30
-      </div>
-
-      <div class="content">
-
-        <strong>
-          🚕 공항 → Four Points
-        </strong>
-
-        <div class="detail">
-          예약 픽업택시
-        </div>
-
-        <a
-          class="map"
-          href="https://www.google.com/maps/search/?api=1&query=Four+Points+by+Sheraton+Nha+Trang"
-          target="_blank">
-
-          📍 지도
-
-        </a>
-
-      </div>
-
-    </div>
-
-
-    <div class="item">
-
-      <div class="time">
-        00:20
-      </div>
-
-      <div class="content">
-
-        <strong>
-          🏨 체크인 → 샤워 → 취침
-        </strong>
-
-      </div>
-
-    </div>
-
-
-  </div>
-
-
-  <div class="tip">
-
-    💡 <b>오늘의 메모</b>
-
-    <br>
-
-    도착이 늦으니 아무 일정도 넣지 않기.
-    내일을 위해 바로 자자 😴
-
-  </div>
-
-</section>
-
-
-
-<!-- =====================================================
-     8/30
-===================================================== -->
-
-<section
-  class="day"
-  id="d830">
-
-
-  <div class="day-head">
-
-    <div class="day-title">
-      8/30
-      <span>SUN</span>
-    </div>
-
-    <div class="day-total">
-
-      <b>
-        약 326만đ
-      </b>
-
-      약 17.3만원
-
-    </div>
-
-  </div>
-
-
-  <div class="card">
-
-
-    <div class="item">
-
-      <div class="time">
-        07:30
-      </div>
-
-      <div class="content">
-
-        <strong>
-          ☀️ 기상
-        </strong>
-
-      </div>
-
-    </div>
-
-
-    <div class="item">
-
-      <div class="time">
-        08:00–08:45
-      </div>
-
-      <div class="content">
-
-        <strong>
-          🍳 호텔 조식
-        </strong>
-
-        <div class="detail">
-          숙박비 포함
-        </div>
-
-      </div>
-
-    </div>
-
-
-    <div class="item">
-
-      <div class="time">
-        09:00
-      </div>
-
-      <div class="content">
-
-        <strong>
-          🚕 롯데마트 골드코스트
-        </strong>
-
-        <div class="detail">
-          ATM · 환전 · 필요한 생필품만
-        </div>
-
-        <a
-          class="map"
-          href="https://www.google.com/maps/search/?api=1&query=Lotte+Mart+Gold+Coast+Nha+Trang"
-          target="_blank">
-
-          📍 지도
-
-        </a>
-
-      </div>
-
-    </div>
-
-
-    <div class="item">
-
-      <div class="time">
-        10:05–11:30
-      </div>
-
-      <div class="content">
-
-        <strong>
-          🛍️ 담시장
-        </strong>
-
-        <div class="detail">
-          구경 + 소량 쇼핑 · 쇼핑 약 20–50만đ
-        </div>
-
-        <a
-          class="map"
-          href="https://www.google.com/maps/search/?api=1&query=Dam+Market+Nha+Trang"
-          target="_blank">
-
-          📍 지도
-
-        </a>
-
-      </div>
-
-    </div>
-
-
-    <div class="item">
-
-      <div class="time">
-        12:00–13:00
-      </div>
-
-      <div class="content">
-
-        <strong>
-          🛏️ 호텔 휴식
-        </strong>
-
-      </div>
-
-    </div>
-
-
-    <div class="item">
-
-      <div class="time">
-        13:00–14:30
-      </div>
-
-      <div class="content">
-
-        <strong>
-          🍜 점심
-        </strong>
-
-        <div class="detail">
-          약 35–45만đ · ☕ 커피 10–15만đ
-        </div>
-
-      </div>
-
-    </div>
-
-
-    <div class="item">
-
-      <div class="time">
-        14:50–15:30
-      </div>
-
-      <div class="content">
-
-        <strong>
-          🛕 포나가르 참탑
-        </strong>
-
-        <div class="detail">
-          약 10만đ / 2인
-        </div>
-
-        <a
-          class="map"
-          href="https://www.google.com/maps/search/?api=1&query=Po+Nagar+Cham+Towers+Nha+Trang"
-          target="_blank">
-
-          📍 지도
-
-        </a>
-
-      </div>
-
-    </div>
-
-
-    <div class="item">
-
-      <div class="time">
-        16:00–17:30
-      </div>
-
-      <div class="content">
-
-        <strong>
-          💆 Sen Spa
-        </strong>
-
-        <span class="badge">
-          ✓ 예약완료
-        </span>
-
-        <div class="detail">
-          센시그니처 90분 · 2인 · 1,360,000đ
-        </div>
-
-        <a
-          class="map"
-          href="https://www.google.com/maps/search/?api=1&query=Sen+Spa+Nha+Trang"
-          target="_blank">
-
-          📍 지도
-
-        </a>
-
-      </div>
-
-    </div>
-
-
-    <div class="item">
-
-      <div class="time">
-        18:00–19:30
-      </div>
-
-      <div class="content">
-
-        <strong>
-          🍽️ 저녁
-        </strong>
-
-        <div class="detail">
-          현지에서 결정 · 약 45–55만đ
-        </div>
-
-      </div>
-
-    </div>
-
-
-  </div>
-
-
-  <div class="tip">
-
-    💡 <b>쇼핑 TIP</b>
-
-    <br>
-
-    담시장에서 과자 왕창 사지 말기 😂
-
-    본격적인 마트 쇼핑은 9/1 롯데마트에서!
-
-  </div>
-
-
-  <div class="card cost">
-
-    <div class="cost-head">
-
-      <strong>
-        💰 오늘 예상비용
-      </strong>
-
-      <span>
-        2인
-      </span>
-
-    </div>
-
-
-    <details>
-
-      <summary>
-        세부 내역 보기
-      </summary>
-
-
-      <table>
-
-        <tr>
-          <td>🍜 점심</td>
-          <td>400k</td>
-        </tr>
-
-        <tr>
-          <td>🍽️ 저녁</td>
-          <td>500k</td>
-        </tr>
-
-        <tr>
-          <td>☕ 커피</td>
-          <td>150k</td>
-        </tr>
-
-        <tr>
-          <td>🚕 Grab</td>
-          <td>450k</td>
-        </tr>
-
-        <tr>
-          <td>🛕 입장료</td>
-          <td>100k</td>
-        </tr>
-
-        <tr>
-          <td>💆 마사지</td>
-          <td>1,360k</td>
-        </tr>
-
-        <tr>
-          <td>🛍️ 쇼핑</td>
-          <td>300k</td>
-        </tr>
-
-      </table>
-
-    </details>
-
-  </div>
-
-</section>
-
-
-
-<!-- =====================================================
-     8/31
-===================================================== -->
-
-<section
-  class="day"
-  id="d831">
-
-
-  <div class="day-head">
-
-    <div class="day-title">
-
-      8/31
-      <span>MON</span>
-
-    </div>
-
-    <div class="day-total">
-
-      <b>
-        약 350만đ
-      </b>
-
-      약 18.6만원
-
-    </div>
-
-  </div>
-
-
-  <div class="card">
-
-
-    <div class="item">
-
-      <div class="time">
-        02:00
-      </div>
-
-      <div class="content">
-
-        <strong>
-          🌙 기상 & 준비
-        </strong>
-
-      </div>
-
-    </div>
-
-
-    <div class="item">
-
-      <div class="time">
-        02:30
-      </div>
-
-      <div class="content">
-
-        <strong>
-          🚐 판랑사막 투어 픽업
-        </strong>
-
-        <div class="detail">
-          2,000,000đ · 2인 · 후불 · 예약완료
-        </div>
-
-      </div>
-
-    </div>
-
-
-    <div class="item">
-
-      <div class="time">
-        ~05:00
-      </div>
-
-      <div class="content">
-
-        <strong>
-          🚐 나트랑 → 판랑
-        </strong>
-
-      </div>
-
-    </div>
-
-
-    <div class="item">
-
-      <div class="time">
-        05:00–07:00
-      </div>
-
-      <div class="content">
-
-        <strong>
-          🏜️ 판랑사막 일출
-        </strong>
-
-      </div>
-
-    </div>
-
-
-    <div class="item">
-
-      <div class="time">
-        07:00–10:00
-      </div>
-
-      <div class="content">
-
-        <strong>
-          🚐 호텔 복귀
-        </strong>
-
-        <div class="detail">
-          10시 전 도착하면 호텔 조식 · 이후 도착이면 간단히 먹고 휴식
-        </div>
-
-      </div>
-
-    </div>
-
-
-    <div class="item">
-
-      <div class="time">
-        10:00–13:00
-      </div>
-
-      <div class="content">
-
-        <strong>
-          😴 낮잠
-        </strong>
-
-        <div class="detail">
-          ⭐ 이날 핵심 일정
-        </div>
-
-      </div>
-
-    </div>
-
-
-    <div class="item">
-
-      <div class="time">
-        13:00–14:00
-      </div>
-
-      <div class="content">
-
-        <strong>
-          🍜 점심
-        </strong>
-
-        <div class="detail">
-          약 30–35만đ · ☕ 커피 10–15만đ
-        </div>
-
-      </div>
-
-    </div>
-
-
-  </div>
-
-
-  <div class="card choice-wrap">
-
-    <div class="choice-title">
-      🔀 오후는 컨디션 보고 선택!
-    </div>
-
-
-    <div class="choices">
-
-
-      <div class="choice">
-
-        <div class="choice-head">
-
-          <span>
-            🅰️ 패들보드
-          </span>
-
-          <span class="badge">
-            15:30 픽업
-          </span>
-
-        </div>
-
-        <p>
-          약 2시간 30분 · 선셋까지.
-          날씨 좋고 체력 괜찮으면!
-        </p>
-
-      </div>
-
-
-      <div class="choice recommended">
-
-        <div class="choice-head">
-
-          <span>
-            🅱️ 느슨한 시내구경 ⭐
-          </span>
-
-          <span class="badge">
-            추천
-          </span>
-
-        </div>
-
-        <p>
-          15:00–18:00 · 카페 → 쇼핑 → 해변.
-          관광지는 추가하지 않기.
-        </p>
-
-      </div>
-
-
-    </div>
-
-  </div>
-
-
-  <div class="card">
-
-
-    <div class="item">
-
-      <div class="time">
-        18:00–19:00
-      </div>
-
-      <div class="content">
-
-        <strong>
-          🌊 해변 산책
-        </strong>
-
-      </div>
-
-    </div>
-
-
-    <div class="item">
-
-      <div class="time">
-        19:00–20:30
-      </div>
-
-      <div class="content">
-
-        <strong>
-          🍽️ 저녁
-        </strong>
-
-        <div class="detail">
-          약 45–50만đ
-        </div>
-
-      </div>
-
-    </div>
-
-
-    <div class="item">
-
-      <div class="time">
-        20:30–21:30
-      </div>
-
-      <div class="content">
-
-        <strong>
-          🌙 나트랑 야시장
-        </strong>
-
-        <div class="detail">
-          간식/소품 약 10–30만đ
-        </div>
-
-        <a
-          class="map"
-          href="https://www.google.com/maps/search/?api=1&query=Nha+Trang+Night+Market"
-          target="_blank">
-
-          📍 지도
-
-        </a>
-
-      </div>
-
-    </div>
-
-
-    <div class="item">
-
-      <div class="time">
-        22:00
-      </div>
-
-      <div class="content">
-
-        <strong>
-          🏨 호텔 복귀
-        </strong>
-
-      </div>
-
-    </div>
-
-
-    <div class="item">
-
-      <div class="time">
-        22:30
-      </div>
-
-      <div class="content">
-
-        <strong>
-          😴 취침
-        </strong>
-
-      </div>
-
-    </div>
-
-
-  </div>
-
-
-  <div class="tip">
-
-    😴 <b>오늘의 메모</b>
-
-    <br>
-
-    새벽 2:30 픽업이라 오후 일정은 욕심내지 않기ㅋㅋ
-
-    패들보드는 당일 체력 보고 결정!
-
-  </div>
-
-
-</section>
-
-
-
-<!-- =====================================================
-     9/1
-===================================================== -->
-
-<section
-  class="day"
-  id="d901">
-
-
-  <div class="day-head">
-
-    <div class="day-title">
-      9/1
-      <span>TUE</span>
-    </div>
-
-    <div class="day-total">
-
-      <b>
-        약 405만đ
-      </b>
-
-      약 21.5만원
-
-    </div>
-
-  </div>
-
-
-  <div class="card">
-
-
-    <div class="item">
-
-      <div class="time">
-        08:30–09:30
-      </div>
-
-      <div class="content">
-
-        <strong>
-          🍳 호텔 조식
-        </strong>
-
-      </div>
-
-    </div>
-
-
-    <div class="item">
-
-      <div class="time">
-        09:30–10:30
-      </div>
-
-      <div class="content">
-
-        <strong>
-          🧳 짐 정리
-        </strong>
-
-      </div>
-
-    </div>
-
-
-    <div class="item">
-
-      <div class="time">
-        10:30
-      </div>
-
-      <div class="content">
-
-        <strong>
-          🏨 체크아웃
-        </strong>
-
-        <div class="detail">
-          짐은 호텔에 보관
-        </div>
-
-      </div>
-
-    </div>
-
-
-    <div class="item">
-
-      <div class="time">
-        11:00–12:30
-      </div>
-
-      <div class="content">
-
-        <strong>
-          🌊 혼총곶 + 혼총비치
-        </strong>
-
-        <div class="detail">
-          입장료 등 약 10만đ
-        </div>
-
-        <a
-          class="map"
-          href="https://www.google.com/maps/search/?api=1&query=Hon+Chong+Promontory+Nha+Trang"
-          target="_blank">
-
-          📍 지도
-
-        </a>
-
-      </div>
-
-    </div>
-
-
-    <div class="item">
-
-      <div class="time">
-        12:30
-      </div>
-
-      <div class="content">
-
-        <strong>
-          ☕ 혼총 근처 카페
-        </strong>
-
-        <div class="detail">
-          약 15만đ
-        </div>
-
-      </div>
-
-    </div>
-
-
-    <div class="item">
-
-      <div class="time">
-        12:30–13:30
-      </div>
-
-      <div class="content">
-
-        <strong>
-          🛒 롯데마트 본격 쇼핑
-        </strong>
-
-        <div class="detail">
-          쇼핑 예산 약 200만đ
-        </div>
-
-        <a
-          class="map"
-          href="https://www.google.com/maps/search/?api=1&query=Lotte+Mart+Gold+Coast+Nha+Trang"
-          target="_blank">
-
-          📍 지도
-
-        </a>
-
-      </div>
-
-    </div>
-
-
-    <div class="item">
-
-      <div class="time">
-        13:30–14:30
-      </div>
-
-      <div class="content">
-
-        <strong>
-          🍜 점심
-        </strong>
-
-        <div class="detail">
-          약 35–45만đ
-        </div>
-
-      </div>
-
-    </div>
-
-
-    <div class="item">
-
-      <div class="time">
-        14:30–15:00
-      </div>
-
-      <div class="content">
-
-        <strong>
-          🚕 롯데마트 → Four Points
-        </strong>
-
-        <div class="detail">
-          짐 찾기
-        </div>
-
-      </div>
-
-    </div>
-
-
-    <div class="item">
-
-      <div class="time">
-        15:00–16:00
-      </div>
-
-      <div class="content">
-
-        <strong>
-          🚕 Four Points → The Anam
-        </strong>
-
-        <div class="detail">
-          Grab 약 30만đ 전후
-        </div>
-
-        <a
-          class="map"
-          href="https://www.google.com/maps/search/?api=1&query=The+Anam+Cam+Ranh"
-          target="_blank">
-
-          📍 지도
-
-        </a>
-
-      </div>
-
-    </div>
-
-
-    <div class="item">
-
-      <div class="time">
-        16:00–18:00
-      </div>
-
-      <div class="content">
-
-        <strong>
-          🏊 체크인 + 수영장 + 해변
-        </strong>
-
-      </div>
-
-    </div>
-
-
-    <div class="item">
-
-      <div class="time">
-        18:30–20:00
-      </div>
-
-      <div class="content">
-
-        <strong>
-          🍽️ 저녁
-        </strong>
-
-        <div class="detail">
-          리조트/배달 · 약 80–100만đ
-        </div>
-
-      </div>
-
-    </div>
-
-
-  </div>
-
-
-  <div class="tip">
-
-    🛒 <b>쇼핑 TIP</b>
-
-    <br>
-
-    커피 · 과자 · 건과일 · 라면 · 코코넛 제품 · 치약 · 선크림 · 바디제품 · 기념품
-
-    <br>
-
-    약국/마트 쇼핑리스트도 오늘 몰아서!
-
-  </div>
-
-
-  <div class="card cost">
-
-    <div class="cost-head">
-
-      <strong>
-        💰 오늘 예상비용
-      </strong>
-
-      <span>
-        2인
-      </span>
-
-    </div>
-
-
-    <details>
-
-      <summary>
-        세부 내역 보기
-      </summary>
-
-
-      <table>
-
-        <tr>
-          <td>🍜 점심</td>
-          <td>400k</td>
-        </tr>
-
-        <tr>
-          <td>☕ 카페</td>
-          <td>150k</td>
-        </tr>
-
-        <tr>
-          <td>🍽️ 저녁</td>
-          <td>900k</td>
-        </tr>
-
-        <tr>
-          <td>🚕 Grab</td>
-          <td>500k</td>
-        </tr>
-
-        <tr>
-          <td>🌊 입장료</td>
-          <td>100k</td>
-        </tr>
-
-        <tr>
-          <td>🛍️ 롯데마트</td>
-          <td>2,000k</td>
-        </tr>
-
-      </table>
-
-
-      <div class="note">
-        쇼핑 제외 시 약 205만đ
-      </div>
-
-    </details>
-
-  </div>
-
-
-</section>
-
-
-
-<!-- =====================================================
-     9/2
-===================================================== -->
-
-<section
-  class="day"
-  id="d902">
-
-
-  <div class="day-head">
-
-    <div class="day-title">
-
-      9/2
-      <span>WED</span>
-
-    </div>
-
-    <div class="day-total">
-
-      <b>
-        약 205만đ
-      </b>
-
-      약 10.9만원
-
-    </div>
-
-  </div>
-
-
-  <div class="tip">
-
-    🇻🇳 <b>독립기념일</b>
-
-    <br>
-
-    시내는 붐빌 수 있으니 오늘은 굳이 외출하지 않고
-    The Anam에서 제대로 쉬기 🏝️
-
-  </div>
-
-
-  <div class="card">
-
-
-    <div class="item">
-
-      <div class="time">
-        07:30–09:00
-      </div>
-
-      <div class="content">
-
-        <strong>
-          🍳 조식
-        </strong>
-
-      </div>
-
-    </div>
-
-
-    <div class="item">
-
-      <div class="time">
-        09:00–11:30
-      </div>
-
-      <div class="content">
-
-        <strong>
-          🏊 수영장
-        </strong>
-
-      </div>
-
-    </div>
-
-
-    <div class="item">
-
-      <div class="time">
-        11:30–13:00
-      </div>
-
-      <div class="content">
-
-        <strong>
-          🍔 Beach Club 점심
-        </strong>
-
-        <div class="detail">
-          Wagyu Beef Burger / Seafood Rigatoni /
-          Pizza 등 · 약 100만đ
-        </div>
-
-      </div>
-
-    </div>
-
-
-    <div class="item">
-
-      <div class="time">
-        13:00–15:30
-      </div>
-
-      <div class="content">
-
-        <strong>
-          😴 객실 휴식
-        </strong>
-
-      </div>
-
-    </div>
-
-
-    <div class="item">
-
-      <div class="time">
-        15:30–17:30
-      </div>
-
-      <div class="content">
-
-        <strong>
-          🏊 수영장
-        </strong>
-
-      </div>
-
-    </div>
-
-
-    <div class="item">
-
-      <div class="time">
-        17:30–18:30
-      </div>
-
-      <div class="content">
-
-        <strong>
-          🌅 해변 산책 + 선셋
-        </strong>
-
-      </div>
-
-    </div>
-
-
-    <div class="item">
-
-      <div class="time">
-        19:00–20:30
-      </div>
-
-      <div class="content">
-
-        <strong>
-          🍽️ 저녁
-        </strong>
-
-        <div class="detail">
-          배달/룸서비스 추천 · 약 80–100만đ
-        </div>
-
-      </div>
-
-    </div>
-
-
-  </div>
-
-
-  <div class="tip">
-
-    💡 <b>오늘은 욕심내지 않기</b>
-
-    <br>
-
-    수영 → 밥 → 낮잠 → 수영 → 선셋.
-    이 정도면 성공한 하루ㅋㅋ
-
-  </div>
-
-
-</section>
-
-
-
-<!-- =====================================================
-     9/3
-===================================================== -->
-
-<section
-  class="day"
-  id="d903">
-
-
-  <div class="day-head">
-
-    <div class="day-title">
-
-      9/3
-      <span>THU</span>
-
-    </div>
-
-    <div class="day-total">
-
-      <b>
-        약 160만đ
-      </b>
-
-      약 8.5만원
-
-    </div>
-
-  </div>
-
-
-  <div class="card">
-
-
-    <div class="item">
-
-      <div class="time">
-        07:30–09:00
-      </div>
-
-      <div class="content">
-
-        <strong>
-          🍳 The Anam 조식
-        </strong>
-
-      </div>
-
-    </div>
-
-
-    <div class="item">
-
-      <div class="time">
-        09:00–11:00
-      </div>
-
-      <div class="content">
-
-        <strong>
-          🧳 짐 정리 + 객실 휴식
-        </strong>
-
-      </div>
-
-    </div>
-
-
-    <div class="item">
-
-      <div class="time">
-        11:00–12:00
-      </div>
-
-      <div class="content">
-
-        <strong>
-          🚿 마지막 샤워 & 체크아웃 준비
-        </strong>
-
-      </div>
-
-    </div>
-
-
-    <div class="item">
-
-      <div class="time">
-        12:00
-      </div>
-
-      <div class="content">
-
-        <strong>
-          🏨 체크아웃
-        </strong>
-
-        <div class="detail">
-          짐은 카운터에 보관
-        </div>
-
-      </div>
-
-    </div>
-
-
-  </div>
-
-
-  <div class="card choice-wrap">
-
-    <div class="choice-title">
-      🔀 오후는 상황 보고 선택!
-    </div>
-
-
-    <div class="choices">
-
-
-      <div class="choice recommended">
-
-        <div class="choice-head">
-
-          <span>
-            🅰️ 깜란 & Bãi Dài ⭐⭐⭐⭐⭐
-          </span>
-
-          <span class="badge">
-            추천
-          </span>
-
-        </div>
-
-        <p>
-          12:30 점심 → 카페 → 해변 →
-          18:00 짐 찾기 → 저녁 → 공항
-        </p>
-
-      </div>
-
-
-      <div class="choice">
-
-        <div class="choice-head">
-
-          <span>
-            🅱️ 나트랑 시내
-          </span>
-
-        </div>
-
-        <p>
-          못 가본 곳 + 점심 + 카페.
-          단, 이동이 많아 조금 피곤할 수 있음.
-        </p>
-
-      </div>
-
-
-      <div class="choice">
-
-        <div class="choice-head">
-
-          <span>
-            🅲️ 깜란 시내
-          </span>
-
-        </div>
-
-        <p>
-          가볍게 구경 + 식사.
-          관광지는 많지 않음.
-        </p>
-
-      </div>
-
-
-    </div>
-
-  </div>
-
-
-  <div class="card">
-
-
-    <div class="item">
-
-      <div class="time">
-        12:30–14:00
-      </div>
-
-      <div class="content">
-
-        <strong>
-          🍜 점심
-        </strong>
-
-        <div class="detail">
-          약 50만đ
-        </div>
-
-      </div>
-
-    </div>
-
-
-    <div class="item">
-
-      <div class="time">
-        14:00–16:00
-      </div>
-
-      <div class="content">
-
-        <strong>
-          ☕ 카페 + 휴식
-        </strong>
-
-        <div class="detail">
-          약 15만đ
-        </div>
-
-      </div>
-
-    </div>
-
-
-    <div class="item">
-
-      <div class="time">
-        16:00–17:30
-      </div>
-
-      <div class="content">
-
-        <strong>
-          🌊 Bãi Dài 해변
-        </strong>
-
-        <a
-          class="map"
-          href="https://www.google.com/maps/search/?api=1&query=Bai+Dai+Beach+Cam+Ranh"
-          target="_blank">
-
-          📍 지도
-
-        </a>
-
-      </div>
-
-    </div>
-
-
-    <div class="item">
-
-      <div class="time">
-        17:30–18:30
-      </div>
-
-      <div class="content">
-
-        <strong>
-          🧳 호텔 복귀 → 짐 찾기
-        </strong>
-
-        <a
-          class="map"
-          href="https://www.google.com/maps/search/?api=1&query=The+Anam+Cam+Ranh"
-          target="_blank">
-
-          📍 지도
-
-        </a>
-
-      </div>
-
-    </div>
-
-
-    <div class="item">
-
-      <div class="time">
-        18:30–19:30
-      </div>
-
-      <div class="content">
-
-        <strong>
-          🍽️ 저녁
-        </strong>
-
-        <div class="detail">
-          약 60만đ
-        </div>
-
-      </div>
-
-    </div>
-
-
-    <div class="item">
-
-      <div class="time">
-        19:30–20:00
-      </div>
-
-      <div class="content">
-
-        <strong>
-          🚕 The Anam → 공항
-        </strong>
-
-        <div class="detail">
-          Grab 약 30만đ 전후
-        </div>
-
-        <a
-          class="map"
-          href="https://www.google.com/maps/search/?api=1&query=Cam+Ranh+International+Airport"
-          target="_blank">
-
-          📍 지도
-
-        </a>
-
-      </div>
-
-    </div>
-
-
-    <div class="item">
-
-      <div class="time">
-        20:00
-      </div>
-
-      <div class="content">
-
-        <strong>
-          ✈️ 공항 도착
-        </strong>
-
-        <div class="detail">
-          23:20 귀국편 · 여유롭게 대기
-        </div>
-
-      </div>
-
-    </div>
-
-
-  </div>
-
-
-  <div class="tip">
-
-    ✈️ <b>마지막 날 메모</b>
-
-    <br>
-
-    12시 체크아웃 후 리조트에 머무는 건 X.
-    짐만 맡기고 밖에서 시간 보내기!
-
-    <br>
-
-    공항은 늦어도 21시까지 도착 목표.
-
-  </div>
-
-
-</section>
-
-
-
-<!-- =====================================================
-     TOTAL BUDGET
-===================================================== -->
-
-<div class="global totalbox">
-
-  <h2>
-    💰 여행 예산 · 2인
-  </h2>
-
-  <div class="big">
-    약 1,446만đ · 약 76.7만원
-  </div>
-
-  <div class="small">
-    항공·호텔 제외 · 쇼핑 약 250만đ 포함 ·
-    8/29 픽업택시 비용 제외
-  </div>
-
-  <div class="note">
-    🛍️ 쇼핑 제외 순수 여행비 약 1,196만đ ·
-    패들보드 선택 시 별도 추가
-  </div>
-
-</div>
-
-
-
-<!-- =====================================================
-     CHECKLIST
-===================================================== -->
-
-<div class="card checks">
-
-  <strong>
-    🧳 여행 중 체크리스트
-  </strong>
-
-
-  <label class="check">
-
-    <input type="checkbox">
-
-    ATM 현금 인출
-
-  </label>
-
-
-  <label class="check">
-
-    <input type="checkbox">
-
-    환전
-
-  </label>
-
-
-  <label class="check">
-
-    <input type="checkbox">
-
-    담시장 소량 쇼핑
-
-  </label>
-
-
-  <label class="check">
-
-    <input type="checkbox">
-
-    9/1 롯데마트 쇼핑
-
-  </label>
-
-
-  <label class="check">
-
-    <input type="checkbox">
-
-    약국/마트 쇼핑리스트 확인
-
-  </label>
-
-
-  <label class="check">
-
-    <input type="checkbox">
-
-    귀국 전 짐/여권/충전기 확인
-
-  </label>
-
-</div>
-
-
-
-<div class="footer">
-
-  NHA TRANG · travel with good vibes 🌊
-
-</div>
-
-
-</main>
-
-</div>
-
-
-<!-- =========================
-     JAVASCRIPT
-========================= -->
-
-<script>
-
-const tabs =
-  [...document.querySelectorAll(".tab")];
-
-const days =
-  [...document.querySelectorAll(".day")];
-
-
-function showDay(id){
-
-  days.forEach(day => {
-
-    day.classList.toggle(
-      "active",
-      day.id === id
-    );
-
-  });
-
-
-  tabs.forEach(tab => {
-
-    tab.classList.toggle(
-      "active",
-      tab.dataset.day === id
-    );
-
-  });
-
-
-  window.scrollTo({
-    top:0,
-    behavior:"smooth"
-  });
-
-}
-
-
-tabs.forEach(tab => {
-
-  tab.addEventListener(
-    "click",
-    () => showDay(tab.dataset.day)
-  );
-
-});
-
-</script>
-
-</body>
-</html><!DOCTYPE html>
+<!DOCTYPE html>
 <html lang="ko">
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
-  <title>🇻🇳 NHA TRANG TRIP</title>
+  <title>🇻🇳 CHOI & KWAK IN NHA TRANG</title>
   <style>
     :root {
       --primary: #0284c7;
@@ -2549,13 +25,45 @@ tabs.forEach(tab => {
     * { box-sizing: border-box; margin: 0; padding: 0; font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif; -webkit-tap-highlight-color: transparent; }
     body { background-color: var(--bg); color: var(--text); padding-bottom: 60px; }
 
-    /* Sticky Header */
-    header { background: linear-gradient(135deg, #0284c7, #0f766e); color: #fff; padding: 14px 16px 10px; text-align: center; position: sticky; top: 0; z-index: 100; box-shadow: 0 2px 6px rgba(0,0,0,0.08); }
-    header h1 { font-size: 1.05rem; font-weight: 800; letter-spacing: 0.5px; }
-    header p { font-size: 0.72rem; opacity: 0.9; margin-top: 1px; }
+    /* Custom Stylish Header */
+    header { 
+      background: linear-gradient(135deg, #0284c7 0%, #0d9488 100%); 
+      color: #fff; 
+      padding: 16px 16px 12px; 
+      text-align: center; 
+      position: sticky; 
+      top: 0; 
+      z-index: 100; 
+      box-shadow: 0 3px 10px rgba(2, 132, 199, 0.25); 
+    }
+    .app-badge {
+      display: inline-block;
+      font-size: 0.65rem;
+      font-weight: 800;
+      letter-spacing: 1.5px;
+      color: #e0f2fe;
+      background: rgba(255, 255, 255, 0.18);
+      padding: 2px 9px;
+      border-radius: 12px;
+      margin-bottom: 4px;
+      backdrop-filter: blur(4px);
+    }
+    header h1 { 
+      font-size: 1.15rem; 
+      font-weight: 800; 
+      letter-spacing: -0.2px; 
+      margin-bottom: 2px;
+      text-shadow: 0 1px 3px rgba(0,0,0,0.15);
+    }
+    .header-date { 
+      font-size: 0.74rem; 
+      opacity: 0.95; 
+      font-weight: 500;
+      letter-spacing: 0.3px;
+    }
 
-    /* Compact 2-Row Tab Grid (No Horizontal Scroll) */
-    .tabs-grid { display: grid; grid-template-columns: repeat(4, 1fr); gap: 5px; padding: 8px 10px; background: #ffffff; position: sticky; top: 52px; z-index: 99; border-bottom: 1px solid var(--border); }
+    /* 2-Row Full Screen Tab Grid */
+    .tabs-grid { display: grid; grid-template-columns: repeat(4, 1fr); gap: 5px; padding: 8px 10px; background: #ffffff; position: sticky; top: 68px; z-index: 99; border-bottom: 1px solid var(--border); }
     .tab-btn { background: #f1f5f9; border: 1px solid transparent; padding: 7px 2px; border-radius: 8px; font-size: 0.75rem; font-weight: 600; color: var(--sub-text); text-align: center; cursor: pointer; transition: all 0.15s ease; }
     .tab-btn.active { background: var(--primary); color: #fff; font-weight: 700; box-shadow: 0 2px 5px rgba(2,132,199,0.3); }
 
@@ -2565,9 +73,12 @@ tabs.forEach(tab => {
     .day-content.active { display: block; animation: fadeIn 0.2s ease-in-out; }
     @keyframes fadeIn { from { opacity: 0; transform: translateY(3px); } to { opacity: 1; transform: translateY(0); } }
 
-    /* Day Title */
-    .day-header { font-size: 1rem; font-weight: 800; color: var(--primary-dark); margin-bottom: 10px; display: flex; align-items: center; justify-content: space-between; }
+    /* Day Header & Route Map Button */
+    .day-header { font-size: 1rem; font-weight: 800; color: var(--primary-dark); margin-bottom: 8px; display: flex; align-items: center; justify-content: space-between; }
     .day-header span { font-size: 0.75rem; font-weight: 600; color: var(--sub-text); background: #e2e8f0; padding: 2px 6px; border-radius: 4px; }
+    
+    .all-map-btn { display: flex; align-items: center; justify-content: center; gap: 6px; width: 100%; background: #0284c7; color: #fff; font-size: 0.8rem; font-weight: 700; padding: 9px 12px; border-radius: 8px; text-decoration: none; margin-bottom: 12px; box-shadow: 0 2px 4px rgba(2,132,199,0.25); }
+    .all-map-btn:active { background: #0369a1; }
 
     /* Timeline & Cards */
     .timeline { position: relative; padding-left: 14px; border-left: 2px dashed #cbd5e1; margin-left: 6px; margin-bottom: 14px; }
@@ -2579,6 +90,9 @@ tabs.forEach(tab => {
     .event-time { font-size: 0.72rem; font-weight: 700; color: var(--primary-dark); margin-bottom: 2px; }
     .event-title { font-size: 0.88rem; font-weight: 700; color: var(--text); margin-bottom: 3px; display: flex; align-items: center; justify-content: space-between; flex-wrap: wrap; gap: 4px; }
     .event-desc { font-size: 0.78rem; color: #334155; line-height: 1.45; }
+
+    /* Inline Item Tip */
+    .inline-tip { background: var(--tip-bg); border-left: 3px solid var(--accent); border-radius: 4px; padding: 5px 8px; margin-top: 6px; font-size: 0.72rem; color: var(--tip-text); line-height: 1.4; }
 
     /* Badges */
     .badge { display: inline-block; font-size: 0.68rem; font-weight: 600; padding: 2px 6px; border-radius: 4px; }
@@ -2601,20 +115,25 @@ tabs.forEach(tab => {
     .plan-box { background: #f8fafc; border-radius: 8px; padding: 8px 10px; border: 1px solid var(--border); }
     .plan-title { font-size: 0.8rem; font-weight: 700; color: var(--primary-dark); margin-bottom: 2px; }
 
-    /* Cute Pastel Tip Card */
-    .tip-card { background: var(--tip-bg); border: 1px solid var(--tip-border); border-radius: 10px; padding: 10px 12px; margin-bottom: 12px; font-size: 0.75rem; color: var(--tip-text); line-height: 1.5; }
-    .tip-card strong { display: block; font-size: 0.78rem; margin-bottom: 3px; color: #b45309; }
-
-    /* Expense Card & Details */
+    /* Expense CRUD Card */
     .cost-card { background: #fff; border-radius: 10px; padding: 12px; border: 1px solid var(--border); margin-bottom: 12px; }
-    .cost-row { display: flex; justify-content: space-between; align-items: center; font-size: 0.8rem; margin-bottom: 6px; }
+    .cost-row { display: flex; justify-content: space-between; align-items: center; font-size: 0.8rem; }
     .cost-row.main { font-weight: 700; color: var(--primary-dark); font-size: 0.85rem; border-bottom: 1px solid #f1f5f9; padding-bottom: 6px; margin-bottom: 8px; }
-    .actual-input-wrap { display: flex; align-items: center; gap: 4px; }
-    .actual-input { width: 95px; padding: 4px 6px; font-size: 0.8rem; border: 1px solid #cbd5e1; border-radius: 4px; text-align: right; font-weight: 600; color: #b91c1c; }
     
-    details.cost-details { margin-top: 8px; border-top: 1px dashed #e2e8f0; padding-top: 6px; }
-    details.cost-details summary { font-size: 0.72rem; color: var(--sub-text); cursor: pointer; font-weight: 600; outline: none; }
-    details.cost-details ul { margin-left: 16px; margin-top: 6px; font-size: 0.74rem; color: #475569; line-height: 1.5; }
+    .expense-list { margin-top: 8px; }
+    .expense-item { display: flex; gap: 6px; align-items: center; margin-bottom: 6px; }
+    .expense-item input[type="text"] { flex: 1.4; padding: 5px 6px; font-size: 0.78rem; border: 1px solid #cbd5e1; border-radius: 4px; }
+    .expense-item input[type="number"] { flex: 1; padding: 5px 6px; font-size: 0.78rem; border: 1px solid #cbd5e1; border-radius: 4px; text-align: right; }
+    .del-btn { background: #fee2e2; border: 1px solid #fca5a5; color: #b91c1c; border-radius: 4px; padding: 4px 7px; font-size: 0.72rem; cursor: pointer; }
+    .add-expense-btn { width: 100%; background: #f8fafc; border: 1px dashed #94a3b8; color: var(--primary); font-size: 0.75rem; font-weight: 700; padding: 6px; border-radius: 6px; cursor: pointer; margin-top: 4px; }
+    .day-subtotal { margin-top: 8px; padding-top: 6px; border-top: 1px solid #e2e8f0; font-size: 0.8rem; font-weight: 700; color: #b91c1c; display: flex; justify-content: space-between; }
+
+    /* Vietnamese Phrase Card */
+    .phrase-category { font-size: 0.8rem; font-weight: 700; color: var(--primary-dark); margin: 10px 0 6px; border-bottom: 1px solid #e2e8f0; padding-bottom: 2px; }
+    .phrase-item { background: #f8fafc; border: 1px solid #e2e8f0; border-radius: 6px; padding: 8px 10px; margin-bottom: 6px; position: relative; }
+    .phrase-ko { font-size: 0.8rem; font-weight: 700; color: #0f172a; }
+    .phrase-vi { font-size: 0.82rem; color: #0369a1; font-weight: 700; margin-top: 2px; }
+    .phrase-pron { font-size: 0.73rem; color: #b45309; margin-top: 1px; }
 
     /* Utilities & Total Tab */
     .card { background: #fff; border-radius: 10px; padding: 12px; border: 1px solid var(--border); margin-bottom: 10px; }
@@ -2640,8 +159,9 @@ tabs.forEach(tab => {
 <body>
 
 <header>
-  <h1>🇻🇳 NHA TRANG TRIP</h1>
-  <p>08.29 — 09.03 | 2인 여행</p>
+  <div class="app-badge">🌴 TRAVEL MINI APP</div>
+  <h1>🇻🇳 CHOI & KWAK IN NHA TRANG</h1>
+  <p class="header-date">🗓️ 2026.08.29 — 09.03</p>
 </header>
 
 <!-- 2-Row Full Screen Tab Grid -->
@@ -2652,8 +172,8 @@ tabs.forEach(tab => {
   <button class="tab-btn" onclick="openTab(event, 'day4')">9/1 (월)</button>
   <button class="tab-btn" onclick="openTab(event, 'day5')">9/2 (화)</button>
   <button class="tab-btn" onclick="openTab(event, 'day6')">9/3 (수)</button>
-  <button class="tab-btn" onclick="openTab(event, 'total')">💰 TOTAL</button>
-  <button class="tab-btn" onclick="openTab(event, 'tools')">🧰 편의도구</button>
+  <button class="tab-btn" onclick="openTab(event, 'total')">💰 정산/가계부</button>
+  <button class="tab-btn" onclick="openTab(event, 'tools')">🗣️ 회화·도구</button>
 </div>
 
 <div class="container">
@@ -2662,18 +182,22 @@ tabs.forEach(tab => {
   <div id="day1" class="day-content active">
     <div class="day-header">✈️ 8/29 FRI <span>출국 & 입국</span></div>
 
+    <a class="all-map-btn" href="https://www.google.com/maps/dir/Cam+Ranh+International+Airport/Four+Points+by+Sheraton+Nha+Trang" target="_blank">
+      📍 오늘 일정 코스 한눈에 보기
+    </a>
+
     <div class="timeline">
       <div class="event-card">
         <span class="event-time">19:20 ~ 22:20</span>
         <div class="event-title">김해공항 출발 ✈️ 깜란공항 도착</div>
-        <div class="event-desc">입국심사 $\rightarrow$ 수하물 수령 $\rightarrow$ 예약 픽업택시 미팅</div>
+        <div class="event-desc">입국심사 → 수하물 수령 → 예약 픽업택시 미팅</div>
         <a class="map-btn" href="https://www.google.com/maps/search/?api=1&query=Cam+Ranh+International+Airport" target="_blank">📍 Google Maps</a>
       </div>
 
       <div class="event-card">
         <span class="event-time">23:30 ~ 00:20</span>
         <div class="event-title"><span class="badge badge-taxi">픽업택시 약 45분</span> 호텔로 이동</div>
-        <div class="event-desc">공항 $\rightarrow$ Four Points by Sheraton Nha Trang</div>
+        <div class="event-desc">공항 → Four Points by Sheraton Nha Trang</div>
       </div>
 
       <div class="event-card">
@@ -2681,25 +205,22 @@ tabs.forEach(tab => {
         <div class="event-title">호텔 체크인 & 취침 💤</div>
         <div class="event-desc">체크인 후 가볍게 샤워하고 바로 취침</div>
         <a class="map-btn" href="https://www.google.com/maps/search/?api=1&query=Four+Points+by+Sheraton+Nha+Trang" target="_blank">📍 Google Maps</a>
+        <div class="inline-tip">💡 <b>TIP:</b> 오늘은 아무 일정 없이 푹 자는 게 최고 목표! 내일부터 체력 충전해서 신나게 놀기 🌙</div>
       </div>
     </div>
 
-    <div class="tip-card">
-      <strong>💡 TIP</strong>
-      오늘은 푹 자는 게 최고 목표! 내일부터 체력 충전해서 신나게 놀기 🌙
-    </div>
-
+    <!-- Day 1 Expense CRUD -->
     <div class="cost-card">
       <div class="cost-row main">
-        <span>💰 오늘 예상</span>
-        <span>0동 (픽업비 별도)</span>
+        <span>💰 오늘 예상 : 0동</span>
+        <span style="font-size:0.75rem; color:var(--sub-text);">픽업비 별도</span>
       </div>
-      <div class="cost-row">
-        <span>💳 실제 지출</span>
-        <div class="actual-input-wrap">
-          <input type="text" id="cost_d1" class="actual-input" placeholder="0" oninput="saveAndSumCosts()">
-          <span>동</span>
-        </div>
+      <div style="font-size:0.78rem; font-weight:700; color:var(--text); margin-bottom:4px;">💳 실제 지출 가계부</div>
+      <div id="expense_list_1" class="expense-list"></div>
+      <button class="add-expense-btn" onclick="addExpenseRow(1)">+ 지출 항목 추가</button>
+      <div class="day-subtotal">
+        <span>오늘 지출 합계:</span>
+        <span id="subtotal_1">0 동</span>
       </div>
     </div>
   </div>
@@ -2707,6 +228,10 @@ tabs.forEach(tab => {
   <!-- DAY 2 -->
   <div id="day2" class="day-content">
     <div class="day-header">🌴 8/30 SAT <span>환전·시장·포나가르·마사지</span></div>
+
+    <a class="all-map-btn" href="https://www.google.com/maps/dir/Four+Points+by+Sheraton+Nha+Trang/Lotte+Mart+Gold+Coast+Nha+Trang/Cho+Dam+Nha+Trang/Ponagar+Tower+Nha+Trang/Sen+Spa+Nha+Trang" target="_blank">
+      📍 오늘 일정 코스 한눈에 보기
+    </a>
 
     <div class="timeline">
       <div class="event-card">
@@ -2720,13 +245,15 @@ tabs.forEach(tab => {
         <div class="event-title">🏧 롯데마트 골드코스트</div>
         <div class="event-desc">ATM 현금 인출 & 환전 & 필수 생필품만 확인</div>
         <a class="map-btn" href="https://www.google.com/maps/search/?api=1&query=Lotte+Mart+Gold+Coast+Nha+Trang" target="_blank">📍 Google Maps</a>
+        <div class="inline-tip">💡 <b>TIP:</b> 본격적인 대량 마트 쇼핑은 9/1에 할 예정! 오늘은 필요한 생필품만 가볍게 사기 😂</div>
       </div>
 
       <div class="event-card">
         <span class="event-time">10:05 ~ 11:30</span>
         <div class="event-title"><span class="badge badge-taxi">🚕 Grab 약 40k</span> 🛍️ 담시장</div>
-        <div class="event-desc">시장 구경 및 원피스/라탄백 소량 쇼핑</div>
+        <div class="event-desc">시장 구경 및 원피스/라탄백/크록스 소량 쇼핑</div>
         <a class="map-btn" href="https://www.google.com/maps/search/?api=1&query=Cho+Dam+Nha+Trang" target="_blank">📍 Google Maps</a>
+        <div class="inline-tip">💡 <b>TIP:</b> 담시장에서 과자나 커피를 왕창 사지 말기! 9/1 롯데마트에서 캐리어 채우는 게 훨씬 안전하고 저렴함.</div>
       </div>
 
       <div class="event-card">
@@ -2754,8 +281,14 @@ tabs.forEach(tab => {
       <div class="event-card important">
         <span class="event-time">16:00 ~ 17:30</span>
         <div class="event-title"><span class="badge badge-taxi">🚕 Grab 약 30k</span> 💆 Sen Spa <span class="badge badge-confirmed">✓ 예약완료</span></div>
-        <div class="event-desc">센시그니처 90분 / 2인 (정가 136만동 $\rightarrow$ 현금할인 확인!)</div>
+        <div class="event-desc">
+          센시그니처 90분 / 2인 (정가 1,360,000동)<br>
+          <b>💵 현금 결제 할인 시 지불 예정액:</b><br>
+          • 10% 할인 시 → <b>1,224,000동</b> (약 6.5만원)<br>
+          • 20% 할인 시 → <b>1,088,000동</b> (약 5.8만원)
+        </div>
         <a class="map-btn" href="https://www.google.com/maps/search/?api=1&query=Sen+Spa+Nha+Trang" target="_blank">📍 Google Maps</a>
+        <div class="inline-tip">💡 <b>TIP:</b> 결제 전에 프런트에 꼭 "Cash discount?" 물어보고 현금 지불하기!</div>
       </div>
 
       <div class="event-card">
@@ -2769,39 +302,25 @@ tabs.forEach(tab => {
 
       <div class="event-card important">
         <span class="event-time">20:30 ~</span>
-        <div class="event-title">호텔 귀가 & 일찍 취침 준비 😴</div>
-        <div class="event-desc">다음 날 02:30 사막 픽업! 무조건 일찍 자기</div>
+        <div class="event-title">호텔 귀가 & 무조건 일찍 자기 😴</div>
+        <div class="event-desc">다음 날 02:30 사막 픽업 대비 이른 취침</div>
+        <div class="inline-tip">💡 <b>TIP:</b> 8/30은 다음 날 새벽 2:30 투어가 있으니 저녁 먹고 무조건 일찍 귀가해서 푹 자기!</div>
       </div>
     </div>
 
-    <div class="tip-card">
-      <strong>💡 TIP</strong>
-      8/30은 다음 날 새벽 02:30 투어가 있으니 저녁 먹고 일찍 귀가하기!<br>
-      담시장에서 과자 왕창 사지 말기 😂 $\rightarrow$ 본격 쇼핑은 9/1 롯데마트에서!
-    </div>
-
+    <!-- Day 2 Expense CRUD -->
     <div class="cost-card">
       <div class="cost-row main">
-        <span>💰 오늘 예상</span>
-        <span>약 326만동 (약 17.3만원)</span>
+        <span>💰 오늘 예상 : 약 326만동</span>
+        <span style="font-size:0.75rem; color:var(--sub-text);">약 17.3만원</span>
       </div>
-      <div class="cost-row">
-        <span>💳 실제 지출</span>
-        <div class="actual-input-wrap">
-          <input type="text" id="cost_d2" class="actual-input" placeholder="0" oninput="saveAndSumCosts()">
-          <span>동</span>
-        </div>
+      <div style="font-size:0.78rem; font-weight:700; color:var(--text); margin-bottom:4px;">💳 실제 지출 가계부</div>
+      <div id="expense_list_2" class="expense-list"></div>
+      <button class="add-expense-btn" onclick="addExpenseRow(2)">+ 지출 항목 추가</button>
+      <div class="day-subtotal">
+        <span>오늘 지출 합계:</span>
+        <span id="subtotal_2">0 동</span>
       </div>
-      <details class="cost-details">
-        <summary>예상 항목 세부보기</summary>
-        <ul>
-          <li>점심 400k / 저녁 500k / 커피 150k</li>
-          <li>Grab 교통비 약 450k</li>
-          <li>포나가르 입장료 100k</li>
-          <li>Sen Spa 마사지 1,360k</li>
-          <li>담시장 소량 쇼핑 300k</li>
-        </ul>
-      </details>
     </div>
   </div>
 
@@ -2809,11 +328,15 @@ tabs.forEach(tab => {
   <div id="day3" class="day-content">
     <div class="day-header">🌅 8/31 SUN <span>판랑사막 + 회복 DAY</span></div>
 
+    <a class="all-map-btn" href="https://www.google.com/maps/dir/Four+Points+by+Sheraton+Nha+Trang/Doi+cat+Nam+Cuong+Ninh+Thuan/Four+Points+by+Sheraton+Nha+Trang/Nha+Trang+Night+Market" target="_blank">
+      📍 오늘 일정 코스 한눈에 보기
+    </a>
+
     <div class="timeline">
       <div class="event-card important">
         <span class="event-time">02:30</span>
         <div class="event-title"><span class="badge badge-tour">투어픽업</span> 🚐 사막투어 픽업</div>
-        <div class="event-desc">02:00 기상 후 로비 대기 (후불 200만동 현금 준비)</div>
+        <div class="event-desc">02:00 기상 후 로비 대기 (후불 2,000,000동 현금 준비)</div>
       </div>
 
       <div class="event-card">
@@ -2821,6 +344,7 @@ tabs.forEach(tab => {
         <div class="event-title">🏜️ 판랑사막 일출투어</div>
         <div class="event-desc">일출 감상 & 지프 사진 찍고 곧바로 나트랑 호텔 복귀</div>
         <a class="map-btn" href="https://www.google.com/maps/search/?api=1&query=Doi+cat+Nam+Cuong+Ninh+Thuan" target="_blank">📍 Google Maps</a>
+        <div class="inline-tip">💡 <b>TIP:</b> 다른 곳 들르지 않고 사막 촬영 후 바로 출발해야 10시 전 호텔 도착 가능!</div>
       </div>
 
       <div class="event-card">
@@ -2833,6 +357,7 @@ tabs.forEach(tab => {
         <span class="event-time">10:00 ~ 13:00</span>
         <div class="event-title">😴 호텔 낮잠 (★필수 충전)</div>
         <div class="event-desc">오늘 일정 중 제일 중요한 시간! 푹 자기</div>
+        <div class="inline-tip">💡 <b>TIP:</b> 8/31은 새벽 투어 때문에 낮잠이 진짜 중요함! 절대 낮잠 일정 삭제하지 말 것ㅋㅋ</div>
       </div>
 
       <div class="event-card">
@@ -2854,9 +379,10 @@ tabs.forEach(tab => {
           </div>
           <div class="plan-box">
             <div class="plan-title">🅱️ 2안 : 🌴 느슨한 시내구경 ⭐</div>
-            <div class="event-desc">호텔 $\rightarrow$ 카페 $\rightarrow$ 기념품샵 $\rightarrow$ 해변 산책</div>
+            <div class="event-desc">호텔 → 카페 → 기념품샵 → 해변 산책</div>
           </div>
         </div>
+        <div class="inline-tip">💡 <b>TIP:</b> 패들보드는 당일 체력 보고 결정하기! 피곤하면 무리하지 말고 2안 시내 힐링 추천 🌴</div>
       </div>
 
       <div class="event-card">
@@ -2882,39 +408,29 @@ tabs.forEach(tab => {
       </div>
     </div>
 
-    <div class="tip-card">
-      <strong>😴 오늘의 핵심</strong>
-      8/31은 새벽 투어 때문에 낮잠이 진짜 중요함!<br>
-      패들보드는 체력 보고 결정하기ㅋㅋ (무리하지 말고 피곤하면 2안 시내 힐링 추천 🌴)
-    </div>
-
+    <!-- Day 3 Expense CRUD -->
     <div class="cost-card">
       <div class="cost-row main">
-        <span>💰 오늘 예상 (2안 기준)</span>
-        <span>약 350만동 (약 18.6만원)</span>
+        <span>💰 오늘 예상 : 약 350만동</span>
+        <span style="font-size:0.75rem; color:var(--sub-text);">약 18.6만원 (사막잔금 포함)</span>
       </div>
-      <div class="cost-row">
-        <span>💳 실제 지출</span>
-        <div class="actual-input-wrap">
-          <input type="text" id="cost_d3" class="actual-input" placeholder="0" oninput="saveAndSumCosts()">
-          <span>동</span>
-        </div>
+      <div style="font-size:0.78rem; font-weight:700; color:var(--text); margin-bottom:4px;">💳 실제 지출 가계부</div>
+      <div id="expense_list_3" class="expense-list"></div>
+      <button class="add-expense-btn" onclick="addExpenseRow(3)">+ 지출 항목 추가</button>
+      <div class="day-subtotal">
+        <span>오늘 지출 합계:</span>
+        <span id="subtotal_3">0 동</span>
       </div>
-      <details class="cost-details">
-        <summary>예상 항목 세부보기</summary>
-        <ul>
-          <li>사막투어 잔금 2,000k</li>
-          <li>점심 350k / 저녁 500k / 커피 150k</li>
-          <li>야시장 간식/소품 300k / Grab 150k</li>
-          <li>* 🏄 패들보드 선택 시 추가 비용 발생</li>
-        </ul>
-      </details>
     </div>
   </div>
 
   <!-- DAY 4 -->
   <div id="day4" class="day-content">
     <div class="day-header">🏝️ 9/1 MON <span>혼총곶 · 롯데마트 · The Anam</span></div>
+
+    <a class="all-map-btn" href="https://www.google.com/maps/dir/Four+Points+by+Sheraton+Nha+Trang/Hon+Chong+Nha+Trang/Lotte+Mart+Gold+Coast+Nha+Trang/The+Anam+Cam+Ranh" target="_blank">
+      📍 오늘 일정 코스 한눈에 보기
+    </a>
 
     <div class="timeline">
       <div class="event-card">
@@ -2935,6 +451,7 @@ tabs.forEach(tab => {
         <div class="event-title"><span class="badge badge-taxi">🚕 Grab 약 60k</span> 🛒 롯데마트 본격 쇼핑</div>
         <div class="event-desc">커피, 건망고, 과자, 라면, 치약, 약국 리스트 털기!</div>
         <a class="map-btn" href="https://www.google.com/maps/search/?api=1&query=Lotte+Mart+Gold+Coast+Nha+Trang" target="_blank">📍 Google Maps</a>
+        <div class="inline-tip">💡 <b>TIP:</b> 오늘 롯데마트에서 캐리어 꽉 채우기! (커피/과자/라면/치약/약국 털기) 🛒</div>
       </div>
 
       <div class="event-card">
@@ -2957,6 +474,7 @@ tabs.forEach(tab => {
         <div class="event-title">🏨 The Anam 입성 & 수영장 🏊</div>
         <div class="event-desc">체크인 후 바로 수영장 & 해변 즐기기!</div>
         <a class="map-btn" href="https://www.google.com/maps/search/?api=1&query=The+Anam+Cam+Ranh" target="_blank">📍 Google Maps</a>
+        <div class="inline-tip">💡 <b>TIP:</b> 더아남 체크인 후엔 굳이 밖에 나가지 말고 리조트에서 편하게 쉬고 놀자 🍹</div>
       </div>
 
       <div class="event-card">
@@ -2970,39 +488,29 @@ tabs.forEach(tab => {
       </div>
     </div>
 
-    <div class="tip-card">
-      <strong>💡 TIP</strong>
-      오늘 롯데마트에서 캐리어 꽉 채우기! 🛒<br>
-      더아남 체크인 후엔 굳이 나가지 말고 리조트에서 편하게 쉬고 놀자 🍹
-    </div>
-
+    <!-- Day 4 Expense CRUD -->
     <div class="cost-card">
       <div class="cost-row main">
-        <span>💰 오늘 예상</span>
-        <span>약 405만동 (약 21.5만원)</span>
+        <span>💰 오늘 예상 : 약 405만동</span>
+        <span style="font-size:0.75rem; color:var(--sub-text);">약 21.5만원 (마트쇼핑 200만동 포함)</span>
       </div>
-      <div class="cost-row">
-        <span>💳 실제 지출</span>
-        <div class="actual-input-wrap">
-          <input type="text" id="cost_d4" class="actual-input" placeholder="0" oninput="saveAndSumCosts()">
-          <span>동</span>
-        </div>
+      <div style="font-size:0.78rem; font-weight:700; color:var(--text); margin-bottom:4px;">💳 실제 지출 가계부</div>
+      <div id="expense_list_4" class="expense-list"></div>
+      <button class="add-expense-btn" onclick="addExpenseRow(4)">+ 지출 항목 추가</button>
+      <div class="day-subtotal">
+        <span>오늘 지출 합계:</span>
+        <span id="subtotal_4">0 동</span>
       </div>
-      <details class="cost-details">
-        <summary>예상 항목 세부보기</summary>
-        <ul>
-          <li>롯데마트 쇼핑 약 2,000k</li>
-          <li>점심 400k / 카페 150k / 저녁 900k</li>
-          <li>시내 및 깜란 이동 Grab 약 500k</li>
-          <li>혼총 관광비 100k</li>
-        </ul>
-      </details>
     </div>
   </div>
 
   <!-- DAY 5 -->
   <div id="day5" class="day-content">
     <div class="day-header">🌺 9/2 TUE <span>완전한 The Anam Resort DAY</span></div>
+
+    <a class="all-map-btn" href="https://www.google.com/maps/search/?api=1&query=The+Anam+Cam+Ranh" target="_blank">
+      📍 오늘 더아남 리조트 위치 보기
+    </a>
 
     <div class="timeline">
       <div class="event-card">
@@ -3047,41 +555,33 @@ tabs.forEach(tab => {
           <div class="memo-label">✏️ 저녁 메뉴 메모</div>
           <input type="text" id="memo_d5_dinner" class="memo-input" placeholder="저녁 식사 기록..." oninput="saveMemo(this.id, this.value)">
         </div>
+        <div class="inline-tip">💡 <b>TIP:</b> 9/2는 베트남 독립기념일이라 시내가 매우 혼잡함! 오늘은 굳이 밖에 나가지 말고 The Anam에서 여유롭게 놀기 🏝️</div>
       </div>
     </div>
 
-    <div class="tip-card">
-      <strong>🇻🇳 독립기념일</strong>
-      9/2는 베트남 독립기념일이라 시내가 붐빌 수 있음!<br>
-      오늘은 굳이 밖에 나가지 말고 The Anam에서 여유롭게 놀기 🏝️
-    </div>
-
+    <!-- Day 5 Expense CRUD -->
     <div class="cost-card">
       <div class="cost-row main">
-        <span>💰 오늘 예상</span>
-        <span>약 205만동 (약 10.9만원)</span>
+        <span>💰 오늘 예상 : 약 205만동</span>
+        <span style="font-size:0.75rem; color:var(--sub-text);">약 10.9만원</span>
       </div>
-      <div class="cost-row">
-        <span>💳 실제 지출</span>
-        <div class="actual-input-wrap">
-          <input type="text" id="cost_d5" class="actual-input" placeholder="0" oninput="saveAndSumCosts()">
-          <span>동</span>
-        </div>
+      <div style="font-size:0.78rem; font-weight:700; color:var(--text); margin-bottom:4px;">💳 실제 지출 가계부</div>
+      <div id="expense_list_5" class="expense-list"></div>
+      <button class="add-expense-btn" onclick="addExpenseRow(5)">+ 지출 항목 추가</button>
+      <div class="day-subtotal">
+        <span>오늘 지출 합계:</span>
+        <span id="subtotal_5">0 동</span>
       </div>
-      <details class="cost-details">
-        <summary>예상 항목 세부보기</summary>
-        <ul>
-          <li>Beach Club 점심 약 1,000k / 커피 150k</li>
-          <li>저녁 배달/룸서비스 약 900k</li>
-          <li>외출 없으면 교통비 0원!</li>
-        </ul>
-      </details>
     </div>
   </div>
 
   <!-- DAY 6 -->
   <div id="day6" class="day-content">
     <div class="day-header">✈️ 9/3 WED <span>체크아웃 · 깜란 · 귀국</span></div>
+
+    <a class="all-map-btn" href="https://www.google.com/maps/dir/The+Anam+Cam+Ranh/Bai+Dai+Beach+Cam+Ranh/The+Anam+Cam+Ranh/Cam+Ranh+International+Airport" target="_blank">
+      📍 오늘 일정 코스 한눈에 보기
+    </a>
 
     <div class="timeline">
       <div class="event-card">
@@ -3097,12 +597,21 @@ tabs.forEach(tab => {
       </div>
 
       <div class="event-card">
-        <span class="event-time">12:30 ~ 17:30</span>
+        <span class="event-time">12:30 ~ 14:00</span>
+        <div class="event-title">🍜 점심 — 현지에서 결정</div>
+        <div class="memo-box">
+          <div class="memo-label">✏️ 맛집 후보 / 실제 방문 메모</div>
+          <input type="text" id="memo_d6_lunch" class="memo-input" placeholder="깜란 점심 식당 기록..." oninput="saveMemo(this.id, this.value)">
+        </div>
+      </div>
+
+      <div class="event-card">
+        <span class="event-time">14:00 ~ 18:30</span>
         <div class="event-title">오후 일정 (선택)</div>
         <div class="plan-container">
           <div class="plan-box">
             <div class="plan-title">🥇 1안 : 🌊 깜란 & Bãi Dài 여유 (강추⭐)</div>
-            <div class="event-desc">점심 $\rightarrow$ 카페 휴식 $\rightarrow$ 바이다이 해변 산책</div>
+            <div class="event-desc">점심 후 카페 휴식 → 바이다이 해변 산책</div>
             <a class="map-btn" href="https://www.google.com/maps/search/?api=1&query=Bai+Dai+Beach+Cam+Ranh" target="_blank">📍 Google Maps</a>
           </div>
           <div class="plan-box">
@@ -3113,20 +622,13 @@ tabs.forEach(tab => {
             <div class="plan-title">🥉 3안 : 🏘️ 깜란 로컬 시내 구경</div>
           </div>
         </div>
+        <div class="inline-tip">💡 <b>TIP:</b> 마지막 날은 시내 역주행보다 깜란/바이다이 쪽에서 여유롭게 보내는 게 체력상 훨씬 안전! 🌴</div>
       </div>
 
       <div class="event-card">
-        <span class="event-time">12:30 ~ 14:00</span>
-        <div class="event-title">🍜 점심 — 현지에서 결정</div>
-        <div class="memo-box">
-          <div class="memo-label">✏️ 맛집 후보 / 실제 방문 메모</div>
-          <input type="text" id="memo_d6_lunch" class="memo-input" placeholder="깜란 점심 식당 기록..." oninput="saveMemo(this.id, this.value)">
-        </div>
-      </div>
-
-      <div class="event-card">
-        <span class="event-time">18:00 ~ 19:30</span>
+        <span class="event-time">18:30 ~ 20:15</span>
         <div class="event-title">더아남 짐 찾기 & 🍽️ 저녁 — 현지에서 결정</div>
+        <div class="event-desc">더아남 복귀 후 짐 찾고 여유롭게 마지막 만찬 즐기기</div>
         <div class="memo-box">
           <div class="memo-label">✏️ 마지막 저녁 식사 메모</div>
           <input type="text" id="memo_d6_dinner" class="memo-input" placeholder="마지막 만찬 기록..." oninput="saveMemo(this.id, this.value)">
@@ -3134,9 +636,12 @@ tabs.forEach(tab => {
       </div>
 
       <div class="event-card important">
-        <span class="event-time">19:30 ~ 20:00</span>
+        <span class="event-time">20:45 ~ 21:00</span>
         <div class="event-title"><span class="badge badge-taxi">🚕 Grab 약 15분</span> ✈️ 깜란 국제공항 이동</div>
-        <div class="event-desc">20:00 전후 공항 도착 $\rightarrow$ 출국 수속 및 면세점 구경</div>
+        <div class="event-desc">
+          <b>21:00 공항 도착</b> (출국 2시간 20분 전으로 시간 딱 적당함!)<br>
+          → 출국 수속 및 면세점 구경
+        </div>
         <a class="map-btn" href="https://www.google.com/maps/search/?api=1&query=Cam+Ranh+International+Airport" target="_blank">📍 Google Maps</a>
       </div>
 
@@ -3147,88 +652,154 @@ tabs.forEach(tab => {
       </div>
     </div>
 
-    <div class="tip-card">
-      <strong>💡 TIP</strong>
-      마지막 날은 시내 역주행보다 깜란/바이다이 쪽에서 여유롭게 보내는 게 체력상 훨씬 안전! 🌴
-    </div>
-
+    <!-- Day 6 Expense CRUD -->
     <div class="cost-card">
       <div class="cost-row main">
-        <span>💰 오늘 예상 (1안 기준)</span>
-        <span>약 160만동 (약 8.5만원)</span>
+        <span>💰 오늘 예상 : 약 160만동</span>
+        <span style="font-size:0.75rem; color:var(--sub-text);">약 8.5만원</span>
       </div>
-      <div class="cost-row">
-        <span>💳 실제 지출</span>
-        <div class="actual-input-wrap">
-          <input type="text" id="cost_d6" class="actual-input" placeholder="0" oninput="saveAndSumCosts()">
-          <span>동</span>
-        </div>
+      <div style="font-size:0.78rem; font-weight:700; color:var(--text); margin-bottom:4px;">💳 실제 지출 가계부</div>
+      <div id="expense_list_6" class="expense-list"></div>
+      <button class="add-expense-btn" onclick="addExpenseRow(6)">+ 지출 항목 추가</button>
+      <div class="day-subtotal">
+        <span>오늘 지출 합계:</span>
+        <span id="subtotal_6">0 동</span>
       </div>
-      <details class="cost-details">
-        <summary>예상 항목 세부보기</summary>
-        <ul>
-          <li>점심 500k / 카페 150k / 저녁 600k</li>
-          <li>Grab 교통비 약 350k</li>
-        </ul>
-      </details>
     </div>
   </div>
 
   <!-- TOTAL TAB -->
   <div id="total" class="day-content">
-    <div class="day-header">💰 TRIP TOTAL <span>전체 예산 정산</span></div>
+    <div class="day-header">💰 TRIP TOTAL <span>예산 vs 실제 정산</span></div>
 
-    <div class="card" style="border: 2px solid var(--primary);">
-      <div class="cost-row" style="font-size:0.95rem; font-weight:700; color:var(--primary-dark); margin-bottom:8px;">
-        <span>🎯 총 예상 경비</span>
-        <span>14,460,000동</span>
+    <div class="card" style="border: 2px solid var(--primary); background: #f0f9ff;">
+      <div class="cost-row" style="font-size:0.92rem; font-weight:700; color:var(--primary-dark); margin-bottom:4px;">
+        <span>🎯 총 예상 예산</span>
+        <span>14,460,000 동</span>
       </div>
-      <div class="cost-row" style="font-size:0.75rem; color:var(--sub-text); margin-bottom:12px;">
-        <span>원화 환산 기준</span>
-        <span>약 76.7만원 (쇼핑 200만동 포함)</span>
+      <div class="cost-row" style="font-size:0.75rem; color:var(--sub-text); margin-bottom:10px;">
+        <span>(쇼핑 200만동 포함)</span>
+        <span>약 76.7만 원</span>
       </div>
 
-      <div class="cost-row" style="font-size:0.95rem; font-weight:800; color:#b91c1c; border-top:1px dashed #cbd5e1; padding-top:10px;">
-        <span>💳 실제 총 지출</span>
-        <span id="grand_total_display">0 동</span>
+      <div class="cost-row" style="font-size:0.95rem; font-weight:800; color:#b91c1c; border-top:1px dashed #cbd5e1; padding-top:8px;">
+        <span>💳 실제 총 지출액</span>
+        <span id="grand_total_dong">0 동</span>
       </div>
-      <p style="font-size:0.7rem; color:var(--sub-text); margin-top:6px; text-align:right;">* 일자별 '실제 지출' 입력 시 자동 합산됩니다.</p>
+      <div class="cost-row" style="font-size:0.8rem; font-weight:700; color:#b91c1c; margin-top:3px;">
+        <span>원화 환산 합계</span>
+        <span id="grand_total_won">약 0 원</span>
+      </div>
     </div>
 
     <div class="card">
-      <h3>📊 일자별 지출 요약</h3>
+      <h3>📊 일자별 지출 정산표</h3>
       <table style="width:100%; font-size:0.78rem; border-collapse:collapse;">
-        <tr style="border-bottom:1px solid #e2e8f0; color:var(--sub-text);"><th style="padding:4px 0; text-align:left;">일자</th><th style="text-align:right;">예상</th><th style="text-align:right;">실제</th></tr>
-        <tr style="border-bottom:1px solid #f1f5f9;"><td style="padding:5px 0;">8/29 (금)</td><td style="text-align:right;">0</td><td style="text-align:right;" id="sum_d1">-</td></tr>
-        <tr style="border-bottom:1px solid #f1f5f9;"><td style="padding:5px 0;">8/30 (토)</td><td style="text-align:right;">326만</td><td style="text-align:right;" id="sum_d2">-</td></tr>
-        <tr style="border-bottom:1px solid #f1f5f9;"><td style="padding:5px 0;">8/31 (일)</td><td style="text-align:right;">350만</td><td style="text-align:right;" id="sum_d3">-</td></tr>
-        <tr style="border-bottom:1px solid #f1f5f9;"><td style="padding:5px 0;">9/1 (월)</td><td style="text-align:right;">405만</td><td style="text-align:right;" id="sum_d4">-</td></tr>
-        <tr style="border-bottom:1px solid #f1f5f9;"><td style="padding:5px 0;">9/2 (화)</td><td style="text-align:right;">205만</td><td style="text-align:right;" id="sum_d5">-</td></tr>
-        <tr style="border-bottom:1px solid #f1f5f9;"><td style="padding:5px 0;">9/3 (수)</td><td style="text-align:right;">160만</td><td style="text-align:right;" id="sum_d6">-</td></tr>
+        <tr style="border-bottom:1px solid #e2e8f0; color:var(--sub-text); font-weight:700;"><th style="padding:5px 0; text-align:left;">일자</th><th style="text-align:right;">예상</th><th style="text-align:right;">실제 입력액</th></tr>
+        <tr style="border-bottom:1px solid #f1f5f9;"><td style="padding:6px 0;">8/29 (금)</td><td style="text-align:right;">0동</td><td style="text-align:right; font-weight:700;" id="table_sub_1">0동</td></tr>
+        <tr style="border-bottom:1px solid #f1f5f9;"><td style="padding:6px 0;">8/30 (토)</td><td style="text-align:right;">326만동</td><td style="text-align:right; font-weight:700;" id="table_sub_2">0동</td></tr>
+        <tr style="border-bottom:1px solid #f1f5f9;"><td style="padding:6px 0;">8/31 (일)</td><td style="text-align:right;">350만동</td><td style="text-align:right; font-weight:700;" id="table_sub_3">0동</td></tr>
+        <tr style="border-bottom:1px solid #f1f5f9;"><td style="padding:6px 0;">9/1 (월)</td><td style="text-align:right;">405만동</td><td style="text-align:right; font-weight:700;" id="table_sub_4">0동</td></tr>
+        <tr style="border-bottom:1px solid #f1f5f9;"><td style="padding:6px 0;">9/2 (화)</td><td style="text-align:right;">205만동</td><td style="text-align:right; font-weight:700;" id="table_sub_5">0동</td></tr>
+        <tr style="border-bottom:1px solid #f1f5f9;"><td style="padding:6px 0;">9/3 (수)</td><td style="text-align:right;">160만동</td><td style="text-align:right; font-weight:700;" id="table_sub_6">0동</td></tr>
       </table>
     </div>
 
-    <div class="tip-card">
-      <strong>💵 권장 현금 준비금</strong>
-      • 2인 순수 여행경비: 약 63만원 (1,196만동)<br>
-      • 쇼핑 예산: 약 13만원 (250만동)<br>
-      👉 비상금/추가 그랩 고려 시 <b>약 80만원</b> 환전 추천!
+    <div class="card" style="background: var(--tip-bg); border: 1px solid var(--tip-border);">
+      <h3 style="color: var(--tip-text); margin-bottom: 4px;">💵 권장 현금 준비금</h3>
+      <p style="font-size:0.75rem; color:var(--tip-text); line-height:1.5;">
+        • 2인 순수 여행경비: 약 63만원 (1,196만동)<br>
+        • 쇼핑 예산: 약 13만원 (250만동)<br>
+        👉 비상금/추가 Grab 고려 시 <b>약 80만원</b> 환전 추천!
+      </p>
     </div>
   </div>
 
-  <!-- TOOLS TAB -->
+  <!-- TOOLS & PHRASES TAB -->
   <div id="tools" class="day-content">
-    <div class="day-header">🧰 편의도구 <span>환율·체크리스트·주소</span></div>
+    <div class="day-header">🗣️ 회화 & 편의도구 <span>환율·베트남어·체크리스트</span></div>
 
     <!-- Currency Calc -->
     <div class="card">
-      <h3>💱 베트남 동(VND) $\leftrightarrow$ 원화(KRW) 계산기</h3>
+      <h3>💱 베트남 동(VND) ↔ 원화(KRW) 계산기</h3>
       <div class="calc-row">
-        <input type="number" id="vndInput" class="calc-input" placeholder="VND 금액 입력" oninput="calcVndToKrw()">
-        <span style="font-size:0.75rem; font-weight:700;">동 =</span>
-        <input type="text" id="krwOutput" class="calc-input" placeholder="원화 환산" readonly style="background:#f1f5f9; font-weight:700;">
+        <input type="number" id="vndInput" class="calc-input" placeholder="VND 금액 입력 (예: 300000)" oninput="calcVndToKrw()">
       </div>
-      <p style="font-size:0.68rem; color:var(--sub-text); margin-top:4px;">* 100,000 VND $\approx$ 약 5,300원 기준</p>
+      <div id="calc_result" style="margin-top:8px; font-size:0.85rem; font-weight:800; color:var(--primary-dark); text-align:center; background:#f1f5f9; padding:8px; border-radius:6px;">
+        금액을 입력하면 원화로 자동 계산됩니다.
+      </div>
+      
+      <!-- Currency Cheat Sheet -->
+      <div style="margin-top:10px; border-top:1px dashed var(--border); padding-top:8px;">
+        <div style="font-size:0.72rem; font-weight:700; color:var(--sub-text); margin-bottom:4px;">⚡ 빠른 화폐 환산표 (뒤에 0 하나 빼고 나누기 2)</div>
+        <div style="display:grid; grid-template-columns:1fr 1fr; gap:4px; font-size:0.72rem; color:#334155;">
+          <div>• 10,000đ ≈ 약 530원</div>
+          <div>• 50,000đ ≈ 약 2,650원</div>
+          <div>• 100,000đ ≈ 약 5,300원</div>
+          <div>• 200,000đ ≈ 약 10,600원</div>
+          <div>• 500,000đ ≈ 약 26,500원</div>
+          <div>• 1,000,000đ ≈ 약 53,000원</div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Useful Vietnamese Phrases -->
+    <div class="card">
+      <h3>🗣️ 여행 필수 베트남어 (화면 보여주기용)</h3>
+      
+      <div class="phrase-category">🍽️ 식당 & 카페</div>
+      <div class="phrase-item">
+        <button class="copy-btn" onclick="copyText('Không cho rau mùi')">복사</button>
+        <div class="phrase-ko">고수 빼주세요 (필수!)</div>
+        <div class="phrase-vi">Không cho rau mùi</div>
+        <div class="phrase-pron">🗣️ [ 콩 조 라우 무이 ]</div>
+      </div>
+      <div class="phrase-item">
+        <button class="copy-btn" onclick="copyText('Tính tiền')">복사</button>
+        <div class="phrase-ko">계산해 주세요 (빌지 주세요)</div>
+        <div class="phrase-vi">Tính tiền / Cho tôi hóa đơn</div>
+        <div class="phrase-pron">🗣️ [ 띤 띠엔 ]</div>
+      </div>
+      <div class="phrase-item">
+        <button class="copy-btn" onclick="copyText('Ít đường')">복사</button>
+        <div class="phrase-ko">덜 달게 해주세요 (연유커피 등)</div>
+        <div class="phrase-vi">Ít đường</div>
+        <div class="phrase-pron">🗣️ [ 잇 드엉 ]</div>
+      </div>
+      <div class="phrase-item">
+        <button class="copy-btn" onclick="copyText('Cho tôi nước đá')">복사</button>
+        <div class="phrase-ko">얼음물 / 시원한 물 주세요</div>
+        <div class="phrase-vi">Cho tôi nước đá</div>
+        <div class="phrase-pron">🗣️ [ 조 또이 느억 다 ]</div>
+      </div>
+
+      <div class="phrase-category">🛍️ 쇼핑 & 시장</div>
+      <div class="phrase-item">
+        <button class="copy-btn" onclick="copyText('Bao nhiêu tiền?')">복사</button>
+        <div class="phrase-ko">이거 얼마예요?</div>
+        <div class="phrase-vi">Bao nhiêu tiền?</div>
+        <div class="phrase-pron">🗣️ [ 바오 니에우 띠엔? ]</div>
+      </div>
+      <div class="phrase-item">
+        <button class="copy-btn" onclick="copyText('Đắt quá! Giảm giá đi')">복사</button>
+        <div class="phrase-ko">너무 비싸요! 깎아주세요 😂</div>
+        <div class="phrase-vi">Đắt quá! Giảm giá đi</div>
+        <div class="phrase-pron">🗣️ [ 닷 꾸아! 지암 자 디 ]</div>
+      </div>
+
+      <div class="phrase-category">💬 기본 인사 & 필수 표현</div>
+      <div class="phrase-item">
+        <button class="copy-btn" onclick="copyText('Cảm ơn')">복사</button>
+        <div class="phrase-ko">감사합니다</div>
+        <div class="phrase-vi">Cảm ơn</div>
+        <div class="phrase-pron">🗣️ [ 깜 온 ]</div>
+      </div>
+      <div class="phrase-item">
+        <button class="copy-btn" onclick="copyText('Nhà vệ sinh ở đâu?')">복사</button>
+        <div class="phrase-ko">화장실이 어디예요?</div>
+        <div class="phrase-vi">Nhà vệ sinh ở đâu?</div>
+        <div class="phrase-pron">🗣️ [ 냐 베 씽 어 더우? ]</div>
+      </div>
     </div>
 
     <!-- Driver Addresses -->
@@ -3278,31 +849,12 @@ tabs.forEach(tab => {
     document.getElementById(tabId).classList.add("active");
     evt.currentTarget.classList.add("active");
     window.scrollTo({ top: 0, behavior: 'smooth' });
+    if(tabId === 'total') updateGrandTotal();
   }
 
   // LocalStorage Memo
   function saveMemo(id, val) {
     localStorage.setItem('nhatrang_' + id, val);
-  }
-
-  // LocalStorage Cost & Sum
-  function saveAndSumCosts() {
-    let total = 0;
-    for (let d = 1; d <= 6; d++) {
-      const input = document.getElementById('cost_d' + d);
-      if (input) {
-        const rawVal = input.value.replace(/[^0-9]/g, '');
-        localStorage.setItem('nhatrang_cost_d' + d, rawVal);
-        const valNum = parseInt(rawVal, 10) || 0;
-        total += valNum;
-        const sumEl = document.getElementById('sum_d' + d);
-        if (sumEl) sumEl.textContent = valNum > 0 ? valNum.toLocaleString() + '동' : '-';
-      }
-    }
-    const grandTotalEl = document.getElementById('grand_total_display');
-    if (grandTotalEl) {
-      grandTotalEl.textContent = total > 0 ? total.toLocaleString() + ' 동' : '0 동';
-    }
   }
 
   // LocalStorage Checklist
@@ -3330,12 +882,109 @@ tabs.forEach(tab => {
   // Currency converter
   function calcVndToKrw() {
     const vnd = document.getElementById('vndInput').value;
+    const resultEl = document.getElementById('calc_result');
     if (!vnd || vnd <= 0) {
-      document.getElementById('krwOutput').value = '';
+      resultEl.innerHTML = "금액을 입력하면 원화로 자동 계산됩니다.";
       return;
     }
-    const krw = Math.round(vnd * 0.053);
-    document.getElementById('krwOutput').value = krw.toLocaleString() + ' 원';
+    const vndNum = parseInt(vnd, 10);
+    const krw = Math.round(vndNum * 0.053);
+    resultEl.innerHTML = `${vndNum.toLocaleString()} VND → <span style="color:#b91c1c;">약 ${krw.toLocaleString()} 원</span>`;
+  }
+
+  // --- EXPENSE CRUD & PERSISTENCE ---
+  let expenses = { 1: [], 2: [], 3: [], 4: [], 5: [], 6: [] };
+
+  function loadExpenses() {
+    const saved = localStorage.getItem('nhatrang_expenses_data');
+    if (saved) {
+      try { expenses = JSON.parse(saved); } catch(e) {}
+    }
+    for (let d = 1; d <= 6; d++) {
+      if (!expenses[d]) expenses[d] = [];
+      renderExpensesForDay(d);
+    }
+    updateGrandTotal();
+  }
+
+  function saveExpenses() {
+    localStorage.setItem('nhatrang_expenses_data', JSON.stringify(expenses));
+    updateGrandTotal();
+  }
+
+  function addExpenseRow(day) {
+    expenses[day].push({ id: Date.now(), item: '', cost: '' });
+    saveExpenses();
+    renderExpensesForDay(day);
+  }
+
+  function deleteExpenseRow(day, id) {
+    expenses[day] = expenses[day].filter(e => e.id !== id);
+    saveExpenses();
+    renderExpensesForDay(day);
+  }
+
+  function updateExpense(day, id, field, val) {
+    const target = expenses[day].find(e => e.id === id);
+    if (target) {
+      target[field] = val;
+      saveExpenses();
+      updateSubtotal(day);
+    }
+  }
+
+  function renderExpensesForDay(day) {
+    const listEl = document.getElementById('expense_list_' + day);
+    if (!listEl) return;
+    listEl.innerHTML = '';
+    
+    expenses[day].forEach(exp => {
+      const row = document.createElement('div');
+      row.className = 'expense-item';
+      row.innerHTML = `
+        <input type="text" placeholder="내용 (예: 점심 쌀국수)" value="${exp.item || ''}" oninput="updateExpense(${day}, ${exp.id}, 'item', this.value)">
+        <input type="number" placeholder="동 (VND)" value="${exp.cost || ''}" oninput="updateExpense(${day}, ${exp.id}, 'cost', this.value)">
+        <button class="del-btn" onclick="deleteExpenseRow(${day}, ${exp.id})">삭제</button>
+      `;
+      listEl.appendChild(row);
+    });
+    updateSubtotal(day);
+  }
+
+  function updateSubtotal(day) {
+    let sub = 0;
+    expenses[day].forEach(e => {
+      const c = parseInt(e.cost, 10);
+      if (!isNaN(c)) sub += c;
+    });
+    const subEl = document.getElementById('subtotal_' + day);
+    const tableSubEl = document.getElementById('table_sub_' + day);
+    const formatted = sub.toLocaleString() + ' 동';
+    if (subEl) subEl.textContent = formatted;
+    if (tableSubEl) tableSubEl.textContent = formatted;
+  }
+
+  function updateGrandTotal() {
+    let grandTotal = 0;
+    for (let d = 1; d <= 6; d++) {
+      let sub = 0;
+      if (expenses[d]) {
+        expenses[d].forEach(e => {
+          const c = parseInt(e.cost, 10);
+          if (!isNaN(c)) sub += c;
+        });
+      }
+      grandTotal += sub;
+      const tableSubEl = document.getElementById('table_sub_' + d);
+      if (tableSubEl) tableSubEl.textContent = sub.toLocaleString() + ' 동';
+    }
+    const totalDongEl = document.getElementById('grand_total_dong');
+    const totalWonEl = document.getElementById('grand_total_won');
+    if (totalDongEl) totalDongEl.textContent = grandTotal.toLocaleString() + ' 동';
+    if (totalWonEl) {
+      const won = Math.round(grandTotal * 0.053);
+      totalWonEl.textContent = `약 ${won.toLocaleString()} 원`;
+    }
   }
 
   // Load Persisted Data on Startup
@@ -3345,16 +994,6 @@ tabs.forEach(tab => {
       const saved = localStorage.getItem('nhatrang_' + input.id);
       if (saved) input.value = saved;
     });
-
-    // Load Costs
-    for (let d = 1; d <= 6; d++) {
-      const input = document.getElementById('cost_d' + d);
-      if (input) {
-        const saved = localStorage.getItem('nhatrang_cost_d' + d);
-        if (saved) input.value = saved;
-      }
-    }
-    saveAndSumCosts();
 
     // Load Checks
     for (let c = 1; c <= 8; c++) {
@@ -3366,6 +1005,9 @@ tabs.forEach(tab => {
         cb.parentElement.classList.add('checked');
       }
     }
+
+    // Load Expense CRUD
+    loadExpenses();
   });
 </script>
 
