@@ -122,13 +122,14 @@
 
     /* --- [OPTION A] INTRO / HOME GLASSMORPHISM STYLES --- */
    /* 쨍하고 청량한 나트랑 비치 풀스크린 배경 */
+    /* 모바일 세로 뷰 최적화 & 빠른 로딩 배경 */
     #home {
       min-height: calc(100vh - 125px);
       border-radius: 16px;
       padding: 12px 10px 18px;
-      /* 오버레이 농도를 낮춰 사진 본연의 쨍한 청록빛 바다를 살림 */
-      background: linear-gradient(180deg, rgba(2, 132, 199, 0.25) 0%, rgba(13, 148, 136, 0.35) 100%),
-                  url('[https://images.unsplash.com/photo-1506929562872-bb421503ef21?auto=format&fit=crop&w=1200&q=85](https://images.unsplash.com/photo-1506929562872-bb421503ef21?auto=format&fit=crop&w=1200&q=85)') center/cover no-repeat;
+      /* 모바일 폭에 맞춘 가벼운 해상도(w=600) 및 세로 구도 최적화 */
+      background: linear-gradient(180deg, rgba(2, 132, 199, 0.2) 0%, rgba(13, 148, 136, 0.3) 100%),
+                  url('https://images.unsplash.com/photo-1507525428034-b723cf961d3e?auto=format&fit=crop&w=600&h=1000&q=80') center center/cover no-repeat;
       box-shadow: inset 0 0 30px rgba(0,0,0,0.12);
     }
     #home .intro-hero {
