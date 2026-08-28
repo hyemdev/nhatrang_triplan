@@ -126,10 +126,12 @@
     #home {
       min-height: calc(100vh - 125px);
       /* border-radius: 16px; */
-      padding: 12px 10px 18px;
+      margin: -10px -12px 0 -12px; /* 상위 container의 여백을 덮어 끝까지 확장 */
+      border-radius: 0; /* 모서리 둥글기 제거로 화면 밀착 */
+      padding: 14px 12px 40px; /* 내부 카드들이 벽에 붙지 않게 내부 여백 유지 *
       /* 모바일 폭에 맞춘 가벼운 해상도(w=600) 및 세로 구도 최적화 */
       background: linear-gradient(180deg, rgba(2, 132, 199, 0.2) 0%, rgba(13, 148, 136, 0.3) 100%),
-                  url('[https://images.unsplash.com/photo-1473186578172-c141e6798cf4?auto=format&fit=crop&w=600&h=1000&q=80](https://images.unsplash.com/photo-1473186578172-c141e6798cf4?auto=format&fit=crop&w=600&h=1000&q=80)') center center/cover no-repeat;
+                  url('https://images.unsplash.com/photo-1473186578172-c141e6798cf4?auto=format&fit=crop&w=600&h=1000&q=80') center center/cover no-repeat;
       box-shadow: inset 0 0 30px rgba(0,0,0,0.12);
     }
     #home .intro-hero {
