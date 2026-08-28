@@ -3,7 +3,7 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
-  <title>🇻🇳 CHOI & KWAK in Nha Trang</title>
+  <title>🇻🇳 CHOI & KWAK IN NHA TRANG</title>
   
   <!-- Firebase SDK (Compat) -->
   <script src="https://www.gstatic.com/firebasejs/9.23.0/firebase-app-compat.js"></script>
@@ -80,7 +80,7 @@
       margin-top: 2px;
     }
 
-    /* 4x2 Clean Navigation Tab Grid (Home Button Removed) */
+    /* 4x2 Clean Navigation Tab Grid */
     .tabs-grid { 
       display: grid; 
       grid-template-columns: repeat(4, 1fr); 
@@ -120,34 +120,27 @@
     .day-content.active { display: block; animation: fadeIn 0.2s ease-in-out; }
     @keyframes fadeIn { from { opacity: 0; transform: translateY(3px); } to { opacity: 1; transform: translateY(0); } }
 
-    /* --- [OPTION A] INTRO / HOME GLASSMORPHISM STYLES --- */
-   /* 쨍하고 청량한 나트랑 비치 풀스크린 배경 */
-    /* 모바일 세로 뷰 최적화 & 빠른 로딩 배경 */
+    /* Full-Bleed Glassmorphism Home Styles */
     #home {
-      min-height: calc(100vh - 125px);
-      /* border-radius: 16px; */
-      margin: -10px -12px 0 -12px; /* 상위 container의 여백을 덮어 끝까지 확장 */
-      border-radius: 0; /* 모서리 둥글기 제거로 화면 밀착 */
-      padding: 14px 12px 40px; /* 내부 카드들이 벽에 붙지 않게 내부 여백 유지 *
-      /* 모바일 폭에 맞춘 가벼운 해상도(w=600) 및 세로 구도 최적화 */
+      margin: -10px -12px 0 -12px;
+      border-radius: 0;
+      padding: 14px 12px 40px;
+      min-height: calc(100vh - 110px);
       background: linear-gradient(180deg, rgba(2, 132, 199, 0.2) 0%, rgba(13, 148, 136, 0.3) 100%),
-                  url('https://images.unsplash.com/photo-1473186578172-c141e6798cf4?auto=format&fit=crop&w=600&h=1000&q=80') center center/cover no-repeat;
-      box-shadow: inset 0 0 30px rgba(0,0,0,0.12);
+                  url('https://images.unsplash.com/photo-1507525428034-b723cf961d3e?auto=format&fit=crop&w=600&h=1000&q=80') center center/cover no-repeat;
+      box-shadow: none;
     }
     #home .intro-hero {
       position: relative;
-      background: transparent; 
-      border: none;
+      background: rgba(0, 0, 0, 0.15);
       color: #fff;
       border-radius: 14px;
       padding: 14px 12px;
       margin-bottom: 12px;
-      border: 0px solid rgba(255, 255, 255, 0.3);
+      border: 1px solid rgba(255, 255, 255, 0.3);
       text-align: center;
     }
-    #home .intro-hero h2 { font-size: 1.2rem; font-weight: 800; margin-bottom: 3px; letter-spacing: -0.3px; }
-    #home .intro-hero p { font-size: 0.76rem; opacity: 0.95; line-height: 1.4; }
-    .dday-badge { display: inline-block; background: #f59e0b; color: #fff; font-size: 0.74rem; font-weight: 800; padding: 3px 10px; border-radius: 12px; margin: 8px 0 10px; box-shadow: 0 2px 4px rgba(0,0,0,0.2); }
+    .dday-badge { display: inline-block; background: #f59e0b; color: #fff; font-size: 0.74rem; font-weight: 800; padding: 3px 10px; border-radius: 12px; margin: 4px 0 10px; box-shadow: 0 2px 4px rgba(0,0,0,0.2); }
     .today-jump-btn { display: block; width: 100%; background: #ffffff; color: var(--primary-dark); font-size: 0.8rem; font-weight: 800; padding: 8px 0; border-radius: 8px; text-decoration: none; border: none; cursor: pointer; box-shadow: 0 2px 5px rgba(0,0,0,0.15); }
     .today-jump-btn:active { background: #f0fdf4; }
 
@@ -285,7 +278,7 @@
 <!-- Clickable Header: Navigates to Home -->
 <header onclick="switchToDayTab('home')" title="터치하면 홈 화면으로 이동합니다">
   <div class="app-badge">🌴 TRAVEL MINI APP (TAP FOR HOME)</div>
-  <h1>🇻🇳 CHOI & KWAK in Nha Trang</h1>
+  <h1>🇻🇳 CHOI & KWAK IN NHA TRANG</h1>
   <p class="header-date">2026.08.29 (토) — 09.03 (목)</p>
   <div class="sync-status" id="syncStatus">🟡 클라우드 연결 준비 중</div>
 </header>
@@ -304,7 +297,7 @@
 
 <div class="container">
 
-  <!-- ==================== HOME / INTRO DASHBOARD (OPTION A FULL-BLEED) ==================== -->
+  <!-- ==================== HOME / INTRO DASHBOARD ==================== -->
   <div id="home" class="day-content active">
     
     <!-- Hero Beach Card with D-Day -->
@@ -320,7 +313,7 @@
         <span style="font-size:0.68rem; color:var(--sub-text);">100đ=5.3원</span>
       </div>
       <div class="calc-row" style="margin-bottom:6px;">
-        <input type="number" id="home_initial_cash_input" class="calc-input" placeholder="총 환전한 현금 입력 (동)" oninput="updateInitialCash(this.value)">
+        <input type="text" inputmode="numeric" id="home_initial_cash_input" class="calc-input" placeholder="총 환전한 현금 입력 (동)" oninput="updateInitialCash(this.value)">
       </div>
       <div style="display:flex; justify-content:space-between; font-size:0.75rem; color:#475569; margin-top:4px;">
         <span>현금 총 사용액:</span>
@@ -348,7 +341,7 @@
     </div>
 
     <!-- 6-Day Quick Navigation Grid -->
-    <div style="font-size:0.82rem; font-weight:800; color:#ffffff; text-shadow:0 1px 3px rgba(0,0,0,0.4); margin: 8px 2px 6px;">🗓️ 6일 일정 한눈에 보기</div>
+    <div style="font-size:0.82rem; font-weight:800; color:#ffffff; text-shadow:0 1px 3px rgba(0,0,0,0.5); margin: 8px 2px 6px;">🗓️ 6일 일정 한눈에 보기</div>
     <div class="home-grid">
       <div class="home-card" onclick="switchToDayTab('day1')">
         <div class="home-card-date">8/29 (토) DAY 1</div>
@@ -386,7 +379,7 @@
     <div class="card">
       <h3>💱 빠른 환율 계산기 (100동 = 5.3원)</h3>
       <div class="calc-row">
-        <input type="number" id="homeVndInput" class="calc-input" placeholder="VND 금액 입력" oninput="calcHomeVndToKrw()">
+        <input type="text" inputmode="numeric" id="homeVndInput" class="calc-input" placeholder="VND 금액 입력" oninput="calcHomeVndToKrw()">
       </div>
       <div id="home_calc_result" style="margin-top:6px; font-size:0.8rem; font-weight:800; color:var(--primary-dark); text-align:center; background:#f1f5f9; padding:6px; border-radius:6px;">
         금액을 입력하면 원화로 계산됩니다.
@@ -1201,7 +1194,7 @@
     <div class="card" style="border: 2px solid var(--primary); background: #f0f9ff; margin-bottom: 10px;">
       <div style="font-size:0.85rem; font-weight:800; color:var(--primary-dark); margin-bottom:6px;">💵 현금 지갑 관리 (환전액 & 잔액)</div>
       <div class="calc-row" style="margin-bottom:6px;">
-        <input type="number" id="total_initial_cash_input" class="calc-input" placeholder="총 환전한 현금 입력 (동)" oninput="updateInitialCash(this.value)">
+        <input type="text" inputmode="numeric" id="total_initial_cash_input" class="calc-input" placeholder="총 환전한 현금 입력 (동)" oninput="updateInitialCash(this.value)">
       </div>
       <div style="display:flex; justify-content:space-between; font-size:0.76rem; color:#475569; margin-top:4px;">
         <span>총 환전 금액:</span>
@@ -1261,7 +1254,7 @@
     <div class="card">
       <h3>💱 베트남 동(VND) ↔ 원화(KRW) 계산기</h3>
       <div class="calc-row">
-        <input type="number" id="vndInput" class="calc-input" placeholder="VND 금액 입력 (예: 300000)" oninput="calcVndToKrw()">
+        <input type="text" inputmode="numeric" id="vndInput" class="calc-input" placeholder="VND 금액 입력 (예: 300,000)" oninput="calcVndToKrw()">
       </div>
       <div id="calc_result" style="margin-top:6px; font-size:0.82rem; font-weight:800; color:var(--primary-dark); text-align:center; background:#f1f5f9; padding:7px; border-radius:6px;">
         금액을 입력하면 원화로 자동 계산됩니다.
@@ -1364,10 +1357,21 @@
   // 100 VND = 5.3 KRW 기준
   const EXCHANGE_RATE = 0.053;
 
+  // --- 천단위 콤마(,) 포맷 & 언포맷 유틸리티 ---
+  function formatComma(val) {
+    if (!val && val !== 0) return '';
+    const cleanNum = String(val).replace(/[^0-9]/g, '');
+    return cleanNum ? parseInt(cleanNum, 10).toLocaleString() : '';
+  }
+
+  function unformatComma(val) {
+    return parseInt(String(val).replace(/[^0-9]/g, ''), 10) || 0;
+  }
+
   // ==========================================
   // 👇 1단계에서 복사한 Firebase 설정을 아래에 붙여넣으세요!
   // ==========================================
-  const firebaseConfig = {
+ const firebaseConfig = {
   apiKey: "AIzaSyDjJsM_MGmJLB9nAj67H8PgC1cz1knmcS4",
   authDomain: "nhatrang-trip-16cc2.firebaseapp.com",
   databaseURL: "https://nhatrang-trip-16cc2-default-rtdb.asia-southeast1.firebasedatabase.app",
@@ -1502,18 +1506,19 @@
     }
   }
 
-  // --- Initial Cash Management (보유 현금 & 잔액) ---
+  // --- Initial Cash Management ---
   let initialCash = 0;
 
   function updateInitialCash(val) {
-    const num = parseInt(val, 10) || 0;
-    initialCash = num;
+    const pureNum = unformatComma(val);
+    initialCash = pureNum;
     localStorage.setItem('nhatrang_initial_cash', initialCash);
 
+    const formattedVal = formatComma(pureNum);
     const homeInput = document.getElementById('home_initial_cash_input');
     const totalInput = document.getElementById('total_initial_cash_input');
-    if (homeInput && homeInput.value !== val) homeInput.value = val;
-    if (totalInput && totalInput.value !== val) totalInput.value = val;
+    if (homeInput && homeInput.value !== formattedVal) homeInput.value = formattedVal;
+    if (totalInput && totalInput.value !== formattedVal) totalInput.value = formattedVal;
 
     if (isFirebaseReady) {
       db.ref('nhatrang/initialCash').set(initialCash);
@@ -1550,17 +1555,19 @@
     if (!multiExpenses[eventKey]) return;
     const target = multiExpenses[eventKey].find(item => item.id === id);
     if (target) {
-      target[field] = val;
       if (field === 'cost') {
+        const pureNum = unformatComma(val);
+        target[field] = pureNum > 0 ? pureNum : '';
+        
+        const costInput = document.getElementById(`exp_input_${id}`);
+        if (costInput) costInput.value = formatComma(pureNum);
+
         const krwSpan = document.getElementById(`krw_tag_${id}`);
         if (krwSpan) {
-          const num = parseInt(val, 10);
-          if (!isNaN(num) && num > 0) {
-            krwSpan.textContent = `(약 ${Math.round(num * EXCHANGE_RATE).toLocaleString()}원)`;
-          } else {
-            krwSpan.textContent = `(약 0원)`;
-          }
+          krwSpan.textContent = pureNum > 0 ? `(약 ${Math.round(pureNum * EXCHANGE_RATE).toLocaleString()}원)` : `(약 0원)`;
         }
+      } else {
+        target[field] = val;
       }
       saveAndBroadcastExpenses();
       updateBadgesAndTotals(eventKey);
@@ -1585,13 +1592,13 @@
 
     const items = multiExpenses[eventKey] || [];
     items.forEach(item => {
-      const num = parseInt(item.cost, 10);
-      const krwText = (!isNaN(num) && num > 0) ? `(약 ${Math.round(num * EXCHANGE_RATE).toLocaleString()}원)` : `(약 0원)`;
+      const num = unformatComma(item.cost);
+      const krwText = num > 0 ? `(약 ${Math.round(num * EXCHANGE_RATE).toLocaleString()}원)` : `(약 0원)`;
       const row = document.createElement('div');
       row.className = 'expense-row';
       row.innerHTML = `
         <input type="text" class="exp-name-input" placeholder="${placeholderName}" value="${item.name || ''}" oninput="updateExpenseItem('${eventKey}', ${item.id}, 'name', this.value)">
-        <input type="number" class="exp-cost-input" placeholder="금액 (동)" value="${item.cost || ''}" oninput="updateExpenseItem('${eventKey}', ${item.id}, 'cost', this.value)">
+        <input type="text" inputmode="numeric" class="exp-cost-input" id="exp_input_${item.id}" placeholder="금액 (동)" value="${formatComma(item.cost)}" oninput="updateExpenseItem('${eventKey}', ${item.id}, 'cost', this.value)">
         <span class="exp-krw-tag" id="krw_tag_${item.id}">${krwText}</span>
         <button class="exp-del-btn" onclick="deleteExpenseRow('${eventKey}', ${item.id})">✕</button>
       `;
@@ -1604,8 +1611,8 @@
     let eventSum = 0;
     const items = multiExpenses[eventKey] || [];
     items.forEach(it => {
-      const c = parseInt(it.cost, 10);
-      if (!isNaN(c)) eventSum += c;
+      const c = unformatComma(it.cost);
+      eventSum += c;
     });
 
     const badge = document.getElementById('badge_' + eventKey);
@@ -1628,11 +1635,9 @@
       Object.keys(eventMeta).forEach(k => {
         if (eventMeta[k].day === dayKey && multiExpenses[k]) {
           multiExpenses[k].forEach(it => {
-            const c = parseInt(it.cost, 10);
-            if (!isNaN(c)) {
-              if (eventMeta[k].isCard) cardSum += c;
-              else cashSum += c;
-            }
+            const c = unformatComma(it.cost);
+            if (eventMeta[k].isCard) cardSum += c;
+            else cashSum += c;
           });
         }
       });
@@ -1655,8 +1660,8 @@
       let eventSum = 0;
       const items = multiExpenses[eventKey] || [];
       items.forEach(it => {
-        const c = parseInt(it.cost, 10);
-        if (!isNaN(c)) eventSum += c;
+        const c = unformatComma(it.cost);
+        eventSum += c;
       });
       const badge = document.getElementById('badge_' + eventKey);
       if (badge) {
@@ -1677,11 +1682,9 @@
       Object.keys(eventMeta).forEach(k => {
         if (eventMeta[k].day === dayKey && multiExpenses[k]) {
           multiExpenses[k].forEach(it => {
-            const c = parseInt(it.cost, 10);
-            if (!isNaN(c)) {
-              if (eventMeta[k].isCard) cardSum += c;
-              else cashSum += c;
-            }
+            const c = unformatComma(it.cost);
+            if (eventMeta[k].isCard) cardSum += c;
+            else cashSum += c;
           });
         }
       });
@@ -1715,8 +1718,8 @@
       Object.keys(eventMeta).forEach(k => {
         if (eventMeta[k].day === dayKey && multiExpenses[k]) {
           multiExpenses[k].forEach(it => {
-            const c = parseInt(it.cost, 10);
-            if (!isNaN(c) && c > 0) {
+            const c = unformatComma(it.cost);
+            if (c > 0) {
               if (eventMeta[k].isCard) dayCard += c;
               else dayCash += c;
 
@@ -1827,27 +1830,31 @@
   }
 
   function calcVndToKrw() {
-    const vnd = document.getElementById('vndInput').value;
+    const inputEl = document.getElementById('vndInput');
     const resultEl = document.getElementById('calc_result');
-    if (!vnd || vnd <= 0) {
+    const pureNum = unformatComma(inputEl.value);
+    
+    inputEl.value = formatComma(pureNum);
+    if (!pureNum || pureNum <= 0) {
       resultEl.innerHTML = "금액을 입력하면 원화로 자동 계산됩니다.";
       return;
     }
-    const vndNum = parseInt(vnd, 10);
-    const krw = Math.round(vndNum * EXCHANGE_RATE);
-    resultEl.innerHTML = `${vndNum.toLocaleString()} VND → <span style="color:#b91c1c;">약 ${krw.toLocaleString()} 원</span>`;
+    const krw = Math.round(pureNum * EXCHANGE_RATE);
+    resultEl.innerHTML = `${pureNum.toLocaleString()} VND → <span style="color:#b91c1c;">약 ${krw.toLocaleString()} 원</span>`;
   }
 
   function calcHomeVndToKrw() {
-    const vnd = document.getElementById('homeVndInput').value;
+    const inputEl = document.getElementById('homeVndInput');
     const resultEl = document.getElementById('home_calc_result');
-    if (!vnd || vnd <= 0) {
+    const pureNum = unformatComma(inputEl.value);
+
+    inputEl.value = formatComma(pureNum);
+    if (!pureNum || pureNum <= 0) {
       resultEl.innerHTML = "금액을 입력하면 원화로 계산됩니다.";
       return;
     }
-    const vndNum = parseInt(vnd, 10);
-    const krw = Math.round(vndNum * EXCHANGE_RATE);
-    resultEl.innerHTML = `${vndNum.toLocaleString()} VND → <span style="color:#b91c1c;">약 ${krw.toLocaleString()} 원</span>`;
+    const krw = Math.round(pureNum * EXCHANGE_RATE);
+    resultEl.innerHTML = `${pureNum.toLocaleString()} VND → <span style="color:#b91c1c;">약 ${krw.toLocaleString()} 원</span>`;
   }
 
   // --- 초기 데이터 로딩 & 리스너 바인딩 ---
@@ -1857,11 +1864,12 @@
     // Load Initial Cash
     const savedInitCash = localStorage.getItem('nhatrang_initial_cash');
     if (savedInitCash) {
-      initialCash = parseInt(savedInitCash, 10) || 0;
+      initialCash = unformatComma(savedInitCash);
+      const formatted = formatComma(initialCash);
       const homeInput = document.getElementById('home_initial_cash_input');
       const totalInput = document.getElementById('total_initial_cash_input');
-      if (homeInput) homeInput.value = initialCash > 0 ? initialCash : '';
-      if (totalInput) totalInput.value = initialCash > 0 ? initialCash : '';
+      if (homeInput) homeInput.value = initialCash > 0 ? formatted : '';
+      if (totalInput) totalInput.value = initialCash > 0 ? formatted : '';
     }
 
     document.querySelectorAll('.memo-input').forEach(input => {
@@ -1883,12 +1891,13 @@
       db.ref('nhatrang/initialCash').on('value', snap => {
         const val = snap.val();
         if (val !== null && val !== undefined) {
-          initialCash = parseInt(val, 10) || 0;
+          initialCash = unformatComma(val);
           localStorage.setItem('nhatrang_initial_cash', initialCash);
+          const formatted = formatComma(initialCash);
           const homeInput = document.getElementById('home_initial_cash_input');
           const totalInput = document.getElementById('total_initial_cash_input');
-          if (homeInput && homeInput !== document.activeElement) homeInput.value = initialCash > 0 ? initialCash : '';
-          if (totalInput && totalInput !== document.activeElement) totalInput.value = initialCash > 0 ? initialCash : '';
+          if (homeInput && homeInput !== document.activeElement) homeInput.value = initialCash > 0 ? formatted : '';
+          if (totalInput && totalInput !== document.activeElement) totalInput.value = initialCash > 0 ? formatted : '';
           updateAllBadgesAndTotals();
         }
       });
