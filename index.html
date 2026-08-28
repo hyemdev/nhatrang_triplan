@@ -3,7 +3,7 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
-  <title>🇻🇳 CHOI & KWAK IN NHA TRANG</title>
+  <title>🇻🇳 CHOI & KWAK in nha trang</title>
   
   <!-- Firebase SDK (Compat) -->
   <script src="https://www.gstatic.com/firebasejs/9.23.0/firebase-app-compat.js"></script>
@@ -30,69 +30,93 @@
     * { box-sizing: border-box; margin: 0; padding: 0; font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif; -webkit-tap-highlight-color: transparent; }
     body { background-color: var(--bg); color: var(--text); padding-bottom: 60px; }
 
-    /* Custom Stylish Header */
+    /* Compact Slim Header (80% Scale) */
     header { 
       background: linear-gradient(135deg, #0284c7 0%, #0d9488 100%); 
       color: #fff; 
-      padding: 16px 16px 12px; 
+      padding: 9px 12px 7px; 
       text-align: center; 
       position: sticky; 
       top: 0; 
       z-index: 100; 
-      box-shadow: 0 3px 10px rgba(2, 132, 199, 0.25); 
+      box-shadow: 0 2px 8px rgba(2, 132, 199, 0.2); 
     }
     .app-badge {
       display: inline-block;
-      font-size: 0.65rem;
+      font-size: 0.58rem;
       font-weight: 800;
-      letter-spacing: 1.5px;
+      letter-spacing: 1px;
       color: #e0f2fe;
       background: rgba(255, 255, 255, 0.18);
-      padding: 2px 9px;
-      border-radius: 12px;
-      margin-bottom: 4px;
+      padding: 1px 7px;
+      border-radius: 10px;
+      margin-bottom: 2px;
       backdrop-filter: blur(4px);
     }
     header h1 { 
-      font-size: 1.15rem; 
+      font-size: 0.95rem; 
       font-weight: 800; 
       letter-spacing: -0.2px; 
-      margin-bottom: 2px;
-      text-shadow: 0 1px 3px rgba(0,0,0,0.15);
+      margin-bottom: 1px;
+      text-shadow: 0 1px 2px rgba(0,0,0,0.15);
     }
     .header-date { 
-      font-size: 0.74rem; 
+      font-size: 0.68rem; 
       opacity: 0.95; 
       font-weight: 500;
-      letter-spacing: 0.3px;
     }
     .sync-status {
       display: inline-flex;
       align-items: center;
-      gap: 4px;
-      font-size: 0.65rem;
-      background: rgba(0,0,0,0.25);
-      padding: 2px 8px;
-      border-radius: 10px;
-      margin-top: 4px;
+      gap: 3px;
+      font-size: 0.6rem;
+      background: rgba(0,0,0,0.2);
+      padding: 1px 7px;
+      border-radius: 8px;
+      margin-top: 2px;
     }
 
-    /* 2-Row Full Screen Tab Grid */
-    .tabs-grid { display: grid; grid-template-columns: repeat(4, 1fr); gap: 5px; padding: 8px 10px; background: #ffffff; position: sticky; top: 78px; z-index: 99; border-bottom: 1px solid var(--border); }
-    .tab-btn { background: #f1f5f9; border: 1px solid transparent; padding: 7px 2px; border-radius: 8px; font-size: 0.75rem; font-weight: 600; color: var(--sub-text); text-align: center; cursor: pointer; transition: all 0.15s ease; }
-    .tab-btn.active { background: var(--primary); color: #fff; font-weight: 700; box-shadow: 0 2px 5px rgba(2,132,199,0.3); }
+    /* 3x3 Comfortable Navigation Tab Grid */
+    .tabs-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 4px; padding: 6px 8px; background: #ffffff; position: sticky; top: 62px; z-index: 99; border-bottom: 1px solid var(--border); }
+    .tab-btn { background: #f1f5f9; border: 1px solid transparent; padding: 6px 2px; border-radius: 6px; font-size: 0.72rem; font-weight: 600; color: var(--sub-text); text-align: center; cursor: pointer; transition: all 0.15s ease; }
+    .tab-btn.active { background: var(--primary); color: #fff; font-weight: 700; box-shadow: 0 2px 4px rgba(2,132,199,0.3); }
 
     /* Content Area */
-    .container { max-width: 500px; margin: 0 auto; padding: 12px; }
+    .container { max-width: 500px; margin: 0 auto; padding: 10px 12px; }
     .day-content { display: none; }
     .day-content.active { display: block; animation: fadeIn 0.2s ease-in-out; }
     @keyframes fadeIn { from { opacity: 0; transform: translateY(3px); } to { opacity: 1; transform: translateY(0); } }
 
+    /* --- INTRO / HOME STYLES --- */
+    .intro-hero {
+      position: relative;
+      background: linear-gradient(rgba(2, 132, 199, 0.78), rgba(13, 148, 136, 0.85)), url('https://images.unsplash.com/photo-1507525428034-b723cf961d3e?auto=format&fit=crop&w=800&q=80') center/cover;
+      color: #fff;
+      border-radius: 12px;
+      padding: 16px 14px;
+      margin-bottom: 12px;
+      box-shadow: 0 3px 10px rgba(2, 132, 199, 0.2);
+      text-align: center;
+    }
+    .intro-hero h2 { font-size: 1.15rem; font-weight: 800; margin-bottom: 4px; }
+    .intro-hero p { font-size: 0.75rem; opacity: 0.95; line-height: 1.4; }
+    .dday-badge { display: inline-block; background: #f59e0b; color: #fff; font-size: 0.75rem; font-weight: 800; padding: 3px 10px; border-radius: 12px; margin: 8px 0 10px; box-shadow: 0 2px 4px rgba(0,0,0,0.15); }
+    .today-jump-btn { display: block; width: 100%; background: #ffffff; color: var(--primary-dark); font-size: 0.8rem; font-weight: 800; padding: 8px 0; border-radius: 8px; text-decoration: none; border: none; cursor: pointer; box-shadow: 0 2px 5px rgba(0,0,0,0.1); }
+    .today-jump-btn:active { background: #f0fdf4; }
+
+    /* 2-Column Home Quick Grid */
+    .home-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 8px; margin-bottom: 12px; }
+    .home-card { background: #fff; border: 1px solid var(--border); border-radius: 10px; padding: 10px 8px; text-align: left; cursor: pointer; transition: all 0.15s ease; box-shadow: 0 1px 3px rgba(0,0,0,0.02); }
+    .home-card:active { transform: scale(0.98); background: #f8fafc; border-color: var(--primary); }
+    .home-card-date { font-size: 0.78rem; font-weight: 800; color: var(--primary); margin-bottom: 3px; }
+    .home-card-theme { font-size: 0.72rem; font-weight: 700; color: var(--text); line-height: 1.35; }
+    .home-card-desc { font-size: 0.67rem; color: var(--sub-text); margin-top: 3px; }
+
     /* Day Header & Route Map Button */
-    .day-header { font-size: 1rem; font-weight: 800; color: var(--primary-dark); margin-bottom: 8px; display: flex; align-items: center; justify-content: space-between; }
-    .day-header span { font-size: 0.75rem; font-weight: 600; color: var(--sub-text); background: #e2e8f0; padding: 2px 6px; border-radius: 4px; }
+    .day-header { font-size: 0.95rem; font-weight: 800; color: var(--primary-dark); margin-bottom: 8px; display: flex; align-items: center; justify-content: space-between; }
+    .day-header span { font-size: 0.72rem; font-weight: 600; color: var(--sub-text); background: #e2e8f0; padding: 2px 6px; border-radius: 4px; }
     
-    .all-map-btn { display: flex; align-items: center; justify-content: center; gap: 6px; width: 100%; background: #0284c7; color: #fff; font-size: 0.8rem; font-weight: 700; padding: 9px 12px; border-radius: 8px; text-decoration: none; margin-bottom: 12px; box-shadow: 0 2px 4px rgba(2,132,199,0.25); }
+    .all-map-btn { display: flex; align-items: center; justify-content: center; gap: 6px; width: 100%; background: #0284c7; color: #fff; font-size: 0.78rem; font-weight: 700; padding: 8px 12px; border-radius: 8px; text-decoration: none; margin-bottom: 12px; box-shadow: 0 2px 4px rgba(2,132,199,0.25); }
     .all-map-btn:active { background: #0369a1; }
 
     /* Timeline & Cards */
@@ -102,94 +126,94 @@
     .event-card.important { border-color: var(--accent); background: #fffdf5; }
     .event-card.important::before { background: var(--accent); }
 
-    .event-time { font-size: 0.72rem; font-weight: 700; color: var(--primary-dark); margin-bottom: 2px; }
-    .event-title { font-size: 0.88rem; font-weight: 700; color: var(--text); margin-bottom: 3px; display: flex; align-items: center; justify-content: space-between; flex-wrap: wrap; gap: 4px; }
-    .event-desc { font-size: 0.78rem; color: #334155; line-height: 1.45; }
+    .event-time { font-size: 0.7rem; font-weight: 700; color: var(--primary-dark); margin-bottom: 2px; }
+    .event-title { font-size: 0.85rem; font-weight: 700; color: var(--text); margin-bottom: 3px; display: flex; align-items: center; justify-content: space-between; flex-wrap: wrap; gap: 4px; }
+    .event-desc { font-size: 0.76rem; color: #334155; line-height: 1.45; }
 
     /* Storytelling Accordion */
     .event-story-drawer { margin-top: 6px; }
-    .story-summary { font-size: 0.72rem; font-weight: 700; color: #0369a1; cursor: pointer; list-style: none; display: flex; align-items: center; justify-content: space-between; padding: 4px 8px; background: #e0f2fe; border-radius: 6px; border: 1px solid #bae6fd; user-select: none; }
+    .story-summary { font-size: 0.7rem; font-weight: 700; color: #0369a1; cursor: pointer; list-style: none; display: flex; align-items: center; justify-content: space-between; padding: 4px 7px; background: #e0f2fe; border-radius: 5px; border: 1px solid #bae6fd; user-select: none; }
     .story-summary::-webkit-details-marker { display: none; }
-    .story-content { font-size: 0.75rem; color: #1e293b; line-height: 1.55; padding: 8px 10px; background: #f8fafc; border: 1px solid #e2e8f0; border-radius: 6px; margin-top: 4px; }
+    .story-content { font-size: 0.74rem; color: #1e293b; line-height: 1.55; padding: 8px 9px; background: #f8fafc; border: 1px solid #e2e8f0; border-radius: 6px; margin-top: 4px; }
 
     /* Inline Item Tip */
-    .inline-tip { background: var(--tip-bg); border-left: 3px solid var(--accent); border-radius: 4px; padding: 5px 8px; margin-top: 6px; font-size: 0.72rem; color: var(--tip-text); line-height: 1.4; }
+    .inline-tip { background: var(--tip-bg); border-left: 3px solid var(--accent); border-radius: 4px; padding: 5px 8px; margin-top: 6px; font-size: 0.7rem; color: var(--tip-text); line-height: 1.4; }
 
     /* Badges */
-    .badge { display: inline-block; font-size: 0.68rem; font-weight: 600; padding: 2px 6px; border-radius: 4px; }
+    .badge { display: inline-block; font-size: 0.65rem; font-weight: 600; padding: 2px 5px; border-radius: 4px; }
     .badge-taxi { background: var(--badge-taxi); color: var(--badge-taxi-text); }
     .badge-tour { background: var(--badge-tour); color: var(--badge-tour-text); }
     .badge-confirmed { background: #dcfce7; color: #166534; font-size: 0.65rem; }
 
     /* Map Button */
-    .map-btn { display: inline-flex; align-items: center; gap: 3px; background: #f0fdf4; border: 1px solid #bbf7d0; color: #16a34a; padding: 4px 7px; border-radius: 6px; font-size: 0.7rem; font-weight: 600; text-decoration: none; margin-top: 5px; }
+    .map-btn { display: inline-flex; align-items: center; gap: 3px; background: #f0fdf4; border: 1px solid #bbf7d0; color: #16a34a; padding: 3px 6px; border-radius: 5px; font-size: 0.68rem; font-weight: 600; text-decoration: none; margin-top: 5px; }
     .map-btn:active { background: #dcfce7; }
 
     /* Restaurant & Memo Section */
     .memo-box { margin-top: 6px; background: #f8fafc; border: 1px dashed #cbd5e1; border-radius: 6px; padding: 6px 8px; }
-    .memo-label { font-size: 0.7rem; font-weight: 600; color: var(--sub-text); margin-bottom: 3px; }
-    .memo-input { width: 100%; border: none; background: transparent; font-size: 0.78rem; color: #0f172a; outline: none; }
+    .memo-label { font-size: 0.68rem; font-weight: 600; color: var(--sub-text); margin-bottom: 3px; }
+    .memo-input { width: 100%; border: none; background: transparent; font-size: 0.76rem; color: #0f172a; outline: none; }
     .memo-input::placeholder { color: #94a3b8; font-style: italic; }
 
     /* Item-Level Dynamic Multi-Expense Drawer */
     .event-expense-drawer { margin-top: 8px; border-top: 1px dashed #e2e8f0; padding-top: 6px; }
-    .drawer-summary { font-size: 0.72rem; font-weight: 700; color: var(--primary); cursor: pointer; list-style: none; display: flex; align-items: center; justify-content: space-between; padding: 5px 8px; background: #f0f9ff; border-radius: 6px; border: 1px solid #bae6fd; user-select: none; }
+    .drawer-summary { font-size: 0.7rem; font-weight: 700; color: var(--primary); cursor: pointer; list-style: none; display: flex; align-items: center; justify-content: space-between; padding: 4px 7px; background: #f0f9ff; border-radius: 5px; border: 1px solid #bae6fd; user-select: none; }
     .drawer-summary::-webkit-details-marker { display: none; }
-    .drawer-amount-badge { font-size: 0.68rem; font-weight: 800; padding: 1px 6px; border-radius: 4px; background: #e2e8f0; color: #475569; }
+    .drawer-amount-badge { font-size: 0.65rem; font-weight: 800; padding: 1px 5px; border-radius: 4px; background: #e2e8f0; color: #475569; }
     .drawer-amount-badge.has-val { background: #dcfce7; color: #15803d; }
     
-    .drawer-body { padding: 6px 0 2px; }
+    .drawer-body { padding: 5px 0 2px; }
     .expense-row { display: flex; gap: 4px; align-items: center; margin-bottom: 5px; flex-wrap: wrap; }
-    .exp-name-input { flex: 1.3; min-width: 90px; padding: 5px 6px; font-size: 0.75rem; border: 1px solid #cbd5e1; border-radius: 4px; background: #fff; }
-    .exp-cost-input { flex: 1; min-width: 75px; padding: 5px 6px; font-size: 0.75rem; border: 1px solid #cbd5e1; border-radius: 4px; text-align: right; background: #fff; font-weight: 600; }
-    .exp-krw-tag { font-size: 0.68rem; font-weight: 700; color: #b91c1c; background: #fef2f2; padding: 3px 5px; border-radius: 4px; white-space: nowrap; }
-    .exp-del-btn { background: #fee2e2; border: 1px solid #fca5a5; color: #b91c1c; border-radius: 4px; padding: 4px 7px; font-size: 0.7rem; cursor: pointer; font-weight: 700; }
-    .exp-add-btn { width: 100%; background: #f8fafc; border: 1px dashed #94a3b8; color: var(--primary); font-size: 0.72rem; font-weight: 700; padding: 5px; border-radius: 4px; cursor: pointer; margin-top: 3px; }
+    .exp-name-input { flex: 1.3; min-width: 85px; padding: 5px 6px; font-size: 0.74rem; border: 1px solid #cbd5e1; border-radius: 4px; background: #fff; }
+    .exp-cost-input { flex: 1; min-width: 70px; padding: 5px 6px; font-size: 0.74rem; border: 1px solid #cbd5e1; border-radius: 4px; text-align: right; background: #fff; font-weight: 600; }
+    .exp-krw-tag { font-size: 0.66rem; font-weight: 700; color: #b91c1c; background: #fef2f2; padding: 2px 4px; border-radius: 4px; white-space: nowrap; }
+    .exp-del-btn { background: #fee2e2; border: 1px solid #fca5a5; color: #b91c1c; border-radius: 4px; padding: 3px 6px; font-size: 0.68rem; cursor: pointer; font-weight: 700; }
+    .exp-add-btn { width: 100%; background: #f8fafc; border: 1px dashed #94a3b8; color: var(--primary); font-size: 0.7rem; font-weight: 700; padding: 5px; border-radius: 4px; cursor: pointer; margin-top: 3px; }
 
     /* Card Usage Dedicated Section */
     .card-expense-card { background: #fdf4ff; border: 1px solid #f0abfc; border-radius: 10px; padding: 10px 12px; margin-bottom: 12px; box-shadow: 0 1px 3px rgba(0,0,0,0.02); }
-    .card-drawer-summary { font-size: 0.75rem; font-weight: 700; color: #86198f; cursor: pointer; list-style: none; display: flex; align-items: center; justify-content: space-between; user-select: none; }
+    .card-drawer-summary { font-size: 0.73rem; font-weight: 700; color: #86198f; cursor: pointer; list-style: none; display: flex; align-items: center; justify-content: space-between; user-select: none; }
     .card-drawer-summary::-webkit-details-marker { display: none; }
-    .card-amount-badge { font-size: 0.68rem; font-weight: 800; padding: 2px 7px; border-radius: 4px; background: #fae8ff; color: #86198f; border: 1px solid #f5d0fe; }
+    .card-amount-badge { font-size: 0.65rem; font-weight: 800; padding: 2px 6px; border-radius: 4px; background: #fae8ff; color: #86198f; border: 1px solid #f5d0fe; }
     .card-amount-badge.has-val { background: #dcfce7; color: #15803d; border-color: #bbf7d0; }
-    .card-add-btn { width: 100%; background: #fff; border: 1px dashed #d946ef; color: #a21caf; font-size: 0.72rem; font-weight: 700; padding: 5px; border-radius: 4px; cursor: pointer; margin-top: 4px; }
+    .card-add-btn { width: 100%; background: #fff; border: 1px dashed #d946ef; color: #a21caf; font-size: 0.7rem; font-weight: 700; padding: 5px; border-radius: 4px; cursor: pointer; margin-top: 4px; }
 
     /* Plan A/B Blocks */
     .plan-container { display: flex; flex-direction: column; gap: 6px; margin-top: 6px; }
     .plan-box { background: #f8fafc; border-radius: 8px; padding: 8px 10px; border: 1px solid var(--border); }
-    .plan-title { font-size: 0.8rem; font-weight: 700; color: var(--primary-dark); margin-bottom: 2px; }
+    .plan-title { font-size: 0.78rem; font-weight: 700; color: var(--primary-dark); margin-bottom: 2px; }
 
     /* Day Expense Summary Card */
-    .day-total-card { background: #fff; border-radius: 10px; padding: 12px; border: 1px solid var(--border); margin-bottom: 12px; }
-    .day-total-row { display: flex; justify-content: space-between; align-items: center; font-size: 0.8rem; margin-bottom: 3px; }
-    .day-total-row.main { font-weight: 700; color: var(--primary-dark); font-size: 0.88rem; border-bottom: 1px solid #f1f5f9; padding-bottom: 6px; margin-bottom: 6px; }
-    .day-actual-sum { font-weight: 800; color: #b91c1c; font-size: 0.88rem; }
+    .day-total-card { background: #fff; border-radius: 10px; padding: 11px; border: 1px solid var(--border); margin-bottom: 12px; }
+    .day-total-row { display: flex; justify-content: space-between; align-items: center; font-size: 0.78rem; margin-bottom: 3px; }
+    .day-total-row.main { font-weight: 700; color: var(--primary-dark); font-size: 0.84rem; border-bottom: 1px solid #f1f5f9; padding-bottom: 5px; margin-bottom: 5px; }
+    .day-actual-sum { font-weight: 800; color: #b91c1c; font-size: 0.85rem; }
 
     /* Settlement Page Styles */
-    .breakdown-day-card { background: #fff; border-radius: 10px; padding: 12px; border: 1px solid var(--border); margin-bottom: 10px; }
-    .breakdown-day-title { font-size: 0.85rem; font-weight: 800; color: var(--primary-dark); display: flex; justify-content: space-between; border-bottom: 1px solid #e2e8f0; padding-bottom: 5px; margin-bottom: 6px; }
-    .breakdown-item-row { display: flex; justify-content: space-between; font-size: 0.76rem; padding: 4px 0; color: #334155; border-bottom: 1px dashed #f1f5f9; }
+    .breakdown-day-card { background: #fff; border-radius: 10px; padding: 11px; border: 1px solid var(--border); margin-bottom: 10px; }
+    .breakdown-day-title { font-size: 0.82rem; font-weight: 800; color: var(--primary-dark); display: flex; justify-content: space-between; border-bottom: 1px solid #e2e8f0; padding-bottom: 5px; margin-bottom: 6px; }
+    .breakdown-item-row { display: flex; justify-content: space-between; font-size: 0.74rem; padding: 4px 0; color: #334155; border-bottom: 1px dashed #f1f5f9; }
     .breakdown-item-tag { color: #64748b; font-weight: 600; margin-right: 4px; }
     .breakdown-item-tag.card-tag { color: #86198f; font-weight: 700; }
-    .no-item-msg { font-size: 0.74rem; color: #94a3b8; font-style: italic; padding: 4px 0; }
+    .no-item-msg { font-size: 0.72rem; color: #94a3b8; font-style: italic; padding: 4px 0; }
 
     /* Vietnamese Phrase Card */
-    .phrase-category { font-size: 0.8rem; font-weight: 700; color: var(--primary-dark); margin: 10px 0 6px; border-bottom: 1px solid #e2e8f0; padding-bottom: 2px; }
-    .phrase-item { background: #f8fafc; border: 1px solid #e2e8f0; border-radius: 6px; padding: 8px 10px; margin-bottom: 6px; position: relative; }
-    .phrase-ko { font-size: 0.8rem; font-weight: 700; color: #0f172a; }
-    .phrase-vi { font-size: 0.82rem; color: #0369a1; font-weight: 700; margin-top: 2px; }
-    .phrase-pron { font-size: 0.73rem; color: #b45309; margin-top: 1px; }
+    .phrase-category { font-size: 0.78rem; font-weight: 700; color: var(--primary-dark); margin: 10px 0 5px; border-bottom: 1px solid #e2e8f0; padding-bottom: 2px; }
+    .phrase-item { background: #f8fafc; border: 1px solid #e2e8f0; border-radius: 6px; padding: 7px 9px; margin-bottom: 5px; position: relative; }
+    .phrase-ko { font-size: 0.78rem; font-weight: 700; color: #0f172a; }
+    .phrase-vi { font-size: 0.8rem; color: #0369a1; font-weight: 700; margin-top: 2px; }
+    .phrase-pron { font-size: 0.72rem; color: #b45309; margin-top: 1px; }
 
     /* Utilities & Total Tab */
-    .card { background: #fff; border-radius: 10px; padding: 12px; border: 1px solid var(--border); margin-bottom: 10px; }
-    .card h3 { font-size: 0.85rem; margin-bottom: 8px; color: var(--primary-dark); }
+    .card { background: #fff; border-radius: 10px; padding: 11px; border: 1px solid var(--border); margin-bottom: 10px; }
+    .card h3 { font-size: 0.82rem; margin-bottom: 7px; color: var(--primary-dark); }
     .calc-row { display: flex; gap: 6px; align-items: center; }
-    .calc-input { flex: 1; padding: 6px 8px; font-size: 0.8rem; border: 1px solid #cbd5e1; border-radius: 6px; }
+    .calc-input { flex: 1; padding: 6px 8px; font-size: 0.78rem; border: 1px solid #cbd5e1; border-radius: 6px; }
 
-    .address-box { background: #f8fafc; padding: 8px 10px; border-radius: 6px; margin-bottom: 6px; position: relative; border: 1px solid #e2e8f0; }
-    .address-title { font-size: 0.78rem; font-weight: 700; }
-    .address-text { font-size: 0.73rem; color: #475569; margin-top: 1px; }
-    .copy-btn { position: absolute; right: 8px; top: 8px; background: #fff; border: 1px solid #cbd5e1; padding: 2px 6px; border-radius: 4px; font-size: 0.68rem; font-weight: 600; color: var(--primary); cursor: pointer; }
+    .address-box { background: #f8fafc; padding: 8px 9px; border-radius: 6px; margin-bottom: 6px; position: relative; border: 1px solid #e2e8f0; }
+    .address-title { font-size: 0.76rem; font-weight: 700; }
+    .address-text { font-size: 0.72rem; color: #475569; margin-top: 1px; }
+    .copy-btn { position: absolute; right: 8px; top: 8px; background: #fff; border: 1px solid #cbd5e1; padding: 2px 5px; border-radius: 4px; font-size: 0.65rem; font-weight: 600; color: var(--primary); cursor: pointer; }
 
     #toast { visibility: hidden; min-width: 140px; background-color: #333; color: #fff; text-align: center; border-radius: 16px; padding: 6px 12px; position: fixed; z-index: 999; left: 50%; bottom: 25px; transform: translateX(-50%); font-size: 0.75rem; }
     #toast.show { visibility: visible; animation: fadein 0.2s, fadeout 0.2s 1.3s; }
@@ -202,27 +226,114 @@
 <header>
   <div class="app-badge">🌴 TRAVEL MINI APP</div>
   <h1>🇻🇳 CHOI & KWAK IN NHA TRANG</h1>
-  <p class="header-date">🗓️ 2026.08.29 — 09.03</p>
+  <p class="header-date">2026.08.29 (토) — 09.03 (목)</p>
   <div class="sync-status" id="syncStatus">🟡 클라우드 연결 준비 중</div>
 </header>
 
-<!-- 2-Row Full Screen Tab Grid -->
+<!-- 3x3 Comfortable Navigation Tab Grid -->
 <div class="tabs-grid">
-  <button class="tab-btn active" onclick="openTab(event, 'day1')">8/29 (금)</button>
-  <button class="tab-btn" onclick="openTab(event, 'day2')">8/30 (토)</button>
-  <button class="tab-btn" onclick="openTab(event, 'day3')">8/31 (일)</button>
-  <button class="tab-btn" onclick="openTab(event, 'day4')">9/1 (월)</button>
-  <button class="tab-btn" onclick="openTab(event, 'day5')">9/2 (화)</button>
-  <button class="tab-btn" onclick="openTab(event, 'day6')">9/3 (수)</button>
+  <button class="tab-btn active" onclick="openTab(event, 'home')">🏠 홈</button>
+  <button class="tab-btn" onclick="openTab(event, 'day1')">8/29 (토)</button>
+  <button class="tab-btn" onclick="openTab(event, 'day2')">8/30 (일)</button>
+  <button class="tab-btn" onclick="openTab(event, 'day3')">8/31 (월)</button>
+  <button class="tab-btn" onclick="openTab(event, 'day4')">9/1 (화)</button>
+  <button class="tab-btn" onclick="openTab(event, 'day5')">9/2 (수)</button>
+  <button class="tab-btn" onclick="openTab(event, 'day6')">9/3 (목)</button>
   <button class="tab-btn" onclick="openTab(event, 'total')">💰 정산/가계부</button>
   <button class="tab-btn" onclick="openTab(event, 'tools')">🗣️ 회화·도구</button>
 </div>
 
 <div class="container">
 
-  <!-- DAY 1 -->
-  <div id="day1" class="day-content active">
-    <div class="day-header">✈️ 8/29 FRI <span>출국 & 입국</span></div>
+  <!-- ==================== HOME / INTRO DASHBOARD ==================== -->
+  <div id="home" class="day-content active">
+    
+    <!-- Hero Beach Card with D-Day -->
+    <div class="intro-hero">
+      <h2>🌴 CHAO NHA TRANG!</h2>
+      <p>최 & 곽의 5박 6일 나트랑 자유여행 가이드</p>
+      <div id="dday_display" class="dday-badge">✈️ D-Day 계산 중...</div>
+      <button class="today-jump-btn" onclick="jumpToTodayOrDay1()">📍 오늘 일정 바로보기</button>
+    </div>
+
+    <!-- Live Total Spending Preview -->
+    <div class="card" style="border: 2px solid var(--primary); background: #f0f9ff; margin-bottom:10px;">
+      <div style="display:flex; justify-content:space-between; align-items:center; font-size:0.8rem; font-weight:700; color:var(--primary-dark);">
+        <span>💳 현재까지 총 지출액</span>
+        <span id="home_total_dong" style="color:#b91c1c; font-weight:800;">0 동</span>
+      </div>
+      <div style="display:flex; justify-content:space-between; font-size:0.7rem; color:var(--sub-text); margin-top:2px;">
+        <span>(원화 환산 합계 / 100đ=5.3원)</span>
+        <span id="home_total_won" style="color:#b91c1c; font-weight:700;">약 0 원</span>
+      </div>
+    </div>
+
+    <!-- 6-Day Quick Navigation Grid -->
+    <div style="font-size:0.82rem; font-weight:800; color:var(--primary-dark); margin: 6px 2px 6px;">🗓️ 6일 일정 한눈에 보기</div>
+    <div class="home-grid">
+      <div class="home-card" onclick="switchToDayTab('day1')">
+        <div class="home-card-date">8/29 (토) DAY 1</div>
+        <div class="home-card-theme">✈️ 출국 & 나트랑 입국</div>
+        <div class="home-card-desc">김해 출발 → 깜란 도착 → 포포인츠 체크인</div>
+      </div>
+      <div class="home-card" onclick="switchToDayTab('day2')">
+        <div class="home-card-date">8/30 (일) DAY 2</div>
+        <div class="home-card-theme">🛍️ 담시장 & 포나가르 & 센스파</div>
+        <div class="home-card-desc">환전 → 시장 쇼핑 → 참탑 → 90분 마사지</div>
+      </div>
+      <div class="home-card" onclick="switchToDayTab('day3')">
+        <div class="home-card-date">8/31 (월) DAY 3</div>
+        <div class="home-card-theme">🏜️ 판랑 사막투어 & 회복</div>
+        <div class="home-card-desc">02:30 사막 일출 → 필수 낮잠 → 해변/야시장</div>
+      </div>
+      <div class="home-card" onclick="switchToDayTab('day4')">
+        <div class="home-card-date">9/1 (화) DAY 4</div>
+        <div class="home-card-theme">🛒 롯데마트 털기 & 더아남</div>
+        <div class="home-card-desc">혼총곶 → 마트 대량 쇼핑 → 더아남 리조트 입성</div>
+      </div>
+      <div class="home-card" onclick="switchToDayTab('day5')">
+        <div class="home-card-date">9/2 (수) DAY 5</div>
+        <div class="home-card-theme">🌺 올데이 더아남 힐링</div>
+        <div class="home-card-desc">🇻🇳 독립기념일! 비치클럽 & 수영 & 룸서비스</div>
+      </div>
+      <div class="home-card" onclick="switchToDayTab('day6')">
+        <div class="home-card-date">9/3 (목) DAY 6</div>
+        <div class="home-card-theme">✈️ 깜란 여유 & 귀국</div>
+        <div class="home-card-desc">체크아웃 → 바이다이 해변 산책 → 21:00 공항</div>
+      </div>
+    </div>
+
+    <!-- Quick Mini Currency Converter -->
+    <div class="card">
+      <h3>💱 빠른 환율 계산기 (100동 = 5.3원)</h3>
+      <div class="calc-row">
+        <input type="number" id="homeVndInput" class="calc-input" placeholder="VND 금액 입력" oninput="calcHomeVndToKrw()">
+      </div>
+      <div id="home_calc_result" style="margin-top:6px; font-size:0.8rem; font-weight:800; color:var(--primary-dark); text-align:center; background:#f1f5f9; padding:6px; border-radius:6px;">
+        금액을 입력하면 원화로 계산됩니다.
+      </div>
+    </div>
+
+    <!-- Quick Hotel Addresses -->
+    <div class="card">
+      <h3>🚖 기사님 소통용 숙소 주소 복사</h3>
+      <div class="address-box">
+        <button class="copy-btn" onclick="copyText('Four Points by Sheraton Nha Trang, 09 Lê Thánh Tôn, Lộc Thọ, Nha Trang')">복사</button>
+        <div class="address-title">포포인츠 쉐라톤 나트랑</div>
+        <div class="address-text">Four Points by Sheraton Nha Trang<br>09 Lê Thánh Tôn, Lộc Thọ, Nha Trang</div>
+      </div>
+      <div class="address-box">
+        <button class="copy-btn" onclick="copyText('The Anam Cam Ranh, Lot 3, Nguyễn Tất Thành, Cam Lâm, Khánh Hòa')">복사</button>
+        <div class="address-title">더아남 깜란 리조트</div>
+        <div class="address-text">The Anam Cam Ranh<br>Lot 3, Nguyễn Tất Thành, Cam Lâm, Khánh Hòa</div>
+      </div>
+    </div>
+
+  </div>
+
+  <!-- ==================== DAY 1 ==================== -->
+  <div id="day1" class="day-content">
+    <div class="day-header">✈️ 8/29 SAT <span>출국 & 입국</span></div>
 
     <a class="all-map-btn" href="https://www.google.com/maps/dir/Cam+Ranh+International+Airport/Four+Points+by+Sheraton+Nha+Trang" target="_blank">
       📍 오늘 일정 코스 한눈에 보기
@@ -297,9 +408,9 @@
     </div>
   </div>
 
-  <!-- DAY 2 -->
+  <!-- ==================== DAY 2 ==================== -->
   <div id="day2" class="day-content">
-    <div class="day-header">🌴 8/30 SAT <span>환전·시장·포나가르·마사지</span></div>
+    <div class="day-header">🌴 8/30 SUN <span>환전·시장·포나가르·마사지</span></div>
 
     <a class="all-map-btn" href="https://www.google.com/maps/dir/Four+Points+by+Sheraton+Nha+Trang/Lotte+Mart+Gold+Coast+Nha+Trang/Cho+Dam+Nha+Trang/Ponagar+Tower+Nha+Trang/Sen+Spa+Nha+Trang" target="_blank">
       📍 오늘 일정 코스 한눈에 보기
@@ -405,8 +516,8 @@
         <div class="event-desc">
           센시그니처 90분 / 2인 (정가 1,360,000동)<br>
           <b>💵 현금 결제 할인 시 지불 예정액:</b><br>
-          • 10% 할인 시 → <b>1,224,000동</b> (약 64,600원)<br>
-          • 20% 할인 시 → <b>1,088,000동</b> (약 57,400원)
+          • 10% 할인 시 → <b>1,224,000동</b> (약 64,800원)<br>
+          • 20% 할인 시 → <b>1,088,000동</b> (약 57,600원)
         </div>
         <a class="map-btn" href="https://www.google.com/maps/search/?api=1&query=Sen+Spa+Nha+Trang" target="_blank">📍 Google Maps</a>
         <div class="inline-tip">💡 <b>TIP:</b> 결제 전에 프런트에 꼭 "Cash discount?" 물어보고 현금 지불하기!</div>
@@ -468,16 +579,16 @@
     </div>
 
     <div class="day-total-card">
-      <div class="day-total-row main"><span>💰 오늘 예상 : 약 326만동</span><span style="font-size:0.75rem; color:var(--sub-text);">약 17.2만원</span></div>
+      <div class="day-total-row main"><span>💰 오늘 예상 : 약 326만동</span><span style="font-size:0.75rem; color:var(--sub-text);">약 17.3만원</span></div>
       <div class="day-total-row"><span>💵 오늘 현금 소계 :</span><span id="cash_subtotal_d2" style="font-weight:700; color:#0369a1;">0 동</span></div>
       <div class="day-total-row"><span>💳 오늘 카드 소계 :</span><span id="card_subtotal_d2" style="font-weight:700; color:#86198f;">0 동</span></div>
       <div class="day-total-row" style="border-top:1px dashed #cbd5e1; padding-top:5px; margin-top:5px;"><span>🔥 오늘 총 지출 :</span><span id="subtotal_d2" class="day-actual-sum">0 동</span></div>
     </div>
   </div>
 
-  <!-- DAY 3 -->
+  <!-- ==================== DAY 3 ==================== -->
   <div id="day3" class="day-content">
-    <div class="day-header">🌅 8/31 SUN <span>판랑사막 + 회복 DAY</span></div>
+    <div class="day-header">🌅 8/31 MON <span>판랑사막 + 회복 DAY</span></div>
 
     <a class="all-map-btn" href="https://www.google.com/maps/dir/Four+Points+by+Sheraton+Nha+Trang/Doi+cat+Nam+Cuong+Ninh+Thuan/Four+Points+by+Sheraton+Nha+Trang/Nha+Trang+Night+Market" target="_blank">
       📍 오늘 일정 코스 한눈에 보기
@@ -638,9 +749,9 @@
     </div>
   </div>
 
-  <!-- DAY 4 -->
+  <!-- ==================== DAY 4 ==================== -->
   <div id="day4" class="day-content">
-    <div class="day-header">🏝️ 9/1 MON <span>혼총곶 · 롯데마트 · The Anam</span></div>
+    <div class="day-header">🏝️ 9/1 TUE <span>혼총곶 · 롯데마트 · The Anam</span></div>
 
     <a class="all-map-btn" href="https://www.google.com/maps/dir/Four+Points+by+Sheraton+Nha+Trang/Hon+Chong+Nha+Trang/Lotte+Mart+Gold+Coast+Nha+Trang/The+Anam+Cam+Ranh" target="_blank">
       📍 오늘 일정 코스 한눈에 보기
@@ -765,16 +876,16 @@
     </div>
 
     <div class="day-total-card">
-      <div class="day-total-row main"><span>💰 오늘 예상 : 약 405만동</span><span style="font-size:0.75rem; color:var(--sub-text);">약 21.4만원 (마트쇼핑 포함)</span></div>
+      <div class="day-total-row main"><span>💰 오늘 예상 : 약 405만동</span><span style="font-size:0.75rem; color:var(--sub-text);">약 21.5만원 (마트쇼핑 포함)</span></div>
       <div class="day-total-row"><span>💵 오늘 현금 소계 :</span><span id="cash_subtotal_d4" style="font-weight:700; color:#0369a1;">0 동</span></div>
       <div class="day-total-row"><span>💳 오늘 카드 소계 :</span><span id="card_subtotal_d4" style="font-weight:700; color:#86198f;">0 동</span></div>
       <div class="day-total-row" style="border-top:1px dashed #cbd5e1; padding-top:5px; margin-top:5px;"><span>🔥 오늘 총 지출 :</span><span id="subtotal_d4" class="day-actual-sum">0 동</span></div>
     </div>
   </div>
 
-  <!-- DAY 5 -->
+  <!-- ==================== DAY 5 ==================== -->
   <div id="day5" class="day-content">
-    <div class="day-header">🌺 9/2 TUE <span>완전한 The Anam Resort DAY</span></div>
+    <div class="day-header">🌺 9/2 WED <span>완전한 The Anam Resort DAY</span></div>
 
     <a class="all-map-btn" href="https://www.google.com/maps/search/?api=1&query=The+Anam+Cam+Ranh" target="_blank">
       📍 오늘 더아남 리조트 위치 보기
@@ -858,16 +969,16 @@
     </div>
 
     <div class="day-total-card">
-      <div class="day-total-row main"><span>💰 오늘 예상 : 약 205만동</span><span style="font-size:0.75rem; color:var(--sub-text);">약 10.8만원</span></div>
+      <div class="day-total-row main"><span>💰 오늘 예상 : 약 205만동</span><span style="font-size:0.75rem; color:var(--sub-text);">약 10.9만원</span></div>
       <div class="day-total-row"><span>💵 오늘 현금 소계 :</span><span id="cash_subtotal_d5" style="font-weight:700; color:#0369a1;">0 동</span></div>
       <div class="day-total-row"><span>💳 오늘 카드 소계 :</span><span id="card_subtotal_d5" style="font-weight:700; color:#86198f;">0 동</span></div>
       <div class="day-total-row" style="border-top:1px dashed #cbd5e1; padding-top:5px; margin-top:5px;"><span>🔥 오늘 총 지출 :</span><span id="subtotal_d5" class="day-actual-sum">0 동</span></div>
     </div>
   </div>
 
-  <!-- DAY 6 -->
+  <!-- ==================== DAY 6 ==================== -->
   <div id="day6" class="day-content">
-    <div class="day-header">✈️ 9/3 WED <span>체크아웃 · 깜란 · 귀국</span></div>
+    <div class="day-header">✈️ 9/3 THU <span>체크아웃 · 깜란 · 귀국</span></div>
 
     <a class="all-map-btn" href="https://www.google.com/maps/dir/The+Anam+Cam+Ranh/Bai+Dai+Beach+Cam+Ranh/The+Anam+Cam+Ranh/Cam+Ranh+International+Airport" target="_blank">
       📍 오늘 일정 코스 한눈에 보기
@@ -895,7 +1006,7 @@
         </div>
         
         <details class="event-expense-drawer">
-          <summary class="drawer-summary"><span>💸 실제 현금 지출 기록</span><span id="badge_d6_lunch" class="drawer-amount-badge">0đ</span></summary>
+          <summary class="drawer-summary"><span>💸 점심 식사 지출</span><span id="badge_d6_lunch" class="drawer-amount-badge">0đ</span></summary>
           <div class="drawer-body">
             <div id="list_d6_lunch"></div>
             <button class="exp-add-btn" onclick="addExpenseRow('d6_lunch')">+ 지출 항목 추가</button>
@@ -916,7 +1027,7 @@
             <details class="event-story-drawer" style="margin-top:4px;">
               <summary class="story-summary"><span>🏛️ 바이다이 해변 이야기</span><span>📖 펼쳐보기</span></summary>
               <div class="story-content">
-                '긴 해변(Long Beach)'이라는 이름처럼 10km 이상 하얀 백사장이 길게 뻗은 깜란의 대표 해변입니다. 과거 오랫동안 군사 보호 구역으로 묶여 있었던 덕분에 나트랑 시내 비치와 달리 훼손되지 않은 에메랄드빛 청정 바다를 그대로 간직하고 있습니다. 수심이 얕고 모래가 고와 여유로운 휴식과 해변 산책에 이상적인 힐링 스팟입니다.
+                '긴 해변(Long Beach)'이라는 뜻을 가진 바이다이는 깜란 반도를 따라 10km 이상 눈부신 백사장이 끝없이 펼쳐지는 청정 휴양지입니다. 과거 군사 통제 구역으로 묶여 있었던 덕분에 나트랑 시내 비치와 달리 자연 그대로의 에메랄드빛 바다와 부드러운 백사장이 완벽하게 보존되어 있습니다. 파도가 잔잔하고 수심이 완만해 여유로운 산책과 힐링에 안성맞춤입니다.
               </div>
             </details>
           </div>
@@ -996,60 +1107,51 @@
     </div>
 
     <div class="day-total-card">
-      <div class="day-total-row main"><span>💰 오늘 예상 : 약 160만동</span><span style="font-size:0.75rem; color:var(--sub-text);">약 8.4만원</span></div>
+      <div class="day-total-row main"><span>💰 오늘 예상 : 약 160만동</span><span style="font-size:0.75rem; color:var(--sub-text);">약 8.5만원</span></div>
       <div class="day-total-row"><span>💵 오늘 현금 소계 :</span><span id="cash_subtotal_d6" style="font-weight:700; color:#0369a1;">0 동</span></div>
       <div class="day-total-row"><span>💳 오늘 카드 소계 :</span><span id="card_subtotal_d6" style="font-weight:700; color:#86198f;">0 동</span></div>
       <div class="day-total-row" style="border-top:1px dashed #cbd5e1; padding-top:5px; margin-top:5px;"><span>🔥 오늘 총 지출 :</span><span id="subtotal_d6" class="day-actual-sum">0 동</span></div>
     </div>
   </div>
 
-  <!-- TOTAL TAB -->
+  <!-- ==================== TOTAL TAB ==================== -->
   <div id="total" class="day-content">
     <div class="day-header">💰 TRIP TOTAL <span>예산 vs 실제 정산</span></div>
 
     <div class="card" style="border: 2px solid var(--primary); background: #f0f9ff;">
-      <div class="cost-row" style="font-size:0.92rem; font-weight:700; color:var(--primary-dark); margin-bottom:4px; display:flex; justify-content:space-between;">
+      <div class="cost-row" style="font-size:0.9rem; font-weight:700; color:var(--primary-dark); margin-bottom:4px; display:flex; justify-content:space-between;">
         <span>🎯 총 예상 예산</span>
         <span>14,460,000 동</span>
       </div>
-      <div class="cost-row" style="font-size:0.75rem; color:var(--sub-text); margin-bottom:10px; display:flex; justify-content:space-between;">
-        <span>(쇼핑 200만동 포함 / 100đ=5.28원)</span>
-        <span>약 76.3만 원</span>
+      <div class="cost-row" style="font-size:0.72rem; color:var(--sub-text); margin-bottom:8px; display:flex; justify-content:space-between;">
+        <span>(쇼핑 200만동 포함 / 100đ=5.3원)</span>
+        <span>약 76.6만 원</span>
       </div>
 
-      <div class="cost-row" style="font-size:0.82rem; font-weight:700; color:#0369a1; border-top:1px dashed #cbd5e1; padding-top:6px; display:flex; justify-content:space-between;">
+      <div class="cost-row" style="font-size:0.8rem; font-weight:700; color:#0369a1; border-top:1px dashed #cbd5e1; padding-top:6px; display:flex; justify-content:space-between;">
         <span>💵 현금 총 지출</span>
         <span id="grand_cash_dong">0 동 (약 0원)</span>
       </div>
-      <div class="cost-row" style="font-size:0.82rem; font-weight:700; color:#86198f; margin-top:2px; display:flex; justify-content:space-between;">
+      <div class="cost-row" style="font-size:0.8rem; font-weight:700; color:#86198f; margin-top:2px; display:flex; justify-content:space-between;">
         <span>💳 카드 총 지출</span>
         <span id="grand_card_dong">0 동 (약 0원)</span>
       </div>
 
-      <div class="cost-row" style="font-size:0.95rem; font-weight:800; color:#b91c1c; border-top:1px solid #bae6fd; padding-top:8px; margin-top:6px; display:flex; justify-content:space-between;">
+      <div class="cost-row" style="font-size:0.92rem; font-weight:800; color:#b91c1c; border-top:1px solid #bae6fd; padding-top:7px; margin-top:5px; display:flex; justify-content:space-between;">
         <span>🔥 전체 총 지출액 (현금+카드)</span>
         <span id="grand_total_dong">0 동</span>
       </div>
-      <div class="cost-row" style="font-size:0.8rem; font-weight:700; color:#b91c1c; margin-top:3px; display:flex; justify-content:space-between;">
+      <div class="cost-row" style="font-size:0.78rem; font-weight:700; color:#b91c1c; margin-top:2px; display:flex; justify-content:space-between;">
         <span>원화 환산 합계</span>
         <span id="grand_total_won">약 0 원</span>
       </div>
     </div>
 
-    <div style="font-size:0.85rem; font-weight:800; color:var(--primary-dark); margin: 12px 2px 6px;">📊 일자별 지출 상세 리스트</div>
+    <div style="font-size:0.82rem; font-weight:800; color:var(--primary-dark); margin: 10px 2px 5px;">📊 일자별 지출 상세 리스트</div>
     <div id="breakdown_container"></div>
-
-    <div class="card" style="background: var(--tip-bg); border: 1px solid var(--tip-border); margin-top:10px;">
-      <h3 style="color: var(--tip-text); margin-bottom: 4px;">💵 권장 현금 준비금</h3>
-      <p style="font-size:0.75rem; color:var(--tip-text); line-height:1.5;">
-        • 2인 순수 여행경비: 약 63.1만원 (1,196만동)<br>
-        • 쇼핑 예산: 약 13.2만원 (250만동)<br>
-        👉 비상금/추가 Grab 고려 시 <b>약 80만원</b> 환전 추천!
-      </p>
-    </div>
   </div>
 
-  <!-- TOOLS & PHRASES TAB -->
+  <!-- ==================== TOOLS & PHRASES TAB ==================== -->
   <div id="tools" class="day-content">
     <div class="day-header">🗣️ 회화 & 편의도구 <span>환율·베트남어·숙소주소</span></div>
 
@@ -1059,20 +1161,20 @@
       <div class="calc-row">
         <input type="number" id="vndInput" class="calc-input" placeholder="VND 금액 입력 (예: 300000)" oninput="calcVndToKrw()">
       </div>
-      <div id="calc_result" style="margin-top:8px; font-size:0.85rem; font-weight:800; color:var(--primary-dark); text-align:center; background:#f1f5f9; padding:8px; border-radius:6px;">
+      <div id="calc_result" style="margin-top:6px; font-size:0.82rem; font-weight:800; color:var(--primary-dark); text-align:center; background:#f1f5f9; padding:7px; border-radius:6px;">
         금액을 입력하면 원화로 자동 계산됩니다.
       </div>
       
       <!-- Currency Cheat Sheet -->
-      <div style="margin-top:10px; border-top:1px dashed var(--border); padding-top:8px;">
-        <div style="font-size:0.72rem; font-weight:700; color:var(--sub-text); margin-bottom:4px;">⚡ 빠른 화폐 환산표 (100동 당 5.28원 기준)</div>
-        <div style="display:grid; grid-template-columns:1fr 1fr; gap:4px; font-size:0.72rem; color:#334155;">
-          <div>• 10,000đ ≈ 약 528원</div>
-          <div>• 50,000đ ≈ 약 2,640원</div>
-          <div>• 100,000đ ≈ 약 5,280원</div>
-          <div>• 200,000đ ≈ 약 10,560원</div>
-          <div>• 500,000đ ≈ 약 26,400원</div>
-          <div>• 1,000,000đ ≈ 약 52,800원</div>
+      <div style="margin-top:8px; border-top:1px dashed var(--border); padding-top:6px;">
+        <div style="font-size:0.7rem; font-weight:700; color:var(--sub-text); margin-bottom:4px;">⚡ 빠른 화폐 환산표 (100동 당 5.3원 기준)</div>
+        <div style="display:grid; grid-template-columns:1fr 1fr; gap:3px; font-size:0.7rem; color:#334155;">
+          <div>• 10,000đ ≈ 약 530원</div>
+          <div>• 50,000đ ≈ 약 2,650원</div>
+          <div>• 100,000đ ≈ 약 5,300원</div>
+          <div>• 200,000đ ≈ 약 10,600원</div>
+          <div>• 500,000đ ≈ 약 26,500원</div>
+          <div>• 1,000,000đ ≈ 약 53,000원</div>
         </div>
       </div>
     </div>
@@ -1157,8 +1259,8 @@
 <div id="toast">복사 완료!</div>
 
 <script>
-  // 100 VND = 5.28 KRW 기준
-  const EXCHANGE_RATE = 0.0528;
+  // 100 VND = 5.3 KRW 기준
+  const EXCHANGE_RATE = 0.053;
 
   // ==========================================
   // 👇 1단계에서 복사한 Firebase 설정을 아래에 붙여넣으세요!
@@ -1190,46 +1292,46 @@
     document.getElementById('syncStatus').innerHTML = "⚠️ 동기화 오류 (오프라인 모드)";
   }
 
-  // Event Meta Configuration (Cash & Card)
+  // Event Meta Configuration (Cash & Card) - 2026 Exact Dates
   const eventMeta = {
-    "d1_airport": { day: "d1", dayTitle: "8/29 (금)", eventName: "깜란공항 도착", isCard: false },
-    "d1_pickup": { day: "d1", dayTitle: "8/29 (금)", eventName: "픽업 이동", isCard: false },
-    "d1_hotel": { day: "d1", dayTitle: "8/29 (금)", eventName: "호텔 체크인/기타", isCard: false },
-    "d1_card": { day: "d1", dayTitle: "8/29 (금)", eventName: "💳 카드 결제", isCard: true },
+    "d1_airport": { day: "d1", dayTitle: "8/29 (토)", eventName: "깜란공항 도착", isCard: false },
+    "d1_pickup": { day: "d1", dayTitle: "8/29 (토)", eventName: "픽업 이동", isCard: false },
+    "d1_hotel": { day: "d1", dayTitle: "8/29 (토)", eventName: "호텔 체크인/기타", isCard: false },
+    "d1_card": { day: "d1", dayTitle: "8/29 (토)", eventName: "💳 카드 결제", isCard: true },
 
-    "d2_lotte": { day: "d2", dayTitle: "8/30 (토)", eventName: "롯데마트 골드코스트", isCard: false },
-    "d2_dam": { day: "d2", dayTitle: "8/30 (토)", eventName: "담시장 쇼핑", isCard: false },
-    "d2_lunch": { day: "d2", dayTitle: "8/30 (토)", eventName: "점심 식사", isCard: false },
-    "d2_ponagar": { day: "d2", dayTitle: "8/30 (토)", eventName: "포나가르 참탑", isCard: false },
-    "d2_senspa": { day: "d2", dayTitle: "8/30 (토)", eventName: "센스파 마사지", isCard: false },
-    "d2_dinner": { day: "d2", dayTitle: "8/30 (토)", eventName: "저녁 식사", isCard: false },
-    "d2_extra": { day: "d2", dayTitle: "8/30 (토)", eventName: "기타/야식", isCard: false },
-    "d2_card": { day: "d2", dayTitle: "8/30 (토)", eventName: "💳 카드 결제", isCard: true },
+    "d2_lotte": { day: "d2", dayTitle: "8/30 (일)", eventName: "롯데마트 골드코스트", isCard: false },
+    "d2_dam": { day: "d2", dayTitle: "8/30 (일)", eventName: "담시장 쇼핑", isCard: false },
+    "d2_lunch": { day: "d2", dayTitle: "8/30 (일)", eventName: "점심 식사", isCard: false },
+    "d2_ponagar": { day: "d2", dayTitle: "8/30 (일)", eventName: "포나가르 참탑", isCard: false },
+    "d2_senspa": { day: "d2", dayTitle: "8/30 (일)", eventName: "센스파 마사지", isCard: false },
+    "d2_dinner": { day: "d2", dayTitle: "8/30 (일)", eventName: "저녁 식사", isCard: false },
+    "d2_extra": { day: "d2", dayTitle: "8/30 (일)", eventName: "기타/야식", isCard: false },
+    "d2_card": { day: "d2", dayTitle: "8/30 (일)", eventName: "💳 카드 결제", isCard: true },
 
-    "d3_pickup": { day: "d3", dayTitle: "8/31 (일)", eventName: "사막투어 잔금", isCard: false },
-    "d3_bf": { day: "d3", dayTitle: "8/31 (일)", eventName: "아침/조식 외", isCard: false },
-    "d3_lunch": { day: "d3", dayTitle: "8/31 (일)", eventName: "점심 식사", isCard: false },
-    "d3_afternoon": { day: "d3", dayTitle: "8/31 (일)", eventName: "오후 활동 (패들보드/카페)", isCard: false },
-    "d3_dinner": { day: "d3", dayTitle: "8/31 (일)", eventName: "저녁 식사", isCard: false },
-    "d3_nightmarket": { day: "d3", dayTitle: "8/31 (일)", eventName: "나트랑 야시장", isCard: false },
-    "d3_card": { day: "d3", dayTitle: "8/31 (일)", eventName: "💳 카드 결제", isCard: true },
+    "d3_pickup": { day: "d3", dayTitle: "8/31 (월)", eventName: "사막투어 잔금", isCard: false },
+    "d3_bf": { day: "d3", dayTitle: "8/31 (월)", eventName: "아침/조식 외", isCard: false },
+    "d3_lunch": { day: "d3", dayTitle: "8/31 (월)", eventName: "점심 식사", isCard: false },
+    "d3_afternoon": { day: "d3", dayTitle: "8/31 (월)", eventName: "오후 활동 (패들보드/카페)", isCard: false },
+    "d3_dinner": { day: "d3", dayTitle: "8/31 (월)", eventName: "저녁 식사", isCard: false },
+    "d3_nightmarket": { day: "d3", dayTitle: "8/31 (월)", eventName: "나트랑 야시장", isCard: false },
+    "d3_card": { day: "d3", dayTitle: "8/31 (월)", eventName: "💳 카드 결제", isCard: true },
 
-    "d4_honchong": { day: "d4", dayTitle: "9/1 (월)", eventName: "혼총곶 & 카페", isCard: false },
-    "d4_lotte": { day: "d4", dayTitle: "9/1 (월)", eventName: "롯데마트 본격 쇼핑", isCard: false },
-    "d4_lunch": { day: "d4", dayTitle: "9/1 (월)", eventName: "점심 식사", isCard: false },
-    "d4_grab": { day: "d4", dayTitle: "9/1 (월)", eventName: "더아남 이동 Grab", isCard: false },
-    "d4_dinner": { day: "d4", dayTitle: "9/1 (월)", eventName: "더아남 저녁/배달", isCard: false },
-    "d4_card": { day: "d4", dayTitle: "9/1 (월)", eventName: "💳 카드 결제", isCard: true },
+    "d4_honchong": { day: "d4", dayTitle: "9/1 (화)", eventName: "혼총곶 & 카페", isCard: false },
+    "d4_lotte": { day: "d4", dayTitle: "9/1 (화)", eventName: "롯데마트 본격 쇼핑", isCard: false },
+    "d4_lunch": { day: "d4", dayTitle: "9/1 (화)", eventName: "점심 식사", isCard: false },
+    "d4_grab": { day: "d4", dayTitle: "9/1 (화)", eventName: "더아남 이동 Grab", isCard: false },
+    "d4_dinner": { day: "d4", dayTitle: "9/1 (화)", eventName: "더아남 저녁/배달", isCard: false },
+    "d4_card": { day: "d4", dayTitle: "9/1 (화)", eventName: "💳 카드 결제", isCard: true },
 
-    "d5_lunch": { day: "d5", dayTitle: "9/2 (화)", eventName: "Beach Club 점심", isCard: false },
-    "d5_dinner": { day: "d5", dayTitle: "9/2 (화)", eventName: "더아남 저녁/룸서비스", isCard: false },
-    "d5_card": { day: "d5", dayTitle: "9/2 (화)", eventName: "💳 카드 결제", isCard: true },
+    "d5_lunch": { day: "d5", dayTitle: "9/2 (수)", eventName: "Beach Club 점심", isCard: false },
+    "d5_dinner": { day: "d5", dayTitle: "9/2 (수)", eventName: "더아남 저녁/룸서비스", isCard: false },
+    "d5_card": { day: "d5", dayTitle: "9/2 (수)", eventName: "💳 카드 결제", isCard: true },
 
-    "d6_lunch": { day: "d6", dayTitle: "9/3 (수)", eventName: "점심 식사", isCard: false },
-    "d6_afternoon": { day: "d6", dayTitle: "9/3 (수)", eventName: "오후 카페/바이다이", isCard: false },
-    "d6_dinner": { day: "d6", dayTitle: "9/3 (수)", eventName: "마지막 저녁 식사", isCard: false },
-    "d6_airport": { day: "d6", dayTitle: "9/3 (수)", eventName: "공항 이동/면세점", isCard: false },
-    "d6_card": { day: "d6", dayTitle: "9/3 (수)", eventName: "💳 카드 결제", isCard: true }
+    "d6_lunch": { day: "d6", dayTitle: "9/3 (목)", eventName: "점심 식사", isCard: false },
+    "d6_afternoon": { day: "d6", dayTitle: "9/3 (목)", eventName: "오후 카페/바이다이", isCard: false },
+    "d6_dinner": { day: "d6", dayTitle: "9/3 (목)", eventName: "마지막 저녁 식사", isCard: false },
+    "d6_airport": { day: "d6", dayTitle: "9/3 (목)", eventName: "공항 이동/면세점", isCard: false },
+    "d6_card": { day: "d6", dayTitle: "9/3 (목)", eventName: "💳 카드 결제", isCard: true }
   };
 
   // Tab Switching
@@ -1243,9 +1345,56 @@
       buttons[i].classList.remove("active");
     }
     document.getElementById(tabId).classList.add("active");
-    evt.currentTarget.classList.add("active");
+    if (evt && evt.currentTarget) evt.currentTarget.classList.add("active");
     window.scrollTo({ top: 0, behavior: 'smooth' });
     if(tabId === 'total') updateGrandTotal();
+  }
+
+  // Switch to specific day tab from Home Grid
+  function switchToDayTab(dayId) {
+    const buttons = document.getElementsByClassName("tab-btn");
+    for (let i = 0; i < buttons.length; i++) {
+      if (buttons[i].getAttribute('onclick').includes(`'${dayId}'`)) {
+        buttons[i].click();
+        return;
+      }
+    }
+  }
+
+  // Jump to Today or Day 1
+  function jumpToTodayOrDay1() {
+    const today = new Date();
+    const curYear = today.getFullYear();
+    const curMonth = today.getMonth() + 1;
+    const curDate = today.getDate();
+
+    if (curYear === 2026 && curMonth === 8 && curDate === 29) switchToDayTab('day1');
+    else if (curYear === 2026 && curMonth === 8 && curDate === 30) switchToDayTab('day2');
+    else if (curYear === 2026 && curMonth === 8 && curDate === 31) switchToDayTab('day3');
+    else if (curYear === 2026 && curMonth === 9 && curDate === 1) switchToDayTab('day4');
+    else if (curYear === 2026 && curMonth === 9 && curDate === 2) switchToDayTab('day5');
+    else if (curYear === 2026 && curMonth === 9 && curDate === 3) switchToDayTab('day6');
+    else switchToDayTab('day1');
+  }
+
+  // Calculate D-Day Badge
+  function updateDDayWidget() {
+    const target = new Date("2026-08-29T00:00:00+09:00");
+    const now = new Date();
+    const diffTime = target - now;
+    const diffDays = Math.ceil(diffTime / (1000 * 60 * 60 * 24));
+    const badge = document.getElementById("dday_display");
+    if (!badge) return;
+
+    if (diffDays > 0) {
+      badge.textContent = `✈️ 출국까지 D-${diffDays}일`;
+    } else if (diffDays === 0) {
+      badge.textContent = `🌴 드디어 오늘 출국 (DAY 1)!`;
+    } else if (diffDays >= -5 && diffDays < 0) {
+      badge.textContent = `🌴 나트랑 여행 DAY ${Math.abs(diffDays) + 1} 진행 중!`;
+    } else {
+      badge.textContent = `✨ 행복했던 나트랑 여행 완료!`;
+    }
   }
 
   // --- 실시간 메모 동기화 ---
@@ -1453,7 +1602,7 @@
               dayItemsHtml += `
                 <div class="breakdown-item-row">
                   <span><span class="${tagClass}">[${eventMeta[k].eventName}]</span> ${nameText}</span>
-                  <span style="font-weight:700;">${c.toLocaleString()} 동 <small style="color:#b91c1c; font-size:0.7rem;">(약 ${krwVal.toLocaleString()}원)</small></span>
+                  <span style="font-weight:700;">${c.toLocaleString()} 동 <small style="color:#b91c1c; font-size:0.68rem;">(약 ${krwVal.toLocaleString()}원)</small></span>
                 </div>
               `;
             }
@@ -1473,7 +1622,7 @@
         dayCardEl.innerHTML = `
           <div class="breakdown-day-title">
             <span>🗓️ ${dayTitle}</span>
-            <span style="color:#b91c1c;">${dayTotal.toLocaleString()} 동 <small style="font-size:0.75rem;">(약 ${dayKrw.toLocaleString()}원)</small></span>
+            <span style="color:#b91c1c;">${dayTotal.toLocaleString()} 동 <small style="font-size:0.72rem;">(약 ${dayKrw.toLocaleString()}원)</small></span>
           </div>
           ${dayItemsHtml || '<div class="no-item-msg">입력된 지출 내역이 없습니다.</div>'}
         `;
@@ -1486,6 +1635,9 @@
     const grandDongEl = document.getElementById('grand_total_dong');
     const grandWonEl = document.getElementById('grand_total_won');
 
+    const homeDongEl = document.getElementById('home_total_dong');
+    const homeWonEl = document.getElementById('home_total_won');
+
     if (grandCashEl) {
       grandCashEl.textContent = `${grandCash.toLocaleString()} 동 (약 ${Math.round(grandCash * EXCHANGE_RATE).toLocaleString()}원)`;
     }
@@ -1494,11 +1646,13 @@
     }
     
     const grandTotal = grandCash + grandCard;
+    const totalWon = Math.round(grandTotal * EXCHANGE_RATE);
+
     if (grandDongEl) grandDongEl.textContent = grandTotal.toLocaleString() + ' 동';
-    if (grandWonEl) {
-      const won = Math.round(grandTotal * EXCHANGE_RATE);
-      grandWonEl.textContent = `약 ${won.toLocaleString()} 원`;
-    }
+    if (grandWonEl) grandWonEl.textContent = `약 ${totalWon.toLocaleString()} 원`;
+
+    if (homeDongEl) homeDongEl.textContent = grandTotal.toLocaleString() + ' 동';
+    if (homeWonEl) homeWonEl.textContent = `약 ${totalWon.toLocaleString()} 원`;
   }
 
   // --- 유틸리티 (복사 및 계산기) ---
@@ -1522,8 +1676,22 @@
     resultEl.innerHTML = `${vndNum.toLocaleString()} VND → <span style="color:#b91c1c;">약 ${krw.toLocaleString()} 원</span>`;
   }
 
+  function calcHomeVndToKrw() {
+    const vnd = document.getElementById('homeVndInput').value;
+    const resultEl = document.getElementById('home_calc_result');
+    if (!vnd || vnd <= 0) {
+      resultEl.innerHTML = "금액을 입력하면 원화로 계산됩니다.";
+      return;
+    }
+    const vndNum = parseInt(vnd, 10);
+    const krw = Math.round(vndNum * EXCHANGE_RATE);
+    resultEl.innerHTML = `${vndNum.toLocaleString()} VND → <span style="color:#b91c1c;">약 ${krw.toLocaleString()} 원</span>`;
+  }
+
   // --- 초기 데이터 로딩 & 리스너 바인딩 ---
   window.addEventListener('DOMContentLoaded', () => {
+    updateDDayWidget();
+
     document.querySelectorAll('.memo-input').forEach(input => {
       const saved = localStorage.getItem('nhatrang_' + input.id);
       if (saved) input.value = saved;
