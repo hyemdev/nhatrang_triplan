@@ -1,4 +1,2528 @@
-<!DOCTYPE html>
+<!doctype html>
+<html lang="ko">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<meta name="theme-color" content="#1677a8">
+
+<title>CHOI & KWAK in Nha Trang · 08.29–09.03</title>
+  <subtitle>Travel mini App</subtitle>
+
+<style>
+:root{
+  --blue:#1677a8;
+  --blue2:#eaf7fc;
+  --blue3:#d7eff8;
+  --ink:#18323d;
+  --muted:#70838b;
+  --line:#e4edf0;
+  --card:#ffffff;
+  --bg:#f6fbfd;
+  --shadow:0 5px 18px rgba(24,92,116,.08);
+}
+
+*{
+  box-sizing:border-box;
+}
+
+html{
+  scroll-behavior:smooth;
+}
+
+body{
+  margin:0;
+  background:var(--bg);
+  color:var(--ink);
+  font-family:
+    -apple-system,
+    BlinkMacSystemFont,
+    "Noto Sans KR",
+    "Apple SD Gothic Neo",
+    sans-serif;
+  line-height:1.45;
+}
+
+button,
+a{
+  font:inherit;
+}
+
+.app{
+  max-width:720px;
+  margin:auto;
+  min-height:100vh;
+}
+
+/* =========================
+   HEADER
+========================= */
+
+header{
+  padding:26px 18px 14px;
+  background:
+    linear-gradient(
+      180deg,
+      #e9f8fd 0%,
+      #f6fbfd 100%
+    );
+}
+
+.kicker{
+  font-size:12px;
+  font-weight:800;
+  letter-spacing:.12em;
+  color:var(--blue);
+  text-transform:uppercase;
+}
+
+h1{
+  font-size:26px;
+  margin:4px 0 2px;
+  letter-spacing:-.04em;
+}
+
+.sub{
+  font-size:13px;
+  color:var(--muted);
+}
+
+/* =========================
+   DATE TABS
+========================= */
+
+.tabs{
+  position:sticky;
+  top:0;
+  z-index:20;
+
+  display:flex;
+  gap:7px;
+
+  padding:10px 12px;
+
+  background:rgba(246,251,253,.94);
+  backdrop-filter:blur(12px);
+
+  border-bottom:1px solid var(--line);
+
+  overflow-x:auto;
+}
+
+.tabs::-webkit-scrollbar{
+  display:none;
+}
+
+.tab{
+  flex:0 0 auto;
+
+  border:1px solid var(--line);
+  background:#fff;
+
+  color:#5f737b;
+
+  border-radius:999px;
+
+  padding:8px 13px;
+
+  font-weight:800;
+  font-size:13px;
+
+  cursor:pointer;
+}
+
+.tab.active{
+  background:var(--blue);
+  border-color:var(--blue);
+  color:#fff;
+}
+
+/* =========================
+   MAIN
+========================= */
+
+main{
+  padding:16px 14px 42px;
+}
+
+.day{
+  display:none;
+}
+
+.day.active{
+  display:block;
+}
+
+.day-head{
+  display:flex;
+  justify-content:space-between;
+  align-items:end;
+
+  margin:4px 4px 14px;
+}
+
+.day-title{
+  font-size:22px;
+  font-weight:900;
+  letter-spacing:-.04em;
+}
+
+.day-title span{
+  font-size:13px;
+  color:var(--blue);
+  margin-left:5px;
+}
+
+.day-total{
+  text-align:right;
+  font-size:12px;
+  color:var(--muted);
+}
+
+.day-total b{
+  display:block;
+  font-size:15px;
+  color:var(--blue);
+}
+
+/* =========================
+   CARD
+========================= */
+
+.card{
+  background:var(--card);
+
+  border:1px solid var(--line);
+  border-radius:18px;
+
+  box-shadow:var(--shadow);
+
+  margin:10px 0;
+
+  overflow:hidden;
+}
+
+/* =========================
+   SCHEDULE ITEM
+========================= */
+
+.item{
+  display:grid;
+  grid-template-columns:62px 1fr;
+  gap:10px;
+
+  padding:14px 15px;
+
+  border-bottom:1px solid var(--line);
+}
+
+.item:last-child{
+  border-bottom:0;
+}
+
+.time{
+  font-size:13px;
+  font-weight:900;
+  color:var(--blue);
+  padding-top:1px;
+}
+
+.content{
+  font-size:14px;
+}
+
+.content strong{
+  font-size:15px;
+}
+
+.detail{
+  font-size:12px;
+  color:var(--muted);
+  margin-top:3px;
+}
+
+.price{
+  font-size:12px;
+  font-weight:800;
+  color:#55717a;
+  margin-top:5px;
+}
+
+/* =========================
+   GOOGLE MAP BUTTON
+========================= */
+
+.map{
+  display:inline-block;
+
+  margin-top:7px;
+
+  padding:5px 9px;
+
+  border-radius:999px;
+
+  background:var(--blue2);
+  color:var(--blue);
+
+  font-size:11px;
+  font-weight:800;
+
+  text-decoration:none;
+}
+
+/* =========================
+   TIP
+========================= */
+
+.tip{
+  margin:11px 0;
+
+  padding:13px 14px;
+
+  border-radius:14px;
+
+  background:#f0f8fb;
+
+  border:1px solid #e0eef2;
+
+  color:#66808a;
+
+  font-size:12px;
+}
+
+.tip b{
+  color:#4e707b;
+}
+
+/* =========================
+   CHOICE
+========================= */
+
+.choice-wrap{
+  padding:14px;
+}
+
+.choice-title{
+  font-size:14px;
+  font-weight:900;
+  margin-bottom:10px;
+}
+
+.choices{
+  display:grid;
+  gap:9px;
+}
+
+.choice{
+  border:1px solid var(--line);
+
+  border-radius:14px;
+
+  padding:12px;
+
+  background:#fff;
+}
+
+.choice.recommended{
+  border-color:#bfe3ef;
+  background:#f7fcfe;
+}
+
+.choice-head{
+  display:flex;
+  justify-content:space-between;
+
+  font-weight:900;
+  font-size:14px;
+}
+
+.choice p{
+  margin:5px 0 0;
+
+  color:var(--muted);
+
+  font-size:12px;
+}
+
+.badge{
+  font-size:10px;
+
+  background:var(--blue2);
+  color:var(--blue);
+
+  padding:3px 7px;
+
+  border-radius:999px;
+}
+
+/* =========================
+   COST
+========================= */
+
+.cost{
+  padding:15px;
+}
+
+.cost-head{
+  display:flex;
+  justify-content:space-between;
+  align-items:center;
+
+  margin-bottom:8px;
+}
+
+.cost-head strong{
+  font-size:16px;
+}
+
+details summary{
+  cursor:pointer;
+
+  color:var(--blue);
+
+  font-size:12px;
+  font-weight:800;
+}
+
+.cost table{
+  width:100%;
+
+  border-collapse:collapse;
+
+  margin-top:10px;
+
+  font-size:12px;
+}
+
+.cost td{
+  padding:6px 0;
+
+  border-bottom:1px solid #edf2f4;
+}
+
+.cost td:last-child{
+  text-align:right;
+
+  font-weight:800;
+}
+
+.note{
+  font-size:11px;
+
+  color:#87989e;
+
+  margin-top:8px;
+}
+
+/* =========================
+   CHECKLIST
+========================= */
+
+.checks{
+  padding:14px;
+}
+
+.check{
+  display:flex;
+  align-items:center;
+
+  gap:9px;
+
+  font-size:13px;
+
+  margin:8px 0;
+
+  color:#526970;
+}
+
+.check input{
+  accent-color:var(--blue);
+
+  width:17px;
+  height:17px;
+}
+
+/* =========================
+   TOTAL
+========================= */
+
+.global{
+  margin-top:15px;
+}
+
+.totalbox{
+  background:
+    linear-gradient(
+      135deg,
+      #e9f8fd,
+      #f9fdff
+    );
+
+  border:1px solid #cfeaf2;
+
+  border-radius:18px;
+
+  padding:17px;
+}
+
+.totalbox h2{
+  font-size:18px;
+  margin:0 0 6px;
+}
+
+.big{
+  font-size:25px;
+
+  font-weight:950;
+
+  color:var(--blue);
+}
+
+.small{
+  font-size:12px;
+
+  color:var(--muted);
+}
+
+/* =========================
+   FOOTER
+========================= */
+
+.footer{
+  padding:20px 4px;
+
+  color:#8aa0a8;
+
+  font-size:11px;
+
+  text-align:center;
+}
+
+/* =========================
+   DESKTOP
+========================= */
+
+@media(min-width:600px){
+
+  main{
+    padding-left:0;
+    padding-right:0;
+  }
+
+  .tabs{
+    padding-left:
+      calc((100% - 720px)/2 + 12px);
+
+    padding-right:
+      calc((100% - 720px)/2 + 12px);
+  }
+
+}
+</style>
+</head>
+
+
+<body>
+
+<div class="app">
+
+<!-- =========================
+     HEADER
+========================= -->
+
+<header>
+
+  <div class="kicker">
+    Travel Mini App
+  </div>
+
+  <h1>
+    🇻🇳 NHA TRANG TRIP
+  </h1>
+
+  <div class="sub">
+    2026.08.29 — 09.03 · 2인 · 항공/숙박 제외
+  </div>
+
+</header>
+
+
+<!-- =========================
+     DATE TABS
+========================= -->
+
+<nav class="tabs" aria-label="날짜 선택">
+
+  <button
+    class="tab active"
+    data-day="d829">
+    8/29
+  </button>
+
+  <button
+    class="tab"
+    data-day="d830">
+    8/30
+  </button>
+
+  <button
+    class="tab"
+    data-day="d831">
+    8/31
+  </button>
+
+  <button
+    class="tab"
+    data-day="d901">
+    9/1
+  </button>
+
+  <button
+    class="tab"
+    data-day="d902">
+    9/2
+  </button>
+
+  <button
+    class="tab"
+    data-day="d903">
+    9/3
+  </button>
+
+</nav>
+
+
+<main>
+
+
+<!-- =====================================================
+     8/29
+===================================================== -->
+
+<section
+  class="day active"
+  id="d829">
+
+  <div class="day-head">
+
+    <div class="day-title">
+      8/29
+      <span>SAT</span>
+    </div>
+
+    <div class="day-total">
+      <b>0đ</b>
+      픽업택시 제외
+    </div>
+
+  </div>
+
+
+  <div class="card">
+
+
+    <div class="item">
+
+      <div class="time">
+        19:20
+      </div>
+
+      <div class="content">
+
+        <strong>
+          ✈️ 김해공항 출발
+        </strong>
+
+      </div>
+
+    </div>
+
+
+    <div class="item">
+
+      <div class="time">
+        22:20
+      </div>
+
+      <div class="content">
+
+        <strong>
+          🇻🇳 깜라인공항 도착
+        </strong>
+
+        <div class="detail">
+          입국심사 → 수하물 → 예약 픽업
+        </div>
+
+        <a
+          class="map"
+          href="https://www.google.com/maps/search/?api=1&query=Cam+Ranh+International+Airport"
+          target="_blank">
+
+          📍 지도
+
+        </a>
+
+      </div>
+
+    </div>
+
+
+    <div class="item">
+
+      <div class="time">
+        23:30
+      </div>
+
+      <div class="content">
+
+        <strong>
+          🚕 공항 → Four Points
+        </strong>
+
+        <div class="detail">
+          예약 픽업택시
+        </div>
+
+        <a
+          class="map"
+          href="https://www.google.com/maps/search/?api=1&query=Four+Points+by+Sheraton+Nha+Trang"
+          target="_blank">
+
+          📍 지도
+
+        </a>
+
+      </div>
+
+    </div>
+
+
+    <div class="item">
+
+      <div class="time">
+        00:20
+      </div>
+
+      <div class="content">
+
+        <strong>
+          🏨 체크인 → 샤워 → 취침
+        </strong>
+
+      </div>
+
+    </div>
+
+
+  </div>
+
+
+  <div class="tip">
+
+    💡 <b>오늘의 메모</b>
+
+    <br>
+
+    도착이 늦으니 아무 일정도 넣지 않기.
+    내일을 위해 바로 자자 😴
+
+  </div>
+
+</section>
+
+
+
+<!-- =====================================================
+     8/30
+===================================================== -->
+
+<section
+  class="day"
+  id="d830">
+
+
+  <div class="day-head">
+
+    <div class="day-title">
+      8/30
+      <span>SUN</span>
+    </div>
+
+    <div class="day-total">
+
+      <b>
+        약 326만đ
+      </b>
+
+      약 17.3만원
+
+    </div>
+
+  </div>
+
+
+  <div class="card">
+
+
+    <div class="item">
+
+      <div class="time">
+        07:30
+      </div>
+
+      <div class="content">
+
+        <strong>
+          ☀️ 기상
+        </strong>
+
+      </div>
+
+    </div>
+
+
+    <div class="item">
+
+      <div class="time">
+        08:00–08:45
+      </div>
+
+      <div class="content">
+
+        <strong>
+          🍳 호텔 조식
+        </strong>
+
+        <div class="detail">
+          숙박비 포함
+        </div>
+
+      </div>
+
+    </div>
+
+
+    <div class="item">
+
+      <div class="time">
+        09:00
+      </div>
+
+      <div class="content">
+
+        <strong>
+          🚕 롯데마트 골드코스트
+        </strong>
+
+        <div class="detail">
+          ATM · 환전 · 필요한 생필품만
+        </div>
+
+        <a
+          class="map"
+          href="https://www.google.com/maps/search/?api=1&query=Lotte+Mart+Gold+Coast+Nha+Trang"
+          target="_blank">
+
+          📍 지도
+
+        </a>
+
+      </div>
+
+    </div>
+
+
+    <div class="item">
+
+      <div class="time">
+        10:05–11:30
+      </div>
+
+      <div class="content">
+
+        <strong>
+          🛍️ 담시장
+        </strong>
+
+        <div class="detail">
+          구경 + 소량 쇼핑 · 쇼핑 약 20–50만đ
+        </div>
+
+        <a
+          class="map"
+          href="https://www.google.com/maps/search/?api=1&query=Dam+Market+Nha+Trang"
+          target="_blank">
+
+          📍 지도
+
+        </a>
+
+      </div>
+
+    </div>
+
+
+    <div class="item">
+
+      <div class="time">
+        12:00–13:00
+      </div>
+
+      <div class="content">
+
+        <strong>
+          🛏️ 호텔 휴식
+        </strong>
+
+      </div>
+
+    </div>
+
+
+    <div class="item">
+
+      <div class="time">
+        13:00–14:30
+      </div>
+
+      <div class="content">
+
+        <strong>
+          🍜 점심
+        </strong>
+
+        <div class="detail">
+          약 35–45만đ · ☕ 커피 10–15만đ
+        </div>
+
+      </div>
+
+    </div>
+
+
+    <div class="item">
+
+      <div class="time">
+        14:50–15:30
+      </div>
+
+      <div class="content">
+
+        <strong>
+          🛕 포나가르 참탑
+        </strong>
+
+        <div class="detail">
+          약 10만đ / 2인
+        </div>
+
+        <a
+          class="map"
+          href="https://www.google.com/maps/search/?api=1&query=Po+Nagar+Cham+Towers+Nha+Trang"
+          target="_blank">
+
+          📍 지도
+
+        </a>
+
+      </div>
+
+    </div>
+
+
+    <div class="item">
+
+      <div class="time">
+        16:00–17:30
+      </div>
+
+      <div class="content">
+
+        <strong>
+          💆 Sen Spa
+        </strong>
+
+        <span class="badge">
+          ✓ 예약완료
+        </span>
+
+        <div class="detail">
+          센시그니처 90분 · 2인 · 1,360,000đ
+        </div>
+
+        <a
+          class="map"
+          href="https://www.google.com/maps/search/?api=1&query=Sen+Spa+Nha+Trang"
+          target="_blank">
+
+          📍 지도
+
+        </a>
+
+      </div>
+
+    </div>
+
+
+    <div class="item">
+
+      <div class="time">
+        18:00–19:30
+      </div>
+
+      <div class="content">
+
+        <strong>
+          🍽️ 저녁
+        </strong>
+
+        <div class="detail">
+          현지에서 결정 · 약 45–55만đ
+        </div>
+
+      </div>
+
+    </div>
+
+
+  </div>
+
+
+  <div class="tip">
+
+    💡 <b>쇼핑 TIP</b>
+
+    <br>
+
+    담시장에서 과자 왕창 사지 말기 😂
+
+    본격적인 마트 쇼핑은 9/1 롯데마트에서!
+
+  </div>
+
+
+  <div class="card cost">
+
+    <div class="cost-head">
+
+      <strong>
+        💰 오늘 예상비용
+      </strong>
+
+      <span>
+        2인
+      </span>
+
+    </div>
+
+
+    <details>
+
+      <summary>
+        세부 내역 보기
+      </summary>
+
+
+      <table>
+
+        <tr>
+          <td>🍜 점심</td>
+          <td>400k</td>
+        </tr>
+
+        <tr>
+          <td>🍽️ 저녁</td>
+          <td>500k</td>
+        </tr>
+
+        <tr>
+          <td>☕ 커피</td>
+          <td>150k</td>
+        </tr>
+
+        <tr>
+          <td>🚕 Grab</td>
+          <td>450k</td>
+        </tr>
+
+        <tr>
+          <td>🛕 입장료</td>
+          <td>100k</td>
+        </tr>
+
+        <tr>
+          <td>💆 마사지</td>
+          <td>1,360k</td>
+        </tr>
+
+        <tr>
+          <td>🛍️ 쇼핑</td>
+          <td>300k</td>
+        </tr>
+
+      </table>
+
+    </details>
+
+  </div>
+
+</section>
+
+
+
+<!-- =====================================================
+     8/31
+===================================================== -->
+
+<section
+  class="day"
+  id="d831">
+
+
+  <div class="day-head">
+
+    <div class="day-title">
+
+      8/31
+      <span>MON</span>
+
+    </div>
+
+    <div class="day-total">
+
+      <b>
+        약 350만đ
+      </b>
+
+      약 18.6만원
+
+    </div>
+
+  </div>
+
+
+  <div class="card">
+
+
+    <div class="item">
+
+      <div class="time">
+        02:00
+      </div>
+
+      <div class="content">
+
+        <strong>
+          🌙 기상 & 준비
+        </strong>
+
+      </div>
+
+    </div>
+
+
+    <div class="item">
+
+      <div class="time">
+        02:30
+      </div>
+
+      <div class="content">
+
+        <strong>
+          🚐 판랑사막 투어 픽업
+        </strong>
+
+        <div class="detail">
+          2,000,000đ · 2인 · 후불 · 예약완료
+        </div>
+
+      </div>
+
+    </div>
+
+
+    <div class="item">
+
+      <div class="time">
+        ~05:00
+      </div>
+
+      <div class="content">
+
+        <strong>
+          🚐 나트랑 → 판랑
+        </strong>
+
+      </div>
+
+    </div>
+
+
+    <div class="item">
+
+      <div class="time">
+        05:00–07:00
+      </div>
+
+      <div class="content">
+
+        <strong>
+          🏜️ 판랑사막 일출
+        </strong>
+
+      </div>
+
+    </div>
+
+
+    <div class="item">
+
+      <div class="time">
+        07:00–10:00
+      </div>
+
+      <div class="content">
+
+        <strong>
+          🚐 호텔 복귀
+        </strong>
+
+        <div class="detail">
+          10시 전 도착하면 호텔 조식 · 이후 도착이면 간단히 먹고 휴식
+        </div>
+
+      </div>
+
+    </div>
+
+
+    <div class="item">
+
+      <div class="time">
+        10:00–13:00
+      </div>
+
+      <div class="content">
+
+        <strong>
+          😴 낮잠
+        </strong>
+
+        <div class="detail">
+          ⭐ 이날 핵심 일정
+        </div>
+
+      </div>
+
+    </div>
+
+
+    <div class="item">
+
+      <div class="time">
+        13:00–14:00
+      </div>
+
+      <div class="content">
+
+        <strong>
+          🍜 점심
+        </strong>
+
+        <div class="detail">
+          약 30–35만đ · ☕ 커피 10–15만đ
+        </div>
+
+      </div>
+
+    </div>
+
+
+  </div>
+
+
+  <div class="card choice-wrap">
+
+    <div class="choice-title">
+      🔀 오후는 컨디션 보고 선택!
+    </div>
+
+
+    <div class="choices">
+
+
+      <div class="choice">
+
+        <div class="choice-head">
+
+          <span>
+            🅰️ 패들보드
+          </span>
+
+          <span class="badge">
+            15:30 픽업
+          </span>
+
+        </div>
+
+        <p>
+          약 2시간 30분 · 선셋까지.
+          날씨 좋고 체력 괜찮으면!
+        </p>
+
+      </div>
+
+
+      <div class="choice recommended">
+
+        <div class="choice-head">
+
+          <span>
+            🅱️ 느슨한 시내구경 ⭐
+          </span>
+
+          <span class="badge">
+            추천
+          </span>
+
+        </div>
+
+        <p>
+          15:00–18:00 · 카페 → 쇼핑 → 해변.
+          관광지는 추가하지 않기.
+        </p>
+
+      </div>
+
+
+    </div>
+
+  </div>
+
+
+  <div class="card">
+
+
+    <div class="item">
+
+      <div class="time">
+        18:00–19:00
+      </div>
+
+      <div class="content">
+
+        <strong>
+          🌊 해변 산책
+        </strong>
+
+      </div>
+
+    </div>
+
+
+    <div class="item">
+
+      <div class="time">
+        19:00–20:30
+      </div>
+
+      <div class="content">
+
+        <strong>
+          🍽️ 저녁
+        </strong>
+
+        <div class="detail">
+          약 45–50만đ
+        </div>
+
+      </div>
+
+    </div>
+
+
+    <div class="item">
+
+      <div class="time">
+        20:30–21:30
+      </div>
+
+      <div class="content">
+
+        <strong>
+          🌙 나트랑 야시장
+        </strong>
+
+        <div class="detail">
+          간식/소품 약 10–30만đ
+        </div>
+
+        <a
+          class="map"
+          href="https://www.google.com/maps/search/?api=1&query=Nha+Trang+Night+Market"
+          target="_blank">
+
+          📍 지도
+
+        </a>
+
+      </div>
+
+    </div>
+
+
+    <div class="item">
+
+      <div class="time">
+        22:00
+      </div>
+
+      <div class="content">
+
+        <strong>
+          🏨 호텔 복귀
+        </strong>
+
+      </div>
+
+    </div>
+
+
+    <div class="item">
+
+      <div class="time">
+        22:30
+      </div>
+
+      <div class="content">
+
+        <strong>
+          😴 취침
+        </strong>
+
+      </div>
+
+    </div>
+
+
+  </div>
+
+
+  <div class="tip">
+
+    😴 <b>오늘의 메모</b>
+
+    <br>
+
+    새벽 2:30 픽업이라 오후 일정은 욕심내지 않기ㅋㅋ
+
+    패들보드는 당일 체력 보고 결정!
+
+  </div>
+
+
+</section>
+
+
+
+<!-- =====================================================
+     9/1
+===================================================== -->
+
+<section
+  class="day"
+  id="d901">
+
+
+  <div class="day-head">
+
+    <div class="day-title">
+      9/1
+      <span>TUE</span>
+    </div>
+
+    <div class="day-total">
+
+      <b>
+        약 405만đ
+      </b>
+
+      약 21.5만원
+
+    </div>
+
+  </div>
+
+
+  <div class="card">
+
+
+    <div class="item">
+
+      <div class="time">
+        08:30–09:30
+      </div>
+
+      <div class="content">
+
+        <strong>
+          🍳 호텔 조식
+        </strong>
+
+      </div>
+
+    </div>
+
+
+    <div class="item">
+
+      <div class="time">
+        09:30–10:30
+      </div>
+
+      <div class="content">
+
+        <strong>
+          🧳 짐 정리
+        </strong>
+
+      </div>
+
+    </div>
+
+
+    <div class="item">
+
+      <div class="time">
+        10:30
+      </div>
+
+      <div class="content">
+
+        <strong>
+          🏨 체크아웃
+        </strong>
+
+        <div class="detail">
+          짐은 호텔에 보관
+        </div>
+
+      </div>
+
+    </div>
+
+
+    <div class="item">
+
+      <div class="time">
+        11:00–12:30
+      </div>
+
+      <div class="content">
+
+        <strong>
+          🌊 혼총곶 + 혼총비치
+        </strong>
+
+        <div class="detail">
+          입장료 등 약 10만đ
+        </div>
+
+        <a
+          class="map"
+          href="https://www.google.com/maps/search/?api=1&query=Hon+Chong+Promontory+Nha+Trang"
+          target="_blank">
+
+          📍 지도
+
+        </a>
+
+      </div>
+
+    </div>
+
+
+    <div class="item">
+
+      <div class="time">
+        12:30
+      </div>
+
+      <div class="content">
+
+        <strong>
+          ☕ 혼총 근처 카페
+        </strong>
+
+        <div class="detail">
+          약 15만đ
+        </div>
+
+      </div>
+
+    </div>
+
+
+    <div class="item">
+
+      <div class="time">
+        12:30–13:30
+      </div>
+
+      <div class="content">
+
+        <strong>
+          🛒 롯데마트 본격 쇼핑
+        </strong>
+
+        <div class="detail">
+          쇼핑 예산 약 200만đ
+        </div>
+
+        <a
+          class="map"
+          href="https://www.google.com/maps/search/?api=1&query=Lotte+Mart+Gold+Coast+Nha+Trang"
+          target="_blank">
+
+          📍 지도
+
+        </a>
+
+      </div>
+
+    </div>
+
+
+    <div class="item">
+
+      <div class="time">
+        13:30–14:30
+      </div>
+
+      <div class="content">
+
+        <strong>
+          🍜 점심
+        </strong>
+
+        <div class="detail">
+          약 35–45만đ
+        </div>
+
+      </div>
+
+    </div>
+
+
+    <div class="item">
+
+      <div class="time">
+        14:30–15:00
+      </div>
+
+      <div class="content">
+
+        <strong>
+          🚕 롯데마트 → Four Points
+        </strong>
+
+        <div class="detail">
+          짐 찾기
+        </div>
+
+      </div>
+
+    </div>
+
+
+    <div class="item">
+
+      <div class="time">
+        15:00–16:00
+      </div>
+
+      <div class="content">
+
+        <strong>
+          🚕 Four Points → The Anam
+        </strong>
+
+        <div class="detail">
+          Grab 약 30만đ 전후
+        </div>
+
+        <a
+          class="map"
+          href="https://www.google.com/maps/search/?api=1&query=The+Anam+Cam+Ranh"
+          target="_blank">
+
+          📍 지도
+
+        </a>
+
+      </div>
+
+    </div>
+
+
+    <div class="item">
+
+      <div class="time">
+        16:00–18:00
+      </div>
+
+      <div class="content">
+
+        <strong>
+          🏊 체크인 + 수영장 + 해변
+        </strong>
+
+      </div>
+
+    </div>
+
+
+    <div class="item">
+
+      <div class="time">
+        18:30–20:00
+      </div>
+
+      <div class="content">
+
+        <strong>
+          🍽️ 저녁
+        </strong>
+
+        <div class="detail">
+          리조트/배달 · 약 80–100만đ
+        </div>
+
+      </div>
+
+    </div>
+
+
+  </div>
+
+
+  <div class="tip">
+
+    🛒 <b>쇼핑 TIP</b>
+
+    <br>
+
+    커피 · 과자 · 건과일 · 라면 · 코코넛 제품 · 치약 · 선크림 · 바디제품 · 기념품
+
+    <br>
+
+    약국/마트 쇼핑리스트도 오늘 몰아서!
+
+  </div>
+
+
+  <div class="card cost">
+
+    <div class="cost-head">
+
+      <strong>
+        💰 오늘 예상비용
+      </strong>
+
+      <span>
+        2인
+      </span>
+
+    </div>
+
+
+    <details>
+
+      <summary>
+        세부 내역 보기
+      </summary>
+
+
+      <table>
+
+        <tr>
+          <td>🍜 점심</td>
+          <td>400k</td>
+        </tr>
+
+        <tr>
+          <td>☕ 카페</td>
+          <td>150k</td>
+        </tr>
+
+        <tr>
+          <td>🍽️ 저녁</td>
+          <td>900k</td>
+        </tr>
+
+        <tr>
+          <td>🚕 Grab</td>
+          <td>500k</td>
+        </tr>
+
+        <tr>
+          <td>🌊 입장료</td>
+          <td>100k</td>
+        </tr>
+
+        <tr>
+          <td>🛍️ 롯데마트</td>
+          <td>2,000k</td>
+        </tr>
+
+      </table>
+
+
+      <div class="note">
+        쇼핑 제외 시 약 205만đ
+      </div>
+
+    </details>
+
+  </div>
+
+
+</section>
+
+
+
+<!-- =====================================================
+     9/2
+===================================================== -->
+
+<section
+  class="day"
+  id="d902">
+
+
+  <div class="day-head">
+
+    <div class="day-title">
+
+      9/2
+      <span>WED</span>
+
+    </div>
+
+    <div class="day-total">
+
+      <b>
+        약 205만đ
+      </b>
+
+      약 10.9만원
+
+    </div>
+
+  </div>
+
+
+  <div class="tip">
+
+    🇻🇳 <b>독립기념일</b>
+
+    <br>
+
+    시내는 붐빌 수 있으니 오늘은 굳이 외출하지 않고
+    The Anam에서 제대로 쉬기 🏝️
+
+  </div>
+
+
+  <div class="card">
+
+
+    <div class="item">
+
+      <div class="time">
+        07:30–09:00
+      </div>
+
+      <div class="content">
+
+        <strong>
+          🍳 조식
+        </strong>
+
+      </div>
+
+    </div>
+
+
+    <div class="item">
+
+      <div class="time">
+        09:00–11:30
+      </div>
+
+      <div class="content">
+
+        <strong>
+          🏊 수영장
+        </strong>
+
+      </div>
+
+    </div>
+
+
+    <div class="item">
+
+      <div class="time">
+        11:30–13:00
+      </div>
+
+      <div class="content">
+
+        <strong>
+          🍔 Beach Club 점심
+        </strong>
+
+        <div class="detail">
+          Wagyu Beef Burger / Seafood Rigatoni /
+          Pizza 등 · 약 100만đ
+        </div>
+
+      </div>
+
+    </div>
+
+
+    <div class="item">
+
+      <div class="time">
+        13:00–15:30
+      </div>
+
+      <div class="content">
+
+        <strong>
+          😴 객실 휴식
+        </strong>
+
+      </div>
+
+    </div>
+
+
+    <div class="item">
+
+      <div class="time">
+        15:30–17:30
+      </div>
+
+      <div class="content">
+
+        <strong>
+          🏊 수영장
+        </strong>
+
+      </div>
+
+    </div>
+
+
+    <div class="item">
+
+      <div class="time">
+        17:30–18:30
+      </div>
+
+      <div class="content">
+
+        <strong>
+          🌅 해변 산책 + 선셋
+        </strong>
+
+      </div>
+
+    </div>
+
+
+    <div class="item">
+
+      <div class="time">
+        19:00–20:30
+      </div>
+
+      <div class="content">
+
+        <strong>
+          🍽️ 저녁
+        </strong>
+
+        <div class="detail">
+          배달/룸서비스 추천 · 약 80–100만đ
+        </div>
+
+      </div>
+
+    </div>
+
+
+  </div>
+
+
+  <div class="tip">
+
+    💡 <b>오늘은 욕심내지 않기</b>
+
+    <br>
+
+    수영 → 밥 → 낮잠 → 수영 → 선셋.
+    이 정도면 성공한 하루ㅋㅋ
+
+  </div>
+
+
+</section>
+
+
+
+<!-- =====================================================
+     9/3
+===================================================== -->
+
+<section
+  class="day"
+  id="d903">
+
+
+  <div class="day-head">
+
+    <div class="day-title">
+
+      9/3
+      <span>THU</span>
+
+    </div>
+
+    <div class="day-total">
+
+      <b>
+        약 160만đ
+      </b>
+
+      약 8.5만원
+
+    </div>
+
+  </div>
+
+
+  <div class="card">
+
+
+    <div class="item">
+
+      <div class="time">
+        07:30–09:00
+      </div>
+
+      <div class="content">
+
+        <strong>
+          🍳 The Anam 조식
+        </strong>
+
+      </div>
+
+    </div>
+
+
+    <div class="item">
+
+      <div class="time">
+        09:00–11:00
+      </div>
+
+      <div class="content">
+
+        <strong>
+          🧳 짐 정리 + 객실 휴식
+        </strong>
+
+      </div>
+
+    </div>
+
+
+    <div class="item">
+
+      <div class="time">
+        11:00–12:00
+      </div>
+
+      <div class="content">
+
+        <strong>
+          🚿 마지막 샤워 & 체크아웃 준비
+        </strong>
+
+      </div>
+
+    </div>
+
+
+    <div class="item">
+
+      <div class="time">
+        12:00
+      </div>
+
+      <div class="content">
+
+        <strong>
+          🏨 체크아웃
+        </strong>
+
+        <div class="detail">
+          짐은 카운터에 보관
+        </div>
+
+      </div>
+
+    </div>
+
+
+  </div>
+
+
+  <div class="card choice-wrap">
+
+    <div class="choice-title">
+      🔀 오후는 상황 보고 선택!
+    </div>
+
+
+    <div class="choices">
+
+
+      <div class="choice recommended">
+
+        <div class="choice-head">
+
+          <span>
+            🅰️ 깜란 & Bãi Dài ⭐⭐⭐⭐⭐
+          </span>
+
+          <span class="badge">
+            추천
+          </span>
+
+        </div>
+
+        <p>
+          12:30 점심 → 카페 → 해변 →
+          18:00 짐 찾기 → 저녁 → 공항
+        </p>
+
+      </div>
+
+
+      <div class="choice">
+
+        <div class="choice-head">
+
+          <span>
+            🅱️ 나트랑 시내
+          </span>
+
+        </div>
+
+        <p>
+          못 가본 곳 + 점심 + 카페.
+          단, 이동이 많아 조금 피곤할 수 있음.
+        </p>
+
+      </div>
+
+
+      <div class="choice">
+
+        <div class="choice-head">
+
+          <span>
+            🅲️ 깜란 시내
+          </span>
+
+        </div>
+
+        <p>
+          가볍게 구경 + 식사.
+          관광지는 많지 않음.
+        </p>
+
+      </div>
+
+
+    </div>
+
+  </div>
+
+
+  <div class="card">
+
+
+    <div class="item">
+
+      <div class="time">
+        12:30–14:00
+      </div>
+
+      <div class="content">
+
+        <strong>
+          🍜 점심
+        </strong>
+
+        <div class="detail">
+          약 50만đ
+        </div>
+
+      </div>
+
+    </div>
+
+
+    <div class="item">
+
+      <div class="time">
+        14:00–16:00
+      </div>
+
+      <div class="content">
+
+        <strong>
+          ☕ 카페 + 휴식
+        </strong>
+
+        <div class="detail">
+          약 15만đ
+        </div>
+
+      </div>
+
+    </div>
+
+
+    <div class="item">
+
+      <div class="time">
+        16:00–17:30
+      </div>
+
+      <div class="content">
+
+        <strong>
+          🌊 Bãi Dài 해변
+        </strong>
+
+        <a
+          class="map"
+          href="https://www.google.com/maps/search/?api=1&query=Bai+Dai+Beach+Cam+Ranh"
+          target="_blank">
+
+          📍 지도
+
+        </a>
+
+      </div>
+
+    </div>
+
+
+    <div class="item">
+
+      <div class="time">
+        17:30–18:30
+      </div>
+
+      <div class="content">
+
+        <strong>
+          🧳 호텔 복귀 → 짐 찾기
+        </strong>
+
+        <a
+          class="map"
+          href="https://www.google.com/maps/search/?api=1&query=The+Anam+Cam+Ranh"
+          target="_blank">
+
+          📍 지도
+
+        </a>
+
+      </div>
+
+    </div>
+
+
+    <div class="item">
+
+      <div class="time">
+        18:30–19:30
+      </div>
+
+      <div class="content">
+
+        <strong>
+          🍽️ 저녁
+        </strong>
+
+        <div class="detail">
+          약 60만đ
+        </div>
+
+      </div>
+
+    </div>
+
+
+    <div class="item">
+
+      <div class="time">
+        19:30–20:00
+      </div>
+
+      <div class="content">
+
+        <strong>
+          🚕 The Anam → 공항
+        </strong>
+
+        <div class="detail">
+          Grab 약 30만đ 전후
+        </div>
+
+        <a
+          class="map"
+          href="https://www.google.com/maps/search/?api=1&query=Cam+Ranh+International+Airport"
+          target="_blank">
+
+          📍 지도
+
+        </a>
+
+      </div>
+
+    </div>
+
+
+    <div class="item">
+
+      <div class="time">
+        20:00
+      </div>
+
+      <div class="content">
+
+        <strong>
+          ✈️ 공항 도착
+        </strong>
+
+        <div class="detail">
+          23:20 귀국편 · 여유롭게 대기
+        </div>
+
+      </div>
+
+    </div>
+
+
+  </div>
+
+
+  <div class="tip">
+
+    ✈️ <b>마지막 날 메모</b>
+
+    <br>
+
+    12시 체크아웃 후 리조트에 머무는 건 X.
+    짐만 맡기고 밖에서 시간 보내기!
+
+    <br>
+
+    공항은 늦어도 21시까지 도착 목표.
+
+  </div>
+
+
+</section>
+
+
+
+<!-- =====================================================
+     TOTAL BUDGET
+===================================================== -->
+
+<div class="global totalbox">
+
+  <h2>
+    💰 여행 예산 · 2인
+  </h2>
+
+  <div class="big">
+    약 1,446만đ · 약 76.7만원
+  </div>
+
+  <div class="small">
+    항공·호텔 제외 · 쇼핑 약 250만đ 포함 ·
+    8/29 픽업택시 비용 제외
+  </div>
+
+  <div class="note">
+    🛍️ 쇼핑 제외 순수 여행비 약 1,196만đ ·
+    패들보드 선택 시 별도 추가
+  </div>
+
+</div>
+
+
+
+<!-- =====================================================
+     CHECKLIST
+===================================================== -->
+
+<div class="card checks">
+
+  <strong>
+    🧳 여행 중 체크리스트
+  </strong>
+
+
+  <label class="check">
+
+    <input type="checkbox">
+
+    ATM 현금 인출
+
+  </label>
+
+
+  <label class="check">
+
+    <input type="checkbox">
+
+    환전
+
+  </label>
+
+
+  <label class="check">
+
+    <input type="checkbox">
+
+    담시장 소량 쇼핑
+
+  </label>
+
+
+  <label class="check">
+
+    <input type="checkbox">
+
+    9/1 롯데마트 쇼핑
+
+  </label>
+
+
+  <label class="check">
+
+    <input type="checkbox">
+
+    약국/마트 쇼핑리스트 확인
+
+  </label>
+
+
+  <label class="check">
+
+    <input type="checkbox">
+
+    귀국 전 짐/여권/충전기 확인
+
+  </label>
+
+</div>
+
+
+
+<div class="footer">
+
+  NHA TRANG · travel with good vibes 🌊
+
+</div>
+
+
+</main>
+
+</div>
+
+
+<!-- =========================
+     JAVASCRIPT
+========================= -->
+
+<script>
+
+const tabs =
+  [...document.querySelectorAll(".tab")];
+
+const days =
+  [...document.querySelectorAll(".day")];
+
+
+function showDay(id){
+
+  days.forEach(day => {
+
+    day.classList.toggle(
+      "active",
+      day.id === id
+    );
+
+  });
+
+
+  tabs.forEach(tab => {
+
+    tab.classList.toggle(
+      "active",
+      tab.dataset.day === id
+    );
+
+  });
+
+
+  window.scrollTo({
+    top:0,
+    behavior:"smooth"
+  });
+
+}
+
+
+tabs.forEach(tab => {
+
+  tab.addEventListener(
+    "click",
+    () => showDay(tab.dataset.day)
+  );
+
+});
+
+</script>
+
+</body>
+</html><!DOCTYPE html>
 <html lang="ko">
 <head>
   <meta charset="UTF-8">
